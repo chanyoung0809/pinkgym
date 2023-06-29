@@ -1,0 +1,78 @@
+$white: #F0F0F0;
+$lightpink: #F2DCE0;
+$hotpink: #F20587;
+$violet: #BF2195;
+$lilac: #CF61A6;
+$black: #1C1C1C;
+$lightblack: #2A2A2A;
+$kor: 'TheJamsil';
+$eng:'Marcellus';
+
+#footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: $lightblack;
+    .center {
+        .f_top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1vw 0;
+            > img {
+                height: 100px;
+            }
+            .sns_wrap {
+                > a {
+                    color: $white;
+                    font-size: 2vw;
+                    transition: all .5s;
+                    opacity: .8;
+                    margin-left: .5vw;
+                    &:hover {
+                        color: $violet;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        .f_mid {
+            width: 80%;
+            color: $white;
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 1%;
+            > span {
+                padding: 0 .4vw;
+                font-size: 13px;
+                line-height: 160%;
+                word-break: keep-all;
+                position: relative;
+                font-family: $kor;
+                font-weight: 300;
+                z-index:1;
+                &::after {
+                    position: absolute;
+                    z-index:1;
+                    top:50%;
+                    transform: translateY(-50%);
+                    content: "";
+                    display: inline-block;
+                    width: 1px;
+                    height: 10px;
+                    background-color: $white;
+                    margin: 0 4% ;
+                }
+            }
+        }
+        .f_bot {
+            border-top: 1px solid #555;
+            font-family: $kor;
+            line-height: 240%;
+            font-size: 13px;
+            text-align: right;
+            color: $white;
+            font-weight: 100;
+        }
+    }
+}

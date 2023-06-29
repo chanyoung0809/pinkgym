@@ -1,0 +1,64 @@
+#footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #2A2A2A;
+}
+#footer .center .f_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vw 0;
+}
+#footer .center .f_top > img {
+  height: 100px;
+}
+#footer .center .f_top .sns_wrap > a {
+  color: #F0F0F0;
+  font-size: 2vw;
+  transition: all 0.5s;
+  opacity: 0.8;
+  margin-left: 0.5vw;
+}
+#footer .center .f_top .sns_wrap > a:hover {
+  color: #BF2195;
+  opacity: 1;
+}
+#footer .center .f_mid {
+  width: 80%;
+  color: #F0F0F0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1%;
+}
+#footer .center .f_mid > span {
+  padding: 0 0.4vw;
+  font-size: 13px;
+  line-height: 160%;
+  word-break: keep-all;
+  position: relative;
+  font-family: "TheJamsil";
+  font-weight: 300;
+  z-index: 1;
+}
+#footer .center .f_mid > span::after {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 10px;
+  background-color: #F0F0F0;
+  margin: 0 4%;
+}
+#footer .center .f_bot {
+  border-top: 1px solid #555;
+  font-family: "TheJamsil";
+  line-height: 240%;
+  font-size: 13px;
+  text-align: right;
+  color: #F0F0F0;
+  font-weight: 100;
+}

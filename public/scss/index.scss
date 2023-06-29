@@ -1,0 +1,315 @@
+$lightpink: #F2DCE0;
+$hotpink: #F20587;
+$violet: #BF2195;
+$lilac: #CF61A6;
+$black: #1C1C1C;
+$lightblack: #2A2A2A;
+$whiteTextShadow:2px 2px 5px #0005;
+$kor: 'TheJamsil';
+$eng:'Marcellus';
+
+#container {
+    width: 100%;
+    .cont1 {
+        width: 100%;
+        background-color: white;
+        cursor: pointer;
+        .cont1Bg {
+            width: 100%;
+            background-image: url("/img/cont1BG.png");
+            background-size: cover;
+            background-position-y: 57%;
+            background-repeat: no-repeat;
+            background-color: #777;
+            background-blend-mode: luminosity;
+            transition: all .5s;
+            display: flex;
+            justify-content: center;
+            &:hover {
+                background-color: #0003;
+                .center {
+                    .contact_wrap {
+                        > img {
+                            right: 5%;
+                        }
+                    }
+                }
+            }
+            .center {
+                width: 60%;
+                color: #FFF;
+                padding:6vw 0;
+                > h5 {
+                    font-size: 1.5vw;
+                    font-family: $kor;
+                    letter-spacing: -.1vw;
+                    padding: 2vw 0;
+                    text-shadow: $whiteTextShadow;
+                }
+                > h2 {
+                    font-family: $eng;
+                    font-size: 5vw;
+                    width: 50%;
+                    word-break: keep-all;
+                    text-shadow: $whiteTextShadow;
+                }
+                .contact_wrap {
+                    display: flex;
+                    justify-content: space-between;
+                    position: relative;
+                    align-items: center;
+                    width: 18%;
+                    margin: 2vw 0;
+                    color: #FFF;
+                    > p {
+                        font-family: $kor;
+                        font-weight: 500;
+                        text-shadow: $whiteTextShadow;
+                        letter-spacing: -.1vw;
+                        font-size: 1vw;
+                    } 
+                    > img {
+                        width: 40%;
+                        position: absolute;
+                        top:50%;
+                        right:10%;
+                        transform: translate(0 ,-50%);
+                        transition: all .5s;
+                    }
+                    > span {
+                        width: 3vw;
+                        height: 3vw;
+                        border: 1px solid #FFF;
+                        border-radius: 50%;
+                    }
+                } 
+            }
+        }
+    }
+    .cont2 {
+        background-color: #FFF;
+        color:$black;
+        display: flex;
+        justify-content: center;
+        .center {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            > h3 {
+                text-align: center;
+                font-size: 4vw;
+                font-family: "Marcellus";
+                line-height: 100%;
+                position: relative;
+                width: max-content;
+                margin: 4vw auto;    
+                &::before {
+                    content: "";
+                    display: inline-block;
+                    position: absolute;
+                    top: -20%;
+                    right: -12%;
+                    background-color: $lilac;
+                    width: 20%;
+                    height: 71.3%;
+                    border-radius: 50%;
+                }
+                > p {
+                    position: relative;
+                }
+            }
+            .product_wrap {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding-bottom: 4vw;
+                .product {
+                    width: 32%;
+                    height: 18vw;
+                    object-fit: cover;
+                    overflow-x: hidden;
+                    overflow-y: hidden;
+                    position: relative;
+                    margin-bottom: 3.3%;
+                    cursor: pointer;
+                    > img {
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top:0;
+                        left:0;
+                        filter: grayscale(1) brightness(.5);
+                        transform: scale(1);
+                        transition: all .5s;
+                    }
+                    &:hover {
+                        > img {
+                            transform: scale(1.2);
+                            filter: grayscale(0) brightness(.8);
+                        }
+                    }
+                    .text_wrap {
+                        position: absolute;
+                        top:0;
+                        left:0;
+                        padding: 10%;
+                        font-family: $kor;
+                        > h5 {
+                            color: $hotpink;
+                            font-weight: 800;
+                            font-size: 1.6vw;
+                            margin-bottom: 1vw;
+                            text-shadow: $whiteTextShadow;
+                        }
+                        > p {
+                            color: #FFF;
+                            font-weight: 300;
+                            line-height: 160%;
+                            text-shadow: $whiteTextShadow;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .cont3 {
+        width: 100%;
+        overflow: hidden;
+        background-color: #EAEAEA;
+        display: flex;
+        justify-content: center;
+        .center{
+            width: 60%;
+            height: 27vw;
+            display: flex;
+            justify-content: space-between;
+            > img {
+                height: 100%;
+            }
+            .text_wrap {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                text-align: left;
+                font-family: $kor;
+                color: $black;
+                font-size: 2.2vw;
+                line-height: 120%;
+                > h4 {
+                    font-weight: 400;
+                }
+                > h3 {
+                    font-weight: 700;
+                }
+                > a {
+                    display: flex;
+                    width: 9vw;
+                    height: 2.5vw;
+                    border-radius: .4vw;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 1vw;
+                    color: #EAEAEA;
+                    background-color: $hotpink;
+                    margin-top: 4%;
+                    font-weight: 500;
+                    transition: all .5s;
+                    &:hover {
+                        color: #FFF;
+                    }
+                }
+            }
+        }
+    }
+    .cont4 {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        cursor: pointer;
+        &:hover {
+            .center {
+                .left_wrap {
+                    .locate_wrap {
+                        > img {
+                            right: 5%;
+                        }
+                    } 
+                }
+            }
+        }
+        .center {
+            width: 60%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 32vw; 
+            .left_wrap {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                > h3 {
+                    font-family: $eng;
+                    font-size: 3vw;
+                    color: $black;
+                    line-height: 200%;
+                    margin-top: 16vw;
+                }
+                > p {
+                    font-family: $kor;
+                    font-weight: 300;
+                    color: $lightblack;
+                    line-height: 120%;
+                    word-break: keep-all;
+                }
+                .locate_wrap {
+                    color: $violet;
+                    font-size: 1vw;
+                    font-family: $kor;
+                    display: flex;
+                    justify-content: space-between;
+                    position: relative;
+                    align-items: center;
+                    width: 50%;
+                    margin: 4vw 0;
+                    color: $violet;
+                    > p {
+                        font-family: $kor;
+                        font-weight: 500;
+
+                        letter-spacing: -.1vw;
+                        font-size: 1vw;
+                    } 
+                    > img {
+                        width: 40%;
+                        position: absolute;
+                        top:50%;
+                        right:10%;
+                        transform: translate(0 ,-50%);
+                        transition: all .5s;
+                    }
+                    > span {
+                        width: 3vw;
+                        height: 3vw;
+                        border: 1px solid $violet;
+                        border-radius: 50%;
+                    }
+                }
+                > img {
+                    animation: rotatecircle 12s infinite linear;
+                }
+            }
+        }
+    }
+    .cont5 {
+        width: 100%;
+        height: 50vw;
+        background-image: url("/img/cont5BG.jpg");
+        background-color: #FFFA;
+        background-blend-mode: difference;
+        
+    }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- title %></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- google web font icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- font-awsome web font icon -->
+    <!-- http://hitgym.co.kr/#s20220602bcd563e84abaf 히트짐 UI 참조 -->
+    <!-- https://aid638.wixsite.com/pinkladies/ladies-gym 핑크 짐 원래 페이지 -->
+    <% if (cssFiles.length !== 0) { %>
+        <%# 보내준 cssFiles 갯수만큼 반복문 돌려서 link 태그 생성 %>
+       <% for( let i = 0; i < cssFiles.length; i++ ) { %>
+           <link rel="stylesheet" href="/css/<%- cssFiles[i] %>">
+       <% } %>
+   <% } %>
+</head>
+<body>
+    <div id="header_top">  
+        <div class="center">
+            <div class="hbg_menu"><!--모바일에서만 보일 모바일 메뉴 여닫는 버튼-->
+                <a href="#">
+                    <span class="line one"></span>
+                    <span class="line two"></span>
+                    <span class="line three"></span>
+                </a>
+            </div>
+            <h1 class="logo_wrap"><a href="/"><img src="/img/logoblack.png" /></a></h1>
+            <div class="userinfo_wrap">
+                <% if (login) { %>
+                    <a href="/mypage">박회원 님</a>
+                    <a href="/logout">
+                        <span class="material-symbols-outlined">logout</span>
+                    </a>
+                <% } else { %> 
+                    <a href="/mypage">박회원 님</a>
+                    <a href="/login">
+                        <span class="material-symbols-outlined">login</span>
+                    </a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div id="header_bot">
+        <div class="center">
+            <ul class="Gnb">
+                <li><a href="/intro">체육관 소개</a></li>
+                <li><a href="/program">프로그램</a></li>
+                <li><a href="/location">지점안내</a>
+                    <ul class="depth2">
+                        <li><a href="#">월성점</a></li> 
+                        <li><a href="#">침산점</a></li> 
+                        <li><a href="#">범어점</a></li> 
+                        <li><a href="#">동성로점</a></li>
+                        <li><a href="#">연경점</a></li> 
+                        <li><a href="#">죽전점</a></li> 
+                    </ul>
+                </li>
+                <li><a href="/intro">커뮤니티</a></li>
+                <li><a href="/#trial">무료체험</a></li>
+            </ul>
+        </div>
+    </div>

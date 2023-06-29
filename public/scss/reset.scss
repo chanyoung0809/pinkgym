@@ -1,0 +1,47 @@
+// 구글 웹 폰트 기본설정
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 700,
+    'GRAD' 0,
+    'opsz' 48;
+}
+// 더잠실체 100, 300, 400, 500, 700, 800
+@import url('https://webfontworld.github.io/TheJamsil/TheJamsil.css');
+// 마르셀루스 400 영문
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+EAN13+Text&family=Marcellus&display=swap');
+
+* { margin: 0; padding:0;}
+a {text-decoration: none;}
+body {line-height: 1; overflow-x: hidden;}
+// body.fixed {position: fixed; width:100%; top:0 ; left:0; overflow: hidden;}
+h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal;}
+img, video { vertical-align: top;}
+ol, ul, li { list-style: none;}
+table {
+    padding:0;
+    border:0;
+    border-spacing:0px;
+    border-collapse:collapse;
+}
+td {padding:0;}
+
+// 헤더 드롭다운 메뉴 실행 시 스크롤 기능 막아줌
+body.show {
+    overflow-y:hidden;
+    transition: all .7s;
+}
+// 셀렉트 태그 레이아웃 변경 위한 속성
+// select::-ms-expand { 
+// 	display: none;
+// }
+// .select {
+//   -o-appearance: none;
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   appearance: none;
+// }
+@keyframes rotatecircle {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
