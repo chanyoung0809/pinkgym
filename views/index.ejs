@@ -77,7 +77,7 @@
         <div class="center">
             <div class="left_wrap">
                 <h3>Location</h3>
-                <p>단 하나의 멤버쉽으로 전국의 모든 지점을 이용하실 수 있습니다.</p>
+                <p>단 하나의 멤버쉽으로 전 직영점을 이용하실 수 있습니다.</p>
                 <a href="/location" class="locate_wrap">
                     <p>VIEW MORE</p>
                     <img src="/img/arrow-violet.svg">
@@ -87,11 +87,125 @@
             </div>  
             <div class="right_wrap">
                 <!-- 스와이퍼 들어갈 자리 -->
+                <div class="swiper c4swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <img src="/img/wolsung.jpg">
+                            <div class="text_wrap">
+                                <div>
+                                    <h4>월성점</h4>
+                                    <p>2011년부터 시작된 핑크짐의 서비스 노하우가 담긴 곳으로 전 지점 중 가장 파워풀한 운동 강도를 자랑합니다</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/img/wolsung.jpg">
+                            <div class="text_wrap">
+                                <h4>월성점</h4>
+                                <p>2011년부터 시작된 핑크짐의 서비스 노하우가 담긴 곳으로 전 지점 중 가장 파워풀한 운동 강도를 자랑합니다</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/img/wolsung.jpg">
+                            <div class="text_wrap">
+                                <h4>월성점</h4>
+                                <p>2011년부터 시작된 핑크짐의 서비스 노하우가 담긴 곳으로 전 지점 중 가장 파워풀한 운동 강도를 자랑합니다</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/img/wolsung.jpg">
+                            <div class="text_wrap">
+                                <h4>월성점</h4>
+                                <p>2011년부터 시작된 핑크짐의 서비스 노하우가 담긴 곳으로 전 지점 중 가장 파워풀한 운동 강도를 자랑합니다</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/img/wolsung.jpg">
+                            <div class="text_wrap">
+                                <h4>월성점</h4>
+                                <p>2011년부터 시작된 핑크짐의 서비스 노하우가 담긴 곳으로 전 지점 중 가장 파워풀한 운동 강도를 자랑합니다</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/img/wolsung.jpg">
+                            <div class="text_wrap">
+                                <h4>월성점</h4>
+                                <p>2011년부터 시작된 핑크짐의 서비스 노하우가 담긴 곳으로 전 지점 중 가장 파워풀한 운동 강도를 자랑합니다</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                  </div>
             </div>
         </div>
     </div>
     <div class="cont5">
-        
+        <div class="center">
+            <form id="contact">
+                <h5>핑크짐 체험 신청</h5>
+                <h3>CONTACT</h3>
+                <div class="input_wrap">
+                    <div>
+                        <label for="trial_name">이름</label>
+                        <input type="text" id="trial_name"/>
+                    </div>
+                    <div>
+                        <label for="trial_phone2">전화번호</label>
+                        <div class='phone'>
+                            <input type="text" id="trial_phone1" value="010" pattern="[0-9]{3}" maxlength="3" readonly/>
+                            <span>-</span>
+                            <input type="text" id="trial_phone2" pattern="[0-9]{4}" maxlength="4"/>
+                            <span>-</span>
+                            <input type="text" id="trial_phone3" pattern="[0-9]{4}" maxlength="4"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="input_wrap">
+                    <div>
+                        <label for="trial_locate">체험 희망지점</label>
+                        <select id="trial_locate">
+                            <option disabled selected>선택</option>
+                            <option>월성점</option>
+                            <option>침산점</option>
+                            <option>범어점</option>
+                            <option>동성로점</option>
+                            <option>연경점</option>
+                            <option>죽전점</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="trial_product">관심분야</label>
+                        <select id="trial_product">
+                            <option disabled selected>선택</option>
+                            <option>MEMBERSHIP</option>
+                            <option>SPINNING</option>
+                            <option>PT</option>
+                            <option>GOLF</option>
+                            <option>PILATES</option>
+                            <option>SPA</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input_wrap">
+                    <div>
+                        <label for="trial_context">문의사항</label>
+                        <textarea id="trial_context"></textarea>
+                    </div>
+                </div>
+                <div class="input_wrap">
+                    <div>
+                        <input type="checkbox" id="personal_terms">
+                        <label for="personal_terms">개인정보 처리방침에 동의합니다</label>
+                        <a href="#">[보기]</a>
+                    </div>
+                </div>
+                <button type="submit">문의하기</button>
+            </form>
+        </div>
     </div>
 </div>
-<%- include('footer')%>
+<%- include('footer', {jsFiles:["header.js", "swiper.js"]})%>

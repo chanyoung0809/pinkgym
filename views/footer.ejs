@@ -22,23 +22,53 @@
             </div>
         </div>
     </div>
-    <div id="m_gnb">
-        <ul class="Gnb">
-            <li><a href="/intro">체육관 소개</a></li>
-            <li><a href="/program">프로그램</a></li>
-            <li><a href="/location">지점안내</a>
-                <ul class="depth2">
-                    <li><a href="#">월성점</a></li> 
-                    <li><a href="#">침산점</a></li> 
-                    <li><a href="#">범어점</a></li> 
-                    <li><a href="#">동성로점</a></li>
-                    <li><a href="#">연경점</a></li> 
-                    <li><a href="#">죽전점</a></li> 
+    <div class="m_gnb_bg">
+        <div class="hbg_menu"><!--모바일에서만 보일 모바일 메뉴 여닫는 버튼-->
+            <a href="#">
+                <span class="line one"></span>
+                <span class="line two"></span>
+                <span class="line three"></span>
+            </a>
+        </div>
+        <div class="m_gnb_wrap">
+            <div id="m_gnb">
+                <div class="user_wrap">
+                    <a href="/mypage">김회원님</a>
+                    <a href="/logout">
+                        <span class="material-symbols-outlined">logout</span>
+                    </a>
+                </div>
+                <ul class="Gnb">
+                    <li><a href="/intro">체육관 소개</a></li>
+                    <li><a href="/program">프로그램</a></li>
+                    <li><a href="/location">지점안내</a>
+                        <ul class="depth2">
+                            <li><a href="#">월성점</a></li> 
+                            <li><a href="#">침산점</a></li> 
+                            <li><a href="#">범어점</a></li> 
+                            <li><a href="#">동성로점</a></li>
+                            <li><a href="#">연경점</a></li> 
+                            <li><a href="#">죽전점</a></li> 
+                        </ul>
+                    </li>
+                    <li><a href="/intro">커뮤니티</a>
+                        <ul class="depth2">
+                            <li><a href="/board/free">자유게시판</a></li> 
+                            <li><a href="/board/sell">중고거래</a></li> 
+                        </ul>
+                    </li>
+                    <li><a href="/#trial">무료체험</a></li>
                 </ul>
-            </li>
-            <li><a href="/intro">커뮤니티</a></li>
-            <li><a href="/#trial">무료체험</a></li>
-        </ul>
+            </div>
+        </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- swiper js -->
+    <% if (jsFiles.length !== 0) { %>
+        <%# 보내준 jsFile 갯수만큼 반복문 돌려서 link 태그 생성 %>
+        <% jsFiles.forEach((js, idx) => { %>
+            <script src="/js/<%- js %>"></script>
+        <% }) %>
+    <% } %>  
 </body>
 </html>

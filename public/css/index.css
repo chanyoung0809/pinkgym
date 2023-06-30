@@ -48,7 +48,7 @@
   justify-content: space-between;
   position: relative;
   align-items: center;
-  width: 18%;
+  width: calc(5% + 8vw);
   margin: 2vw 0;
   color: #FFF;
 }
@@ -176,6 +176,7 @@
 }
 #container .cont3 .center > img {
   height: 100%;
+  filter: contrast(1.3) drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3333333333)) hue-rotate(-12deg);
 }
 #container .cont3 .center .text_wrap {
   display: flex;
@@ -202,13 +203,14 @@
   justify-content: center;
   align-items: center;
   font-size: 1vw;
+  background-color: #2A2A2A;
   color: #EAEAEA;
-  background-color: #F20587;
   margin-top: 4%;
   font-weight: 500;
   transition: all 0.5s;
 }
 #container .cont3 .center .text_wrap > a:hover {
+  background-color: #F20587;
   color: #FFF;
 }
 #container .cont4 {
@@ -255,7 +257,7 @@
   justify-content: space-between;
   position: relative;
   align-items: center;
-  width: 50%;
+  width: calc(10% + 8vw);
   margin: 4vw 0;
   color: #BF2195;
 }
@@ -280,12 +282,206 @@
   border-radius: 50%;
 }
 #container .cont4 .center .left_wrap > img {
+  width: calc(30% + 15vw);
   animation: rotatecircle 12s infinite linear;
+}
+#container .cont4 .center .right_wrap {
+  width: 60%;
+  position: relative;
+}
+#container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide img {
+  height: 60%;
+  width: 100%;
+}
+#container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .text_wrap {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8% 4%;
+}
+#container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .text_wrap > div {
+  width: 90%;
+}
+#container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .text_wrap > div > h4 {
+  width: 90%;
+  word-break: keep-all;
+}
+#container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .text_wrap > div > p {
+  width: 90%;
+  word-break: keep-all;
+}
+#container .cont4 .center .right_wrap .swiper .swiper-button-prev {
+  height: 100%;
+  background-color: #FFF;
+  top: 0%;
+  left: 0;
+  padding: 5% 2%;
+}
+#container .cont4 .center .right_wrap .swiper .swiper-button-prev::after {
+  color: #BF2195;
+  font-size: 1vw;
+  font-weight: 900;
+}
+#container .cont4 .center .right_wrap .swiper .swiper-button-next {
+  height: 100%;
+  background-color: #FFF;
+  top: 0%;
+  right: 0;
+  padding: 5% 2%;
+}
+#container .cont4 .center .right_wrap .swiper .swiper-button-next::after {
+  color: #BF2195;
+  font-size: 1vw;
+  font-weight: 900;
 }
 #container .cont5 {
   width: 100%;
-  height: 50vw;
   background-image: url("/img/cont5BG.jpg");
-  background-color: rgba(255, 255, 255, 0.6666666667);
+  background-color: #FFF;
   background-blend-mode: difference;
+  display: flex;
+  justify-content: center;
+}
+#container .cont5 .center {
+  width: 60%;
+}
+#container .cont5 .center #contact {
+  width: 100%;
+  padding: 6vw 0;
+}
+#container .cont5 .center #contact > h5 {
+  font-family: "TheJamsil";
+  font-weight: 300;
+  color: #2A2A2A;
+  font-size: 1vw;
+  text-align: center;
+  line-height: 200%;
+}
+#container .cont5 .center #contact > h3 {
+  font-family: "Marcellus";
+  color: #1C1C1C;
+  font-size: 3vw;
+  text-align: center;
+  margin-bottom: 1vw;
+}
+#container .cont5 .center #contact .input_wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+#container .cont5 .center #contact .input_wrap > div {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+  margin-top: 2%;
+}
+#container .cont5 .center #contact .input_wrap > div .phone {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+#container .cont5 .center #contact .input_wrap > div .phone > input {
+  width: 30%;
+  text-align: center;
+}
+#container .cont5 .center #contact .input_wrap > div .phone > span {
+  color: #1C1C1C;
+  font-weight: 300;
+  font-size: 1vw;
+  font-family: "TheJamsil";
+}
+#container .cont5 .center #contact .input_wrap > div label {
+  color: #1C1C1C;
+  line-height: 120%;
+  font-weight: 500;
+  font-size: 1vw;
+  font-family: "TheJamsil";
+  outline: none;
+  cursor: pointer;
+}
+#container .cont5 .center #contact .input_wrap > div input {
+  color: #1C1C1C;
+  background-color: transparent;
+  border: 2px solid #1C1C1C;
+  line-height: 200%;
+  font-weight: 300;
+  font-size: 1vw;
+  font-family: "TheJamsil";
+  outline: none;
+}
+#container .cont5 .center #contact .input_wrap > div select {
+  color: #1C1C1C;
+  background-color: transparent;
+  border: 2px solid #1C1C1C;
+  height: 2.2em;
+  font-weight: 300;
+  font-size: 1vw;
+  font-family: "TheJamsil";
+  outline: none;
+}
+#container .cont5 .center #contact .input_wrap > div select > option {
+  background-color: transparent;
+}
+#container .cont5 .center #contact .input_wrap > div select > option:disabled {
+  background-color: #AAA;
+  color: #EEE;
+}
+#container .cont5 .center #contact .input_wrap > div textarea {
+  color: #1C1C1C;
+  background-color: transparent;
+  border: 2px solid #1C1C1C;
+  height: 2rem;
+  font-weight: 300;
+  font-size: 1vw;
+  font-family: "TheJamsil";
+  resize: none;
+  height: 5em;
+  outline: none;
+  white-space: pre-wrap;
+}
+#container .cont5 .center #contact .input_wrap:nth-child(5) > div {
+  width: 100%;
+}
+#container .cont5 .center #contact .input_wrap:nth-child(6) > div {
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+}
+#container .cont5 .center #contact .input_wrap:nth-child(6) > div > input {
+  width: 1vw;
+  height: 1vw;
+  accent-color: #F20587;
+  margin-right: 0.4vw;
+  cursor: pointer;
+}
+#container .cont5 .center #contact .input_wrap:nth-child(6) > div > a {
+  color: #BF2195;
+  font-weight: 700;
+  font-size: 1vw;
+  font-family: "TheJamsil";
+  margin-left: 0.4vw;
+}
+#container .cont5 .center #contact > button {
+  display: block;
+  width: 16%;
+  margin: 1% auto 0;
+  background-color: #BF2195;
+  font-weight: 700;
+  font-size: 1vw;
+  font-family: "TheJamsil";
+  border: none;
+  outline: none;
+  line-height: 240%;
+  border-radius: 0.4em;
+  background-color: #2A2A2A;
+  color: #EAEAEA;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+#container .cont5 .center #contact > button:hover {
+  background-color: #F20587;
+  color: #FFF;
 }

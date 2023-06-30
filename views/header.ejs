@@ -8,6 +8,8 @@
     <!-- google web font icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- font-awsome web font icon -->
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <!-- 스와이퍼 css -->
     <!-- http://hitgym.co.kr/#s20220602bcd563e84abaf 히트짐 UI 참조 -->
     <!-- https://aid638.wixsite.com/pinkladies/ladies-gym 핑크 짐 원래 페이지 -->
     <% if (cssFiles.length !== 0) { %>
@@ -44,11 +46,21 @@
         </div>
     </div>
     <div id="header_bot">
+        <div class="Gnb_Bg"></div>
         <div class="center">
-            <ul class="Gnb">
+            <ul class="Gnb"><div class="Gnb_Bg"></div>
                 <li><a href="/intro">체육관 소개</a></li>
-                <li><a href="/program">프로그램</a></li>
-                <li><a href="/location">지점안내</a>
+                <li class="depth1"><a href="/program">프로그램</a>
+                    <ul class="depth2">
+                        <li><a href="#">MEMBERSHIP</a></li> 
+                        <li><a href="#">SPINNING</a></li> 
+                        <li><a href="#">PT</a></li> 
+                        <li><a href="#">GOLF</a></li>
+                        <li><a href="#">PILATES</a></li> 
+                        <li><a href="#">SPA</a></li> 
+                    </ul></li>
+                <li class="depth1">
+                    <a href="/location">지점안내</a>
                     <ul class="depth2">
                         <li><a href="#">월성점</a></li> 
                         <li><a href="#">침산점</a></li> 
@@ -58,8 +70,14 @@
                         <li><a href="#">죽전점</a></li> 
                     </ul>
                 </li>
-                <li><a href="/intro">커뮤니티</a></li>
-                <li><a href="/#trial">무료체험</a></li>
+                <li class="depth1">
+                    <a href="/board">커뮤니티</a>
+                    <ul class="depth2">
+                        <li><a href="/board/free">자유게시판</a></li> 
+                        <li><a href="/board/sell">중고거래</a></li> 
+                    </ul>
+                </li>
+                <li><a href="/#contact">무료체험</a></li>
             </ul>
         </div>
     </div>
