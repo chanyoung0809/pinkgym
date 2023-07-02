@@ -35,7 +35,7 @@ MongoClient.connect("mongodb+srv://cisalive:cisaliveS2@cluster0.cjlsn98.mongodb.
 
     //위에서 만든 db변수에 최종연결 ()안에는 mongodb atlas 사이트에서 생성한 데이터베이스 이름
     // db = result.db("만들어준DB이름");
-    db = result.db("AI_portfolio");
+    db = result.db("Pinkgym");
 
     //db연결이 제대로 됬다면 서버실행
     app.listen(port,function(){
@@ -67,7 +67,17 @@ MongoClient.connect("mongodb+srv://cisalive:cisaliveS2@cluster0.cjlsn98.mongodb.
 //     }
 // ));
 
+//메인페이지
 app.get("/", (req, res)=>{
-    //메인페이지
-   res.render("index", {login:req.user});
+    db.collection("product").find().toArray((err, products)=>{
+        db.collection("location").find().toArray((err, locates)=>{
+            res.render("index", {login:req.user, products:products, locates:locates});
+        });
+    });
+})
+// 프로그램 소개
+app.get("/location", (req, res)=>{
+    db.collection("location").find().toArray((err, locates)=>{
+        res.render("location", {login:req.user, locates:locates});
+    });
 })

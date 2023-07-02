@@ -23,25 +23,56 @@
         </div>
     </div>
     <div class="m_gnb_bg">
-        <div class="hbg_menu"><!--모바일에서만 보일 모바일 메뉴 여닫는 버튼-->
-            <a href="#">
-                <span class="line one"></span>
-                <span class="line two"></span>
-                <span class="line three"></span>
-            </a>
-        </div>
         <div class="m_gnb_wrap">
             <div id="m_gnb">
                 <div class="user_wrap">
-                    <a href="/mypage">김회원님</a>
-                    <a href="/logout">
-                        <span class="material-symbols-outlined">logout</span>
-                    </a>
+                    <div class="hbg_menu"><!--모바일에서만 보일 모바일 메뉴 여닫는 버튼-->
+                        <a href="#" class=>
+                            <span class="line one"></span>
+                            <span class="line two"></span>
+                            <span class="line three"></span>
+                        </a>
+                    </div>
+                    <h1 class="logo_wrap"><a href="/"><img src="/img/logoblack.png" /></a></h1>
+                    <div class="users">
+                        <% if (login) { %>
+                            <a href="/mypage">박회원 님</a>
+                            <a href="/logout">
+                                <span class="material-symbols-outlined">logout</span>
+                            </a>
+                        <% } else { %> 
+                            <a href="/join">회원가입</a>
+                            <a href="/login">
+                                <span class="material-symbols-outlined">login</span>
+                            </a>
+                        <% } %>
+                    </div>
                 </div>
                 <ul class="Gnb">
                     <li><a href="/intro">체육관 소개</a></li>
-                    <li><a href="/program">프로그램</a></li>
-                    <li><a href="/location">지점안내</a>
+                    <li class="depth1">
+                        <a href="/program">
+                            <span>
+                                <p>프로그램</p>
+                                <span class="material-symbols-outlined">expand_more</span>
+                            </span>
+                        </a>
+                        <ul class="depth2">
+                            <li><a href="#">MEMBERSHIP</a></li> 
+                            <li><a href="#">SPINNING</a></li> 
+                            <li><a href="#">PT</a></li> 
+                            <li><a href="#">GOLF</a></li>
+                            <li><a href="#">PILATES</a></li> 
+                            <li><a href="#">SPA</a></li> 
+                        </ul>   
+                    </li>
+                    <li class="depth1">
+                        <a href="/location">
+                            <span>
+                                <p>지점안내</p>
+                                <span class="material-symbols-outlined">expand_more</span>
+                            </span>
+                        </a>
                         <ul class="depth2">
                             <li><a href="#">월성점</a></li> 
                             <li><a href="#">침산점</a></li> 
@@ -51,13 +82,28 @@
                             <li><a href="#">죽전점</a></li> 
                         </ul>
                     </li>
-                    <li><a href="/intro">커뮤니티</a>
+                    <li class="depth1">
+                        <a href="/board/free">
+                            <span>
+                                <p>커뮤니티</p>
+                                <span class="material-symbols-outlined">expand_more</span>
+                            </span>
+                        </a>
                         <ul class="depth2">
-                            <li><a href="/board/free">자유게시판</a></li> 
-                            <li><a href="/board/sell">중고거래</a></li> 
+                            <% if (login) { %>
+                                <li><a href="/board/free">자유게시판</a></li> 
+                                <li><a href="/board/sell">중고거래</a></li> 
+                            <% } else {%>
+                                <li><a href="/join">회원가입</a></li>
+                                <li><a href="/login">로그인</a></li> 
+                            <% } %>
                         </ul>
                     </li>
-                    <li><a href="/#trial">무료체험</a></li>
+                    <% if (login) { %>
+                        <li><a href="/mypage">마이페이지</a></li>
+                    <% } else {%>
+                        <li><a href="/#contact">무료체험</a></li>
+                    <% } %>
                 </ul>
             </div>
         </div>

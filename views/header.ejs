@@ -23,7 +23,7 @@
     <div id="header_top">  
         <div class="center">
             <div class="hbg_menu"><!--모바일에서만 보일 모바일 메뉴 여닫는 버튼-->
-                <a href="#">
+                <a href="#" class="">
                     <span class="line one"></span>
                     <span class="line two"></span>
                     <span class="line three"></span>
@@ -37,7 +37,7 @@
                         <span class="material-symbols-outlined">logout</span>
                     </a>
                 <% } else { %> 
-                    <a href="/mypage">박회원 님</a>
+                    <a href="/join">회원가입</a>
                     <a href="/login">
                         <span class="material-symbols-outlined">login</span>
                     </a>
@@ -71,13 +71,22 @@
                     </ul>
                 </li>
                 <li class="depth1">
-                    <a href="/board">커뮤니티</a>
+                    <a href="/board/free">커뮤니티</a>
                     <ul class="depth2">
-                        <li><a href="/board/free">자유게시판</a></li> 
-                        <li><a href="/board/sell">중고거래</a></li> 
+                        <% if (login) { %>
+                            <li><a href="/board/free">자유게시판</a></li> 
+                            <li><a href="/board/sell">중고거래</a></li> 
+                        <% } else {%>
+                            <li><a href="/join">회원가입</a></li>
+                            <li><a href="/login">로그인</a></li> 
+                        <% } %>
                     </ul>
                 </li>
-                <li><a href="/#contact">무료체험</a></li>
+                <% if (login) { %>
+                    <li><a href="/mypage">마이페이지</a></li>
+                <% } else {%>
+                    <li><a href="/#contact">무료체험</a></li>
+                <% } %>
             </ul>
         </div>
     </div>

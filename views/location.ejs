@@ -1,0 +1,24 @@
+<%- include('header', {title:"Pink Ladies Gym",  cssFiles:["reset.css", "header.css", "footer.css", "locates.css"]})%>
+<div id="container">
+    <% locates.forEach((el, idx) => { %>
+        <div class="product_wrap" id="<%- el.engName%>">
+            <div class="product_title">
+                <h2>핑크짐 <%- el.korName %></h2>
+                <strong><%- el.facility %></strong>
+            </div>
+            <div class="product_info">
+                <div class="product_visual">
+                    <img src="/img/<%- el.engName %>.jpg">
+                    <div class="map"></div>
+                </div>
+                <div class="product_text">
+                    <p><strong>ADDRESS</strong><%- el.address %></p>
+                    <p><strong>TEL</strong><%- el.Tel %></p>
+                    <p><strong>TEL</strong><%- el.parking %></p>
+                    <p><strong>영업시간</strong><%- el.openingHours %></p>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+</div>    
+    <%- include('footer', {jsFiles:["header.js", "swiper.js", "mGnb.js"]})%>

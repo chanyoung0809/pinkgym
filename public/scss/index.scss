@@ -168,6 +168,7 @@ $eng:'Marcellus';
                             font-weight: 300;
                             line-height: 160%;
                             text-shadow: $whiteTextShadow;
+                            font-size: 1vw;
                         }
                     }
                 }
@@ -231,6 +232,7 @@ $eng:'Marcellus';
         justify-content: center;
         overflow: hidden;
         cursor: pointer;
+        background-color: #FFF;
         &:hover {
             .center {
                 .left_wrap {
@@ -243,7 +245,7 @@ $eng:'Marcellus';
             }
         }
         .center {
-            width: 60%;
+            width: 70%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -306,31 +308,42 @@ $eng:'Marcellus';
                 }
             }
             .right_wrap {
-                width: 60%;
+                width: 70%;
                 position: relative;
+                height: 80%;
                 .swiper{
+                    height: 100%;
                     .swiper-wrapper{
+                        height: 100%;
                         > .swiper-slide {
+                            height: 100%;
                             img {
                                 height: 60%;
                                 width: 100%;
                             }
-                            > .text_wrap {
-                                width: 100%;
+                            > .slide_text {
                                 height: 40%;
+                                width: 100%;
+                                margin: 0 auto;
+                                padding: 1% 0;
+                                background-color: #F5F5F5;
                                 display: flex;
                                 justify-content: center;
-                                align-items: center;
-                                padding: 8% 4%;
+                                align-items: flex-start;
                                 > div {
-                                    width: 90%;
+                                    width: 80%;
+                                    word-break: keep-all;
+                                    font-family: $kor;
                                     > h4 {
-                                        width: 90%;
-                                        word-break: keep-all;
+                                        font-weight: 700;
+                                        color: $violet;
+                                        font-size: 2vw;
+                                        line-height: 200%;
                                     }
                                     > p {
-                                        width: 90%;
-                                        word-break: keep-all;
+                                        line-height: 160%;
+                                        font-size: 1vw;
+                                        font-weight: 300;
                                     }
                                 }
                             }
@@ -378,7 +391,7 @@ $eng:'Marcellus';
                 padding: 6vw 0;
                 > h5 {
                     font-family: $kor;
-                    font-weight: 300;
+                    font-weight: 500;
                     color: $lightblack;
                     font-size: 1vw;
                     text-align: center;
@@ -444,6 +457,7 @@ $eng:'Marcellus';
                             font-size: 1vw;
                             font-family: $kor;
                             outline: none;
+                            cursor: pointer;
                             > option {
                                 background-color: transparent;
                                 &:disabled {
@@ -512,6 +526,454 @@ $eng:'Marcellus';
                     &:hover {
                         background-color: $hotpink;
                         color: #FFF;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1024px) {
+    #container {
+        width: 100%;
+        .cont1 {
+            .cont1Bg {
+                .center {
+                    margin-top: 120px;
+                    padding: 8vw 0;
+                    > h5 {
+                        font-size: 2vw;
+                    }
+                    > h2 {
+                        font-size: 7vw;
+                    }
+                    .contact_wrap {
+                        width: calc(14% + 8vw);
+                        > p {
+                            font-size: 1.5vw;
+                        } 
+                        > span {
+                            width: 4vw;
+                            height: 4vw;
+                        }
+                    } 
+                }
+            }
+        }
+        .cont2 {
+            .center {
+                width: 90%;
+                padding: 4vw 0;
+                > h3 {
+                    font-size: 6vw;
+                    > p {
+                        position: relative;
+                    }
+                }
+                .product_wrap {
+                    .product {
+                        width: 32%;
+                        height: 28vw;
+                        .text_wrap {
+                            position: absolute;
+                            top:0;
+                            left:0;
+                            padding: 10%;
+                            font-family: $kor;
+                            > h5 {
+                                color: $hotpink;
+                                font-weight: 800;
+                                font-size: 3.2vw;
+                                margin-bottom: 2vw;
+                                text-shadow: $whiteTextShadow;
+                            }
+                            > p {
+                                color: #FFF;
+                                font-size: 1.6vw;
+                                font-weight: 300;
+                                line-height: 160%;
+                                text-shadow: $whiteTextShadow;
+                                word-break: keep-all;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .cont3 {
+            .center{
+                width: 80%;
+                height: 40vw;
+                .text_wrap {
+                    font-size: 3vw;
+                    word-break: keep-all;
+                    > a {
+                        display: flex;
+                        width: 12vw;
+                        height: 4.5vw;
+                        font-size: 1.3vw;
+                    }
+                }
+            }
+        }
+        .cont4 {
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            cursor: pointer;
+            background-color: #FFF;
+            &:hover {
+                .center {
+                    .left_wrap {
+                        .locate_wrap {
+                            > img {
+                                right: 5%;
+                            }
+                        } 
+                    }
+                }
+            }
+            .center {
+                width: 90%;
+                height: 45vw; 
+                .left_wrap {
+                    > h3 {
+                        font-size: 6vw;
+                    }
+                    > p {
+                        font-size: 2vw;
+                        width: 80%;
+                    }
+                    .locate_wrap {
+                        width: calc(32% + 8vw);
+                        > p {
+                            font-size: 1.6vw;
+                        } 
+                        > span {
+                            width: 4vw;
+                            height: 4vw;
+                            border: 1px solid $violet;
+                            border-radius: 50%;
+                        }
+                    }
+                    > img {
+                        width: calc(26% + 15vw);
+                        animation: rotatecircle 12s infinite linear;
+                    }
+                }
+                .right_wrap {
+                    .swiper{
+                        .swiper-wrapper{
+                            > .swiper-slide {
+                                > .slide_text {
+                                    > div {
+                                        width: 76%;
+                                        > h4 {
+                                            font-size: 2.4vw;
+                                        }
+                                        > p {
+                                            font-size: 1.3vw;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .swiper-button-prev {
+                            &::after {
+                                font-size: 3vw;
+                            }
+                        }
+                        .swiper-button-next {
+                            &::after {
+                                font-size: 3vw;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .cont5 {
+            .center {
+                width: 80%;
+                #contact{
+                    > h5 {
+                        font-size: 1.6vw;
+                    }
+                    > h3 {
+                        font-size: 6vw;
+                    }
+                    .input_wrap {
+                        > div {
+                            .phone {
+                                > input {
+                                    width: 30%;
+                                    text-align: center;
+                                }
+                                > span {
+                                    font-size: 1.6vw;
+                                }
+                            }
+                            label {
+                                font-size: 1.6vw;
+                            }
+                            input {
+                                font-size: 1.6vw;
+                            }
+                            select {
+                                font-size:1.6vw;
+                            }
+                            textarea {
+                                font-size: 1.6vw;
+                                height: 5em;
+                            }
+                        }
+                        &:nth-child(6) { 
+                            > div {                       
+                                > input {
+                                    width: 1.6vw;
+                                    height: 1.6vw;
+                                }
+                                > a {
+                                    font-size: 1.6vw;
+                                }
+                            }
+                        }
+                    }
+                    > button {
+                        width: 20%;
+                        font-size: 1.6vw;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:748px) {
+    #container {
+        width: 100%;
+        .cont1 {
+            .cont1Bg {
+                .center {
+                    padding: 5vw 0;
+                    > h5 {
+                        font-size: 2.4vw;
+                    }
+                    > h2 {
+                        font-size: 12vw;
+                    }
+                    .contact_wrap {
+                        width: calc(23% + 8vw);
+                        margin-left: auto;
+                        > p {
+                            font-size: 2vw;
+                        } 
+                        > span {
+                            width: 6vw;
+                            height: 6vw;
+                        }
+                    } 
+                }
+            }
+        }
+        .cont2 {
+            .center {
+                width: 95%;
+                padding: 4vw 0;
+                > h3 {
+                    font-size: 9vw;
+                    > p {
+                        position: relative;
+                    }
+                }
+                .product_wrap {
+                    .product {
+                        width: 48.2%;
+                        height: 42vw;
+                        .text_wrap {
+                            > h5 {
+                                font-size: 5vw;
+                            }
+                            > p {
+                                font-size: calc(4px + 2vw);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .cont3 {
+            .center{
+                width: 80%;
+                height: 40vw;
+                .text_wrap {
+                    font-size: 4vw;
+                    word-break: keep-all;
+                    > a {
+                        display: flex;
+                        width: max-content;
+                        font-size: 1.3vw;
+                        padding: .5vw 1.5vw;
+                    }
+                }
+            }
+        }
+        .cont4 {
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            cursor: pointer;
+            background-color: #FFF;
+            &:hover {
+                .center {
+                    .left_wrap {
+                        .locate_wrap {
+                            > img {
+                                right: 5%;
+                            }
+                        } 
+                    }
+                }
+            }
+            .center {
+                width: 90%;
+                height: auto;
+                flex-direction: column; 
+                align-items: center;
+                .left_wrap {
+                    align-items: center;
+                    text-align: center;
+                    > h3 {
+                        font-size: 10vw;
+                        margin-top: 4vw;
+                        line-height: 160%;
+                    }
+                    > p {
+                        font-size: 3vw;
+                        width: 100%;
+                    }
+                    .locate_wrap {
+                        width: calc(23% + 8vw);
+                        > p {
+                            font-size: 1.6vw;
+                        } 
+                        > span {
+                            width: 5vw;
+                            height: 5vw;
+                            border: 1px solid $violet;
+                            border-radius: 50%;
+                        }
+                        > img {
+                            width: 30%;
+                        }
+                    }
+                    > img {
+                        display: none;
+                    }
+                }
+                .right_wrap {
+                    width: 100%;
+                    margin-bottom: 4vw;
+                    .swiper{
+                        .swiper-wrapper{
+                            > .swiper-slide {
+                                > img {
+                                    height: 40%;
+                                }
+                                > .slide_text {
+                                    padding: 4vw 0 12vw;
+                                    > div {
+                                        width: 90%;
+                                        word-break: keep-all;
+                                        font-family: $kor;
+                                        text-align: center;
+                                        > h4 {
+                                            font-size: 8vw;
+                                            line-height: 160%;
+                                        }
+                                        > p {
+                                            font-size: 3.6vw;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .swiper-button-prev {
+                            height: 7vw;
+                            background-color: #FFF;
+                            top: 54%;
+                            left: 1%;
+                            padding: 1%;
+                            border-radius: 50%;
+                            &::after {
+                                font-size: 4vw;
+                            }
+                        }
+                        .swiper-button-next {
+                            height: 7vw;
+                            background-color: #FFF;
+                            top: 54%;
+                            right: 1%;
+                            padding: 1%;
+                            border-radius: 50%;
+                            &::after {
+                                font-size: 4vw; 
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .cont5 {
+            .center {
+                width: 80%;
+                #contact{
+                    > h5 {
+                        font-size: 1.6vw;
+                    }
+                    > h3 {
+                        font-size: 6vw;
+                    }
+                    .input_wrap {
+                        > div {
+                            .phone {
+                                > input {
+                                    width: 30%;
+                                    text-align: center;
+                                }
+                                > span {
+                                    font-size: 1.6vw;
+                                }
+                            }
+                            label {
+                                font-size: 1.6vw;
+                            }
+                            input {
+                                font-size: 1.6vw;
+                            }
+                            select {
+                                font-size:1.6vw;
+                            }
+                            textarea {
+                                font-size: 1.6vw;
+                                height: 5em;
+                            }
+                        }
+                        &:nth-child(6) { 
+                            > div {                       
+                                > input {
+                                    width: 1.6vw;
+                                    height: 1.6vw;
+                                }
+                                > a {
+                                    font-size: 1.6vw;
+                                }
+                            }
+                        }
+                    }
+                    > button {
+                        width: 20%;
+                        font-size: 1.6vw;
                     }
                 }
             }

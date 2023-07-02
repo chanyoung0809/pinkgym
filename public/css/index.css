@@ -160,6 +160,7 @@
   font-weight: 300;
   line-height: 160%;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3333333333);
+  font-size: 1vw;
 }
 #container .cont3 {
   width: 100%;
@@ -218,12 +219,13 @@
   justify-content: center;
   overflow: hidden;
   cursor: pointer;
+  background-color: #FFF;
 }
 #container .cont4:hover .center .left_wrap .locate_wrap > img {
   right: 5%;
 }
 #container .cont4 .center {
-  width: 60%;
+  width: 70%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -286,31 +288,48 @@
   animation: rotatecircle 12s infinite linear;
 }
 #container .cont4 .center .right_wrap {
-  width: 60%;
+  width: 70%;
   position: relative;
+  height: 80%;
+}
+#container .cont4 .center .right_wrap .swiper {
+  height: 100%;
+}
+#container .cont4 .center .right_wrap .swiper .swiper-wrapper {
+  height: 100%;
+}
+#container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide {
+  height: 100%;
 }
 #container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide img {
   height: 60%;
   width: 100%;
 }
-#container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .text_wrap {
-  width: 100%;
+#container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .slide_text {
   height: 40%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1% 0;
+  background-color: #F5F5F5;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 8% 4%;
+  align-items: flex-start;
 }
-#container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .text_wrap > div {
-  width: 90%;
-}
-#container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .text_wrap > div > h4 {
-  width: 90%;
+#container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .slide_text > div {
+  width: 80%;
   word-break: keep-all;
+  font-family: "TheJamsil";
 }
-#container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .text_wrap > div > p {
-  width: 90%;
-  word-break: keep-all;
+#container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .slide_text > div > h4 {
+  font-weight: 700;
+  color: #BF2195;
+  font-size: 2vw;
+  line-height: 200%;
+}
+#container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .slide_text > div > p {
+  line-height: 160%;
+  font-size: 1vw;
+  font-weight: 300;
 }
 #container .cont4 .center .right_wrap .swiper .swiper-button-prev {
   height: 100%;
@@ -353,7 +372,7 @@
 }
 #container .cont5 .center #contact > h5 {
   font-family: "TheJamsil";
-  font-weight: 300;
+  font-weight: 500;
   color: #2A2A2A;
   font-size: 1vw;
   text-align: center;
@@ -421,6 +440,7 @@
   font-size: 1vw;
   font-family: "TheJamsil";
   outline: none;
+  cursor: pointer;
 }
 #container .cont5 .center #contact .input_wrap > div select > option {
   background-color: transparent;
@@ -484,4 +504,364 @@
 #container .cont5 .center #contact > button:hover {
   background-color: #F20587;
   color: #FFF;
+}
+
+@media screen and (max-width: 1024px) {
+  #container {
+    width: 100%;
+  }
+  #container .cont1 .cont1Bg .center {
+    margin-top: 120px;
+    padding: 8vw 0;
+  }
+  #container .cont1 .cont1Bg .center > h5 {
+    font-size: 2vw;
+  }
+  #container .cont1 .cont1Bg .center > h2 {
+    font-size: 7vw;
+  }
+  #container .cont1 .cont1Bg .center .contact_wrap {
+    width: calc(14% + 8vw);
+  }
+  #container .cont1 .cont1Bg .center .contact_wrap > p {
+    font-size: 1.5vw;
+  }
+  #container .cont1 .cont1Bg .center .contact_wrap > span {
+    width: 4vw;
+    height: 4vw;
+  }
+  #container .cont2 .center {
+    width: 90%;
+    padding: 4vw 0;
+  }
+  #container .cont2 .center > h3 {
+    font-size: 6vw;
+  }
+  #container .cont2 .center > h3 > p {
+    position: relative;
+  }
+  #container .cont2 .center .product_wrap .product {
+    width: 32%;
+    height: 28vw;
+  }
+  #container .cont2 .center .product_wrap .product .text_wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10%;
+    font-family: "TheJamsil";
+  }
+  #container .cont2 .center .product_wrap .product .text_wrap > h5 {
+    color: #F20587;
+    font-weight: 800;
+    font-size: 3.2vw;
+    margin-bottom: 2vw;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3333333333);
+  }
+  #container .cont2 .center .product_wrap .product .text_wrap > p {
+    color: #FFF;
+    font-size: 1.6vw;
+    font-weight: 300;
+    line-height: 160%;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3333333333);
+    word-break: keep-all;
+  }
+  #container .cont3 .center {
+    width: 80%;
+    height: 40vw;
+  }
+  #container .cont3 .center .text_wrap {
+    font-size: 3vw;
+    word-break: keep-all;
+  }
+  #container .cont3 .center .text_wrap > a {
+    display: flex;
+    width: 12vw;
+    height: 4.5vw;
+    font-size: 1.3vw;
+  }
+  #container .cont4 {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #FFF;
+  }
+  #container .cont4:hover .center .left_wrap .locate_wrap > img {
+    right: 5%;
+  }
+  #container .cont4 .center {
+    width: 90%;
+    height: 45vw;
+  }
+  #container .cont4 .center .left_wrap > h3 {
+    font-size: 6vw;
+  }
+  #container .cont4 .center .left_wrap > p {
+    font-size: 2vw;
+    width: 80%;
+  }
+  #container .cont4 .center .left_wrap .locate_wrap {
+    width: calc(32% + 8vw);
+  }
+  #container .cont4 .center .left_wrap .locate_wrap > p {
+    font-size: 1.6vw;
+  }
+  #container .cont4 .center .left_wrap .locate_wrap > span {
+    width: 4vw;
+    height: 4vw;
+    border: 1px solid #BF2195;
+    border-radius: 50%;
+  }
+  #container .cont4 .center .left_wrap > img {
+    width: calc(26% + 15vw);
+    animation: rotatecircle 12s infinite linear;
+  }
+  #container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .slide_text > div {
+    width: 76%;
+  }
+  #container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .slide_text > div > h4 {
+    font-size: 2.4vw;
+  }
+  #container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .slide_text > div > p {
+    font-size: 1.3vw;
+  }
+  #container .cont4 .center .right_wrap .swiper .swiper-button-prev::after {
+    font-size: 3vw;
+  }
+  #container .cont4 .center .right_wrap .swiper .swiper-button-next::after {
+    font-size: 3vw;
+  }
+  #container .cont5 .center {
+    width: 80%;
+  }
+  #container .cont5 .center #contact > h5 {
+    font-size: 1.6vw;
+  }
+  #container .cont5 .center #contact > h3 {
+    font-size: 6vw;
+  }
+  #container .cont5 .center #contact .input_wrap > div .phone > input {
+    width: 30%;
+    text-align: center;
+  }
+  #container .cont5 .center #contact .input_wrap > div .phone > span {
+    font-size: 1.6vw;
+  }
+  #container .cont5 .center #contact .input_wrap > div label {
+    font-size: 1.6vw;
+  }
+  #container .cont5 .center #contact .input_wrap > div input {
+    font-size: 1.6vw;
+  }
+  #container .cont5 .center #contact .input_wrap > div select {
+    font-size: 1.6vw;
+  }
+  #container .cont5 .center #contact .input_wrap > div textarea {
+    font-size: 1.6vw;
+    height: 5em;
+  }
+  #container .cont5 .center #contact .input_wrap:nth-child(6) > div > input {
+    width: 1.6vw;
+    height: 1.6vw;
+  }
+  #container .cont5 .center #contact .input_wrap:nth-child(6) > div > a {
+    font-size: 1.6vw;
+  }
+  #container .cont5 .center #contact > button {
+    width: 20%;
+    font-size: 1.6vw;
+  }
+}
+@media screen and (max-width: 748px) {
+  #container {
+    width: 100%;
+  }
+  #container .cont1 .cont1Bg .center {
+    padding: 5vw 0;
+  }
+  #container .cont1 .cont1Bg .center > h5 {
+    font-size: 2.4vw;
+  }
+  #container .cont1 .cont1Bg .center > h2 {
+    font-size: 12vw;
+  }
+  #container .cont1 .cont1Bg .center .contact_wrap {
+    width: calc(23% + 8vw);
+    margin-left: auto;
+  }
+  #container .cont1 .cont1Bg .center .contact_wrap > p {
+    font-size: 2vw;
+  }
+  #container .cont1 .cont1Bg .center .contact_wrap > span {
+    width: 6vw;
+    height: 6vw;
+  }
+  #container .cont2 .center {
+    width: 95%;
+    padding: 4vw 0;
+  }
+  #container .cont2 .center > h3 {
+    font-size: 9vw;
+  }
+  #container .cont2 .center > h3 > p {
+    position: relative;
+  }
+  #container .cont2 .center .product_wrap .product {
+    width: 48.2%;
+    height: 42vw;
+  }
+  #container .cont2 .center .product_wrap .product .text_wrap > h5 {
+    font-size: 5vw;
+  }
+  #container .cont2 .center .product_wrap .product .text_wrap > p {
+    font-size: calc(4px + 2vw);
+  }
+  #container .cont3 .center {
+    width: 80%;
+    height: 40vw;
+  }
+  #container .cont3 .center .text_wrap {
+    font-size: 4vw;
+    word-break: keep-all;
+  }
+  #container .cont3 .center .text_wrap > a {
+    display: flex;
+    width: -moz-max-content;
+    width: max-content;
+    font-size: 1.3vw;
+    padding: 0.5vw 1.5vw;
+  }
+  #container .cont4 {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #FFF;
+  }
+  #container .cont4:hover .center .left_wrap .locate_wrap > img {
+    right: 5%;
+  }
+  #container .cont4 .center {
+    width: 90%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+  #container .cont4 .center .left_wrap {
+    align-items: center;
+    text-align: center;
+  }
+  #container .cont4 .center .left_wrap > h3 {
+    font-size: 10vw;
+    margin-top: 4vw;
+    line-height: 160%;
+  }
+  #container .cont4 .center .left_wrap > p {
+    font-size: 3vw;
+    width: 100%;
+  }
+  #container .cont4 .center .left_wrap .locate_wrap {
+    width: calc(23% + 8vw);
+  }
+  #container .cont4 .center .left_wrap .locate_wrap > p {
+    font-size: 1.6vw;
+  }
+  #container .cont4 .center .left_wrap .locate_wrap > span {
+    width: 5vw;
+    height: 5vw;
+    border: 1px solid #BF2195;
+    border-radius: 50%;
+  }
+  #container .cont4 .center .left_wrap .locate_wrap > img {
+    width: 30%;
+  }
+  #container .cont4 .center .left_wrap > img {
+    display: none;
+  }
+  #container .cont4 .center .right_wrap {
+    width: 100%;
+    margin-bottom: 4vw;
+  }
+  #container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > img {
+    height: 40%;
+  }
+  #container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .slide_text {
+    padding: 4vw 0 12vw;
+  }
+  #container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .slide_text > div {
+    width: 90%;
+    word-break: keep-all;
+    font-family: "TheJamsil";
+    text-align: center;
+  }
+  #container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .slide_text > div > h4 {
+    font-size: 8vw;
+    line-height: 160%;
+  }
+  #container .cont4 .center .right_wrap .swiper .swiper-wrapper > .swiper-slide > .slide_text > div > p {
+    font-size: 3.6vw;
+  }
+  #container .cont4 .center .right_wrap .swiper .swiper-button-prev {
+    height: 7vw;
+    background-color: #FFF;
+    top: 54%;
+    left: 1%;
+    padding: 1%;
+    border-radius: 50%;
+  }
+  #container .cont4 .center .right_wrap .swiper .swiper-button-prev::after {
+    font-size: 4vw;
+  }
+  #container .cont4 .center .right_wrap .swiper .swiper-button-next {
+    height: 7vw;
+    background-color: #FFF;
+    top: 54%;
+    right: 1%;
+    padding: 1%;
+    border-radius: 50%;
+  }
+  #container .cont4 .center .right_wrap .swiper .swiper-button-next::after {
+    font-size: 4vw;
+  }
+  #container .cont5 .center {
+    width: 80%;
+  }
+  #container .cont5 .center #contact > h5 {
+    font-size: 1.6vw;
+  }
+  #container .cont5 .center #contact > h3 {
+    font-size: 6vw;
+  }
+  #container .cont5 .center #contact .input_wrap > div .phone > input {
+    width: 30%;
+    text-align: center;
+  }
+  #container .cont5 .center #contact .input_wrap > div .phone > span {
+    font-size: 1.6vw;
+  }
+  #container .cont5 .center #contact .input_wrap > div label {
+    font-size: 1.6vw;
+  }
+  #container .cont5 .center #contact .input_wrap > div input {
+    font-size: 1.6vw;
+  }
+  #container .cont5 .center #contact .input_wrap > div select {
+    font-size: 1.6vw;
+  }
+  #container .cont5 .center #contact .input_wrap > div textarea {
+    font-size: 1.6vw;
+    height: 5em;
+  }
+  #container .cont5 .center #contact .input_wrap:nth-child(6) > div > input {
+    width: 1.6vw;
+    height: 1.6vw;
+  }
+  #container .cont5 .center #contact .input_wrap:nth-child(6) > div > a {
+    font-size: 1.6vw;
+  }
+  #container .cont5 .center #contact > button {
+    width: 20%;
+    font-size: 1.6vw;
+  }
 }
