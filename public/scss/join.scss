@@ -48,6 +48,12 @@ $whiteTextShadow:2px 2px 5px #0005;
             width: 100%;
             .terms {
                 width: 100%;
+                > h4 {
+                    font-weight: 700;
+                    font-size: 1.6vw;
+                    color: $violet;
+                    line-height: 200%;
+                }
                 > div {
                     width: 100%;
                     pre {
@@ -109,7 +115,6 @@ $whiteTextShadow:2px 2px 5px #0005;
                 input {
                     border: none;
                     border-bottom: .2vw solid $lightblack;
-                    margin-left: 1vw;
                     line-height: 200%;
                     outline: none;
                     font-family: $kor;
@@ -122,6 +127,7 @@ $whiteTextShadow:2px 2px 5px #0005;
                 .input {
                     display: flex;
                     align-items: center;
+                    margin-left: 1vw;
                     span {
                         border-bottom: .2vw solid $lightblack;
                         line-height: 200%;
@@ -132,6 +138,7 @@ $whiteTextShadow:2px 2px 5px #0005;
                     }
                 }
                 .confirm {
+                    margin-left: .5vw;
                     > button {
                         border: none;
                         outline: none;
@@ -142,7 +149,7 @@ $whiteTextShadow:2px 2px 5px #0005;
                         font-size: calc(13px + .1vw);
                         height: 1.5vw;
                         padding: 0 1vw;
-                        margin: 0 1vw;
+                        margin-right: 1vw;
                         border-radius: .4vw;
                         cursor: pointer;
                         transition: all .5s;

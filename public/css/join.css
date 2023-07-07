@@ -39,6 +39,12 @@
 #container .join_wrap > form .terms {
   width: 100%;
 }
+#container .join_wrap > form .terms > h4 {
+  font-weight: 700;
+  font-size: 1.6vw;
+  color: #BF2195;
+  line-height: 200%;
+}
 #container .join_wrap > form .terms > div {
   width: 100%;
 }
@@ -99,7 +105,6 @@
 #container .join_wrap > form .info input {
   border: none;
   border-bottom: 0.2vw solid #2A2A2A;
-  margin-left: 1vw;
   line-height: 200%;
   outline: none;
   font-family: "TheJamsil";
@@ -115,6 +120,7 @@
 #container .join_wrap > form .info .input {
   display: flex;
   align-items: center;
+  margin-left: 1vw;
 }
 #container .join_wrap > form .info .input span {
   border-bottom: 0.2vw solid #2A2A2A;
@@ -123,6 +129,9 @@
 }
 #container .join_wrap > form .info .input #userGender {
   width: 1vw;
+}
+#container .join_wrap > form .info .confirm {
+  margin-left: 0.5vw;
 }
 #container .join_wrap > form .info .confirm > button {
   border: none;
@@ -134,7 +143,7 @@
   font-size: calc(13px + 0.1vw);
   height: 1.5vw;
   padding: 0 1vw;
-  margin: 0 1vw;
+  margin-right: 1vw;
   border-radius: 0.4vw;
   cursor: pointer;
   transition: all 0.5s;
