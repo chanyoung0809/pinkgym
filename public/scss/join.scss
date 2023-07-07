@@ -1,0 +1,172 @@
+$lightpink: #F2DCE0;
+$hotpink: #F20587;
+$violet: #BF2195;
+$lilac: #CF61A6;
+$black: #1C1C1C;
+$lightblack: #2A2A2A;
+$kor: 'TheJamsil';
+$eng:'Marcellus';
+$whiteTextShadow:2px 2px 5px #0005;
+
+#container {
+    // 공통사항
+    .title {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 80px;
+        > h2 {
+            &::before {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                top:0;
+                background-color: $lilac;
+                border-radius: 50%;
+                width: 4vw;
+                height: 4vw;
+                z-index: -1;
+            }
+            font-family: $eng;
+            font-size: 5vw;
+            color: $black;
+            position: relative;
+            line-height: 140%;
+            padding: 0 2%;
+            margin: 0 0 4%;
+        } 
+    }
+    .join_wrap {
+        display: flex;
+        justify-content: space-between;
+        width: 70%;
+        margin: 0 auto 4%;
+        font-family: $kor;
+        > form {
+            width: 100%;
+            .terms {
+                width: 100%;
+                > div {
+                    width: 100%;
+                    pre {
+                        font-size: calc(13px + .1vw);
+                        white-space:pre-line;
+                        height: 5vw;
+                        overflow-y: scroll;
+                        font-family: $kor;
+                        font-weight: 300;
+                        border: .1vw solid $lightblack;
+                        line-height: 160%;
+                        transition: all .5s;
+                        opacity: 1;
+                        &.checked {
+                            height: 0;
+                            opacity: 0;
+                        }
+                    }
+                    .checkbox_wrap {
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+                        line-height: 280%;
+                        font-weight: 500;
+                        color: $black;
+                        font-size: calc(16px + .1vw);
+                        > input {
+                            outline: none;
+                            accent-color: $lilac;
+                            margin-right: 1%;
+                            width: calc(16px + .1vw);
+                            height: calc(16px + .1vw);
+                            cursor: pointer;
+                        }
+                        > label {
+                            cursor: pointer;
+                        }
+                    }
+                    
+                }
+            }
+            .info {
+                display: flex;
+                align-items: center;
+                border: .1vw solid $lightblack;
+                border-top: none;
+                &:nth-child(2) {
+                    border-top: .1vw solid $lightblack;
+                }
+                .label {
+                    width: 12%;
+                    font-size: calc(13px + .1vw);
+                    min-width: 100px;
+                    line-height: 400%;
+                    text-align: center;
+                    border-right: .1vw solid $lightblack;
+                    word-break: keep-all;
+                }
+                input {
+                    border: none;
+                    border-bottom: .2vw solid $lightblack;
+                    margin-left: 1vw;
+                    line-height: 200%;
+                    outline: none;
+                    font-family: $kor;
+                    text-align: center;
+                    font-size: calc(13px + .1vw);
+                    &::placeholder {
+                        text-align: center;
+                    }
+                }
+                .input {
+                    display: flex;
+                    align-items: center;
+                    span {
+                        border-bottom: .2vw solid $lightblack;
+                        line-height: 200%;
+                        font-size: calc(13px + .1vw);
+                    }
+                    #userGender {
+                        width: 1vw;
+                    }
+                }
+                .confirm {
+                    > button {
+                        border: none;
+                        outline: none;
+                        background-color: $lightblack;
+                        color: #FFF;
+                        font-family: $kor;
+                        font-weight: 500;
+                        font-size: calc(13px + .1vw);
+                        height: 1.5vw;
+                        padding: 0 1vw;
+                        margin: 0 1vw;
+                        border-radius: .4vw;
+                        cursor: pointer;
+                        transition: all .5s;
+                        &:hover {
+                            background-color: $lilac;
+                        }
+                    }
+                    > span {
+                        font-size: calc(13px + .1vw);
+                        font-weight: 300;
+                    }
+                }
+            }
+            > button {
+                display: block;
+                width: 12%;
+                margin: 2% auto;
+                padding: .5vw 1vw;
+                font-family: $kor;
+                font-size: 1vw;
+                font-weight: 500;
+                border: none;
+                outline: none;
+            }
+        }
+    }
+}

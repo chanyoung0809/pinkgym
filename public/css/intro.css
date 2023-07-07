@@ -1,0 +1,102 @@
+#container .title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+}
+#container .title > h2 {
+  font-family: "Marcellus";
+  font-size: 5vw;
+  color: #1C1C1C;
+  position: relative;
+  line-height: 140%;
+  padding: 0 2%;
+  margin: 0 0 4%;
+}
+#container .title > h2::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #CF61A6;
+  border-radius: 50%;
+  width: 4vw;
+  height: 4vw;
+  z-index: -1;
+}
+#container .intro_wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: 0 auto 4%;
+}
+#container .intro_wrap .left_wrap {
+  width: 30%;
+}
+#container .intro_wrap .left_wrap .img_wrap {
+  width: 80%;
+}
+#container .intro_wrap .left_wrap .img_wrap > img {
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+#container .intro_wrap .right_wrap {
+  width: 70%;
+  font-family: "TheJamsil";
+}
+#container .intro_wrap .right_wrap .subtitle {
+  font-weight: 500;
+  font-size: 1.6vw;
+  color: #2A2A2A;
+  margin-bottom: 0.8vw;
+}
+#container .intro_wrap .right_wrap .headline {
+  font-weight: 800;
+  font-size: 4vw;
+  color: #BF2195;
+  line-height: 160%;
+  color: #BF2195;
+  text-shadow: -0.1vw 0.1vw 0 #F2DCE0, -0.3vw 0.3vw 0 #CF61A6, -0.6vw 0.6vw 0 #F2DCE0;
+  margin-bottom: 4%;
+}
+#container .intro_wrap .right_wrap .context {
+  font-size: 1vw;
+  line-height: 160%;
+  font-weight: 300;
+  color: #2A2A2A;
+}
+#container .intro_wrap .right_wrap .context > strong {
+  font-size: 1.4vw;
+  font-weight: 700;
+  line-height: 240%;
+}
+#container .intro_wrap .right_wrap .context > p {
+  word-break: keep-all;
+  margin-bottom: 4%;
+}
+#container .intro_wrap .right_wrap .author {
+  font-size: 1vw;
+  color: #1C1C1C;
+  font-weight: 500;
+  margin-right: 0.5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+#container .intro_wrap .right_wrap .author div {
+  margin-bottom: 4%;
+}
+#container .intro_wrap .right_wrap .author div > span {
+  margin-right: 0.5vw;
+}
+#container .intro_wrap .right_wrap .author div > strong {
+  letter-spacing: 1vw;
+  font-weight: 800;
+  font-size: 2vw;
+}
+#container .intro_wrap .right_wrap .author img {
+  transform: translateX(10%);
+}

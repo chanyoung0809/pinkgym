@@ -1,0 +1,115 @@
+$lightpink: #F2DCE0;
+$hotpink: #F20587;
+$violet: #BF2195;
+$lilac: #CF61A6;
+$black: #1C1C1C;
+$lightblack: #2A2A2A;
+$kor: 'TheJamsil';
+$eng:'Marcellus';
+$whiteTextShadow:2px 2px 5px #0005;
+
+#container {
+    // 공통사항
+    .title {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 80px;
+        > h2 {
+            &::before {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                top:0;
+                background-color: $lilac;
+                border-radius: 50%;
+                width: 4vw;
+                height: 4vw;
+                z-index: -1;
+            }
+            font-family: $eng;
+            font-size: 5vw;
+            color: $black;
+            position: relative;
+            line-height: 140%;
+            padding: 0 2%;
+            margin: 0 0 4%;
+        } 
+    }
+    .intro_wrap {
+        display: flex;
+        justify-content: space-between;
+        width: 70%;
+        margin: 0 auto 4%;
+        .left_wrap {
+            width: 30%;
+            .img_wrap {
+                width: 80%;
+                > img {
+                    width: 100%;
+                    top:0; left:0;
+                }
+                     
+            }
+        }
+        .right_wrap {
+            width: 70%;
+            font-family: $kor;
+            .subtitle {
+                font-weight: 500;
+                font-size: 1.6vw;
+                color: $lightblack;
+                margin-bottom: .8vw;
+            }
+            .headline {
+                font-weight: 800;
+                font-size: 4vw;
+                color: $violet;
+                line-height: 160%;
+                color: $violet;
+                text-shadow: -.1vw .1vw 0 $lightpink, -.3vw .3vw 0 $lilac, -.6vw .6vw 0 $lightpink;
+                margin-bottom: 4%;
+            }
+            .context {
+                font-size: 1vw;
+                line-height: 160%;
+                font-weight: 300;
+                color: $lightblack;
+                > strong {
+                    font-size: 1.4vw;
+                    font-weight: 700;
+                    line-height: 240%;
+                }
+                > p {
+                    word-break: keep-all;
+                    margin-bottom: 4%;
+                } 
+            }
+            .author {
+                font-size: 1vw;
+                color: $black;
+                font-weight: 500;
+                margin-right: .5vw;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                div{
+                    > span {
+                        margin-right: .5vw;
+                    }
+                    > strong {
+                        letter-spacing: 1vw;
+                        font-weight: 800;
+                        font-size: 2vw;
+                    }
+                    margin-bottom: 4%;
+                }       
+                img {
+                    transform: translateX(10%);
+                }       
+            }
+        }
+    }
+}

@@ -52,22 +52,17 @@
                 <li><a href="/intro">체육관 소개</a></li>
                 <li class="depth1"><a href="/program">프로그램</a>
                     <ul class="depth2">
-                        <li><a href="#">MEMBERSHIP</a></li> 
-                        <li><a href="#">SPINNING</a></li> 
-                        <li><a href="#">PT</a></li> 
-                        <li><a href="#">GOLF</a></li>
-                        <li><a href="#">PILATES</a></li> 
-                        <li><a href="#">SPA</a></li> 
-                    </ul></li>
+                        <% products.forEach((prd) => { %>
+                            <li><a href="/program#<%- prd.prdName %>"><%- prd.prdName %></a></li> 
+                        <% }) %>
+                    </ul>
+                </li>
                 <li class="depth1">
                     <a href="/location">지점안내</a>
                     <ul class="depth2">
-                        <li><a href="#">월성점</a></li> 
-                        <li><a href="#">침산점</a></li> 
-                        <li><a href="#">범어점</a></li> 
-                        <li><a href="#">동성로점</a></li>
-                        <li><a href="#">연경점</a></li> 
-                        <li><a href="#">죽전점</a></li> 
+                        <% locates.forEach((item) => { %>
+                            <li><a href="/location#<%- item.engName %>"><%- item.korName %></a></li> 
+                        <% }) %>
                     </ul>
                 </li>
                 <li class="depth1">

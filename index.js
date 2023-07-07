@@ -75,9 +75,35 @@ app.get("/", (req, res)=>{
         });
     });
 })
-// 프로그램 소개
+// 헬스장 소개
+app.get("/intro", (req, res)=>{
+    db.collection("product").find().toArray((err, products)=>{
+        db.collection("location").find().toArray((err, locates)=>{
+            res.render("intro", {login:req.user, products:products, locates:locates});
+        });
+    });
+})
+// 지점안내
 app.get("/location", (req, res)=>{
-    db.collection("location").find().toArray((err, locates)=>{
-        res.render("location", {login:req.user, locates:locates});
+    db.collection("product").find().toArray((err, products)=>{
+        db.collection("location").find().toArray((err, locates)=>{
+            res.render("location", {login:req.user, products:products, locates:locates});
+        });
+    });
+})
+// 프로그램 소개
+app.get("/program", (req, res)=>{
+    db.collection("product").find().toArray((err, products)=>{
+        db.collection("location").find().toArray((err, locates)=>{
+            res.render("program", {login:req.user, products:products, locates:locates});
+        });
+    });
+})
+// 회원가입
+app.get("/join", (req, res)=>{
+    db.collection("product").find().toArray((err, products)=>{
+        db.collection("location").find().toArray((err, locates)=>{
+            res.render("join", {login:req.user, products:products, locates:locates});
+        });
     });
 })

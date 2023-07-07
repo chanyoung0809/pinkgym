@@ -1,0 +1,197 @@
+$lightpink: #F2DCE0;
+$hotpink: #F20587;
+$violet: #BF2195;
+$lilac: #CF61A6;
+$black: #1C1C1C;
+$lightblack: #2A2A2A;
+$kor: 'TheJamsil';
+$eng:'Marcellus';
+$whiteTextShadow:2px 2px 5px #0005;
+
+#container {
+    // 공통사항
+    .title {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 80px;
+        > h2 {
+            &::before {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                top:0;
+                background-color: $lilac;
+                border-radius: 50%;
+                width: 4vw;
+                height: 4vw;
+                z-index: -1;
+            }
+            font-family: $eng;
+            font-size: 5vw;
+            color: $black;
+            position: relative;
+            line-height: 140%;
+            padding: 0 2%;
+            margin: 0 0 4%;
+        } 
+    }
+    // 프로그램
+    .product_wrap {
+        display: flex;
+        justify-content: center;
+        padding-top: 4%;
+        .center {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 70%;
+            margin-bottom: 8%;
+            &.left {
+                flex-direction: row;
+                .img_wrap {
+                    &::before {
+                        content: "";
+                        display: inline-block;
+                        border: .2vw solid $lilac;
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top:3%;
+                        left:2%;
+                        z-index:-1
+                    }
+                }
+            }
+            &.right {
+                flex-direction: row-reverse;
+                .img_wrap {
+                    &::before {
+                        content: "Pink Lady Gym";
+                        display: inline-block;
+                        color: #FFF;
+                        text-shadow: -1px 0 $lilac, 0 1px $lilac, 1px 0 $lilac, 0 -1px $lilac;
+                        font-size: 5vw;
+                        font-family: $eng;
+                        position: absolute;
+                        bottom:-8%;
+                        left:-16%;
+                        letter-spacing: .1vw;
+                        z-index: -1;
+                    }
+                }
+            }
+            .img_wrap {
+                width: 50%;
+                height: 30vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                > img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit:cover;
+                }
+            }
+            .text_wrap {
+                width: 40%;
+                font-family: $kor;
+                word-break: keep-all;
+                > h3 {
+                    font-size: 3vw;
+                    font-weight: 800;
+                    line-height: 200%;
+                    color:$violet;
+                }
+                > p {
+                    font-size: 1.2vw;
+                    line-height: 160%;
+                }
+            }
+        }
+    }
+    // 지점소개
+    .regions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        .region_wrap{
+            width: 70%;
+            padding-top: 4%;
+            .region_title {
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-end;
+                font-family: $kor;
+                margin: 2% 0;
+                > h2 {
+                    color: $violet;
+                    font-weight: 700;
+                    font-size: 3vw;
+                }
+                > strong {
+                    font-weight: 500;
+                    margin-left: 1%;
+                    font-size: 1vw;
+                    color: $black;
+                    letter-spacing: -.08vw;
+                }
+            }
+            .region_info {
+                width: 100%;
+                display: flex;
+                flex-direction: column-reverse;
+                .region_visual {
+                    width: 100%;
+                    height: 20vw;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    &.left {
+                        flex-direction: row;
+                    }
+                    &.right {
+                        flex-direction: row-reverse;
+                    }
+                    > img {
+                        width: 50%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                    .map {
+                        width: 50%;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+            .region_text {
+                font-size: 1vw;
+                font-family: $kor;
+                display: flex;
+                flex-wrap: wrap;
+                width: 70%;
+                margin-bottom: 2%;
+                > p {
+                    width: max-content;
+                    font-weight: 300;
+                    color: $lightblack;
+                    line-height: 120%;
+                    word-break: keep-all;
+                    margin-right: 1%;
+                    letter-spacing: -.08vw;
+                    > strong {
+                        font-weight: 700;
+                        color: $black;
+                    }
+                }
+            }
+        }
+    }
+}

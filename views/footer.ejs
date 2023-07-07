@@ -108,6 +108,27 @@
             </div>
         </div>
     </div>
+    <% if (!login) { %>
+        <div class="login_bg">
+            <div class="login_wrap">
+                <button class="close_btn" type="button">×</button>
+                <form action="/logincheck" method="post">
+                    <label for="userID">아이디</label>
+                    <input id="userID" type="text" placeholder="아이디를 입력해주세요" name="userID"/>
+                    <label for="userPW">비밀번호</label>
+                    <input id="userPW" type="password" name="userPW" placeholder="비밀번호를 입력해주세요"/>
+                    <div>
+                        <span class="ErrorMsg">입력하신 아이디나 비밀번호가 올바르지 않습니다!</span>
+                        <div>
+                            <button type="button">관리자 계정</button>
+                            <button type="button" onclick="window.location.href='/join'; document.querySelector('.login_bg').style.display='none';">회원가입</button>
+                            <button type="submit" class="loginBtn">로그인</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    <% } %>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <!-- swiper js -->
     <% if (jsFiles.length !== 0) { %>

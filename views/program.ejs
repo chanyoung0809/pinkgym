@@ -1,0 +1,20 @@
+<%- include('header', {title:"Pink Ladies Gym",  cssFiles:["reset.css", "header.css", "footer.css", "locate_products.css"]})%>
+<div id="container">
+    <div class="title">
+        <h2>Program</h2>
+    </div>
+    <% products.forEach((el, idx) => { %>
+        <div class="product_wrap" id="<%- el.prdName %>">
+            <div class="center <%- (idx % 2 == 0)?'left':'right'%>">
+                <div class="img_wrap">
+                    <img src="/img/<%- el.prdImg %>">
+                </div>
+                <div class="text_wrap">
+                    <h3><%- el.prdName %></h3>
+                    <p><%- el.prdContext %></p>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+</div>    
+<%- include('footer', {jsFiles:["header.js", "mGnb.js", "login.js"]})%>

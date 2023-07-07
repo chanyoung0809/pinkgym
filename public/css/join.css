@@ -1,0 +1,159 @@
+#container .title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+}
+#container .title > h2 {
+  font-family: "Marcellus";
+  font-size: 5vw;
+  color: #1C1C1C;
+  position: relative;
+  line-height: 140%;
+  padding: 0 2%;
+  margin: 0 0 4%;
+}
+#container .title > h2::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #CF61A6;
+  border-radius: 50%;
+  width: 4vw;
+  height: 4vw;
+  z-index: -1;
+}
+#container .join_wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: 0 auto 4%;
+  font-family: "TheJamsil";
+}
+#container .join_wrap > form {
+  width: 100%;
+}
+#container .join_wrap > form .terms {
+  width: 100%;
+}
+#container .join_wrap > form .terms > div {
+  width: 100%;
+}
+#container .join_wrap > form .terms > div pre {
+  font-size: calc(13px + 0.1vw);
+  white-space: pre-line;
+  height: 5vw;
+  overflow-y: scroll;
+  font-family: "TheJamsil";
+  font-weight: 300;
+  border: 0.1vw solid #2A2A2A;
+  line-height: 160%;
+  transition: all 0.5s;
+  opacity: 1;
+}
+#container .join_wrap > form .terms > div pre.checked {
+  height: 0;
+  opacity: 0;
+}
+#container .join_wrap > form .terms > div .checkbox_wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  line-height: 280%;
+  font-weight: 500;
+  color: #1C1C1C;
+  font-size: calc(16px + 0.1vw);
+}
+#container .join_wrap > form .terms > div .checkbox_wrap > input {
+  outline: none;
+  accent-color: #CF61A6;
+  margin-right: 1%;
+  width: calc(16px + 0.1vw);
+  height: calc(16px + 0.1vw);
+  cursor: pointer;
+}
+#container .join_wrap > form .terms > div .checkbox_wrap > label {
+  cursor: pointer;
+}
+#container .join_wrap > form .info {
+  display: flex;
+  align-items: center;
+  border: 0.1vw solid #2A2A2A;
+  border-top: none;
+}
+#container .join_wrap > form .info:nth-child(2) {
+  border-top: 0.1vw solid #2A2A2A;
+}
+#container .join_wrap > form .info .label {
+  width: 12%;
+  font-size: calc(13px + 0.1vw);
+  min-width: 100px;
+  line-height: 400%;
+  text-align: center;
+  border-right: 0.1vw solid #2A2A2A;
+  word-break: keep-all;
+}
+#container .join_wrap > form .info input {
+  border: none;
+  border-bottom: 0.2vw solid #2A2A2A;
+  margin-left: 1vw;
+  line-height: 200%;
+  outline: none;
+  font-family: "TheJamsil";
+  text-align: center;
+  font-size: calc(13px + 0.1vw);
+}
+#container .join_wrap > form .info input::-moz-placeholder {
+  text-align: center;
+}
+#container .join_wrap > form .info input::placeholder {
+  text-align: center;
+}
+#container .join_wrap > form .info .input {
+  display: flex;
+  align-items: center;
+}
+#container .join_wrap > form .info .input span {
+  border-bottom: 0.2vw solid #2A2A2A;
+  line-height: 200%;
+  font-size: calc(13px + 0.1vw);
+}
+#container .join_wrap > form .info .input #userGender {
+  width: 1vw;
+}
+#container .join_wrap > form .info .confirm > button {
+  border: none;
+  outline: none;
+  background-color: #2A2A2A;
+  color: #FFF;
+  font-family: "TheJamsil";
+  font-weight: 500;
+  font-size: calc(13px + 0.1vw);
+  height: 1.5vw;
+  padding: 0 1vw;
+  margin: 0 1vw;
+  border-radius: 0.4vw;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+#container .join_wrap > form .info .confirm > button:hover {
+  background-color: #CF61A6;
+}
+#container .join_wrap > form .info .confirm > span {
+  font-size: calc(13px + 0.1vw);
+  font-weight: 300;
+}
+#container .join_wrap > form > button {
+  display: block;
+  width: 12%;
+  margin: 2% auto;
+  padding: 0.5vw 1vw;
+  font-family: "TheJamsil";
+  font-size: 1vw;
+  font-weight: 500;
+  border: none;
+  outline: none;
+}

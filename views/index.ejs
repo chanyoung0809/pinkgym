@@ -15,11 +15,11 @@
     </div>
     <div class="cont2">
         <div class="center">
-            <h3><p>Product</p></h3>
+            <h3><p>Program</p></h3>
             <div class="product_wrap">
                 <!-- ejs 반복문 처리 구간 -->
                 <% products.forEach((product) => { %>
-                    <div class="product">
+                    <div class="product" onclick="window.location.href='/program#<%- product.prdName %>'">
                         <img src="/img/<%- product.prdImg %>" />
                         <div class="text_wrap">
                             <h5><%- product.prdName %></h5>
@@ -59,7 +59,7 @@
                     <div class="swiper-wrapper">
                         <!-- Slides -->
                         <% locates.forEach((locate) => { %>
-                            <div class="swiper-slide">
+                            <div class="swiper-slide" onclick="window.location.href='/location#<%- locate.engName %>'">
                                 <img src="/img/<%- locate.engName %>.jpg">
                                 <div class="slide_text">
                                     <div>
@@ -146,4 +146,4 @@
         </div>
     </div>
 </div>
-<%- include('footer', {jsFiles:["header.js", "swiper.js", "mGnb.js"]})%>
+<%- include('footer', {jsFiles:["header.js", "swiper.js", "mGnb.js", "login.js"]})%>

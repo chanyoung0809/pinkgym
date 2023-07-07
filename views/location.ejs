@@ -1,24 +1,29 @@
-<%- include('header', {title:"Pink Ladies Gym",  cssFiles:["reset.css", "header.css", "footer.css", "locates.css"]})%>
+<%- include('header', {title:"Pink Ladies Gym",  cssFiles:["reset.css", "header.css", "footer.css", "locate_products.css"]})%>
 <div id="container">
-    <% locates.forEach((el, idx) => { %>
-        <div class="product_wrap" id="<%- el.engName%>">
-            <div class="product_title">
-                <h2>핑크짐 <%- el.korName %></h2>
-                <strong><%- el.facility %></strong>
-            </div>
-            <div class="product_info">
-                <div class="product_visual">
-                    <img src="/img/<%- el.engName %>.jpg">
-                    <div class="map"></div>
+    <div class="title">
+        <h2>Location</h2>
+    </div>
+    <% locates.forEach((item, idx) => { %>
+        <div class="regions">
+            <div class="region_wrap" id="<%- item.engName %>">
+                <div class="region_title">
+                    <h2>핑크짐 <%- item.korName %></h2>
+                    <strong><%- item.facility %></strong>
                 </div>
-                <div class="product_text">
-                    <p><strong>ADDRESS</strong><%- el.address %></p>
-                    <p><strong>TEL</strong><%- el.Tel %></p>
-                    <p><strong>TEL</strong><%- el.parking %></p>
-                    <p><strong>영업시간</strong><%- el.openingHours %></p>
+                <div class="region_info">
+                    <div class="region_visual <%- (idx % 2 == 0) ? 'left' : 'right' %>">
+                        <img src="/img/<%- item.engName %>.jpg">
+                        <div class="map">지도</div>
+                    </div>
+                    <div class="region_text">
+                        <p><strong>ADDRESS : </strong><%- item.address %></p>
+                        <p><strong>TEL : </strong><%- item.Tel %></p>
+                        <p><strong>주차 : </strong><%- item.parking %></p>
+                        <p><strong>영업시간 : </strong><%- item.openingHours %></p>
+                    </div>
                 </div>
             </div>
         </div>
     <% }) %>
 </div>    
-    <%- include('footer', {jsFiles:["header.js", "swiper.js", "mGnb.js"]})%>
+<%- include('footer', {jsFiles:["header.js", "swiper.js", "mGnb.js", "login.js"]})%>

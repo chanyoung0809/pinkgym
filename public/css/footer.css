@@ -4,7 +4,11 @@
   justify-content: center;
   background-color: #2A2A2A;
 }
+#footer .center {
+  width: 60%;
+}
 #footer .center .f_top {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,6 +58,7 @@
   margin: 0 0.5em;
 }
 #footer .center .f_bot {
+  width: 100%;
   border-top: 1px solid #555;
   font-family: "TheJamsil";
   line-height: 240%;
@@ -301,6 +306,97 @@
 }
 .m_gnb_bg.show .m_gnb_wrap {
   opacity: 1;
+}
+
+.login_bg {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.login_bg .login_wrap {
+  width: 50%;
+  height: 50%;
+  background-color: #F0F0F0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login_bg .login_wrap .close_btn {
+  color: #1C1C1C;
+  font-size: 4vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background-color: transparent;
+  font-family: "TheJamsil";
+  font-weight: 300;
+  cursor: pointer;
+}
+.login_bg .login_wrap > form {
+  display: flex;
+  flex-direction: column;
+  font-family: "TheJamsil";
+  width: 80%;
+  max-width: 350px;
+}
+.login_bg .login_wrap > form > label {
+  font-size: calc(0.5vw + 13px);
+  font-weight: 700;
+  line-height: 160%;
+}
+.login_bg .login_wrap > form > input {
+  font-size: calc(0.3vw + 13px);
+  line-height: 160%;
+  background-color: transparent;
+  outline: none;
+  border: 0.2vw solid #1C1C1C;
+  text-indent: 0.1vw;
+}
+.login_bg .login_wrap > form > input::-moz-placeholder {
+  font-size: calc(0.1vw + 13px);
+  line-height: 160%;
+  font-family: "TheJamsil";
+}
+.login_bg .login_wrap > form > input::placeholder {
+  font-size: calc(0.1vw + 13px);
+  line-height: 160%;
+  font-family: "TheJamsil";
+}
+.login_bg .login_wrap > form > input:focus {
+  border: 0.2vw solid #BF2195;
+}
+.login_bg .login_wrap > form > div > span {
+  opacity: 0;
+}
+.login_bg .login_wrap > form > div > div {
+  display: flex;
+  justify-content: flex-end;
+}
+.login_bg .login_wrap > form > div > div > button {
+  font-size: 0.8vw;
+  margin-left: 2%;
+  border: none;
+  background-color: #2A2A2A;
+  color: #F0F0F0;
+  font-family: "TheJamsil";
+  line-height: 200%;
+  padding: 0 4%;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.login_bg .login_wrap > form > div > div > button:hover {
+  background-color: #BF2195;
 }
 
 @media screen and (max-width: 1024px) {

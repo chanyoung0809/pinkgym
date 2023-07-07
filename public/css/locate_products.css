@@ -1,0 +1,181 @@
+#container .title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+}
+#container .title > h2 {
+  font-family: "Marcellus";
+  font-size: 5vw;
+  color: #1C1C1C;
+  position: relative;
+  line-height: 140%;
+  padding: 0 2%;
+  margin: 0 0 4%;
+}
+#container .title > h2::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #CF61A6;
+  border-radius: 50%;
+  width: 4vw;
+  height: 4vw;
+  z-index: -1;
+}
+#container .product_wrap {
+  display: flex;
+  justify-content: center;
+  padding-top: 4%;
+}
+#container .product_wrap .center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  margin-bottom: 8%;
+}
+#container .product_wrap .center.left {
+  flex-direction: row;
+}
+#container .product_wrap .center.left .img_wrap::before {
+  content: "";
+  display: inline-block;
+  border: 0.2vw solid #CF61A6;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 3%;
+  left: 2%;
+  z-index: -1;
+}
+#container .product_wrap .center.right {
+  flex-direction: row-reverse;
+}
+#container .product_wrap .center.right .img_wrap::before {
+  content: "Pink Lady Gym";
+  display: inline-block;
+  color: #FFF;
+  text-shadow: -1px 0 #CF61A6, 0 1px #CF61A6, 1px 0 #CF61A6, 0 -1px #CF61A6;
+  font-size: 5vw;
+  font-family: "Marcellus";
+  position: absolute;
+  bottom: -8%;
+  left: -16%;
+  letter-spacing: 0.1vw;
+  z-index: -1;
+}
+#container .product_wrap .center .img_wrap {
+  width: 50%;
+  height: 30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#container .product_wrap .center .img_wrap > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#container .product_wrap .center .text_wrap {
+  width: 40%;
+  font-family: "TheJamsil";
+  word-break: keep-all;
+}
+#container .product_wrap .center .text_wrap > h3 {
+  font-size: 3vw;
+  font-weight: 800;
+  line-height: 200%;
+  color: #BF2195;
+}
+#container .product_wrap .center .text_wrap > p {
+  font-size: 1.2vw;
+  line-height: 160%;
+}
+#container .regions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+#container .regions .region_wrap {
+  width: 70%;
+  padding-top: 4%;
+}
+#container .regions .region_wrap .region_title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  font-family: "TheJamsil";
+  margin: 2% 0;
+}
+#container .regions .region_wrap .region_title > h2 {
+  color: #BF2195;
+  font-weight: 700;
+  font-size: 3vw;
+}
+#container .regions .region_wrap .region_title > strong {
+  font-weight: 500;
+  margin-left: 1%;
+  font-size: 1vw;
+  color: #1C1C1C;
+  letter-spacing: -0.08vw;
+}
+#container .regions .region_wrap .region_info {
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+#container .regions .region_wrap .region_info .region_visual {
+  width: 100%;
+  height: 20vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#container .regions .region_wrap .region_info .region_visual.left {
+  flex-direction: row;
+}
+#container .regions .region_wrap .region_info .region_visual.right {
+  flex-direction: row-reverse;
+}
+#container .regions .region_wrap .region_info .region_visual > img {
+  width: 50%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#container .regions .region_wrap .region_info .region_visual .map {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container .regions .region_wrap .region_text {
+  font-size: 1vw;
+  font-family: "TheJamsil";
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  margin-bottom: 2%;
+}
+#container .regions .region_wrap .region_text > p {
+  width: -moz-max-content;
+  width: max-content;
+  font-weight: 300;
+  color: #2A2A2A;
+  line-height: 120%;
+  word-break: keep-all;
+  margin-right: 1%;
+  letter-spacing: -0.08vw;
+}
+#container .regions .region_wrap .region_text > p > strong {
+  font-weight: 700;
+  color: #1C1C1C;
+}
