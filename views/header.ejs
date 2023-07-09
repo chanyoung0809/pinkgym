@@ -32,7 +32,7 @@
             <h1 class="logo_wrap"><a href="/"><img src="/img/logoblack.png" /></a></h1>
             <div class="userinfo_wrap">
                 <% if (login) { %>
-                    <a href="/mypage">박회원 님</a>
+                    <a href="/mypage"><%- login.userID %>님</a>
                     <a href="/logout">
                         <span class="material-symbols-outlined">logout</span>
                     </a>

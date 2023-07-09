@@ -30,6 +30,7 @@
   display: flex;
   justify-content: center;
   padding-top: 4%;
+  padding-bottom: 2%;
 }
 #container .product_wrap .center {
   display: flex;
@@ -106,6 +107,7 @@
 #container .regions .region_wrap {
   width: 70%;
   padding-top: 4%;
+  padding-bottom: 2%;
 }
 #container .regions .region_wrap .region_title {
   display: flex;

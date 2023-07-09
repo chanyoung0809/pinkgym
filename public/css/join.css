@@ -134,6 +134,7 @@
   margin-left: 0.5vw;
 }
 #container .join_wrap > form .info .confirm > button {
+  display: inline-block;
   border: none;
   outline: none;
   background-color: #2A2A2A;
@@ -141,7 +142,7 @@
   font-family: "TheJamsil";
   font-weight: 500;
   font-size: calc(13px + 0.1vw);
-  height: 1.5vw;
+  height: calc(13px + 1.8vw);
   padding: 0 1vw;
   margin-right: 1vw;
   border-radius: 0.4vw;
@@ -165,4 +166,5 @@
   font-weight: 500;
   border: none;
   outline: none;
+  cursor: pointer;
 }

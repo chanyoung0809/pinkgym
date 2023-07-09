@@ -140,6 +140,7 @@ $whiteTextShadow:2px 2px 5px #0005;
                 .confirm {
                     margin-left: .5vw;
                     > button {
+                        display: inline-block;
                         border: none;
                         outline: none;
                         background-color: $lightblack;
@@ -147,7 +148,7 @@ $whiteTextShadow:2px 2px 5px #0005;
                         font-family: $kor;
                         font-weight: 500;
                         font-size: calc(13px + .1vw);
-                        height: 1.5vw;
+                        height: calc(13px + 1.8vw);
                         padding: 0 1vw;
                         margin-right: 1vw;
                         border-radius: .4vw;
@@ -173,6 +174,7 @@ $whiteTextShadow:2px 2px 5px #0005;
                 font-weight: 500;
                 border: none;
                 outline: none;
+                cursor: pointer;
             }
         }
     }

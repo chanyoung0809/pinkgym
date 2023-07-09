@@ -8,7 +8,7 @@
             <div class="terms">
                 <div class="all_chk">
                     <div class="checkbox_wrap">
-                        <input type="checkbox" id="all_chk"><label for="all_chk">모든 약관에 동의합니다</label>
+                        <input type="checkbox" id="all_chk" required><label for="all_chk">모든 약관에 동의합니다</label>
                     </div>
                 </div>
                 <h4>사이트 이용약관</h4>
@@ -76,7 +76,7 @@
                         ③ 전항에 의한 서비스 중단의 경우 사이트는 사전에 공지사항 등을 통하여 회원에게 통지합니다. 단, 사이트가 통제할 수 없는 사유로 발생한 서비스의 중단에 대하여 사전공지가 불가능한 경우에는 사후공지로 대신합니다.
                     </pre>
                     <div class="checkbox_wrap">
-                        <input type="checkbox" id="chk1" class="checkbox"><label for="chk1">사이트 이용약관에 동의합니다.</label>
+                        <input type="checkbox" id="chk1" class="checkbox" required><label for="chk1">사이트 이용약관에 동의합니다.</label>
                     </div>
                 </div>
                 <h4>개인정보 이용약관</h4>
@@ -100,7 +100,7 @@
                         회원탈퇴 시까지 (단, 관계 법령에 보존 근거가 있는 경우 해당 기간 시까지 보유, 개인정보처리방침에서 확인 가능)
                     </pre>
                     <div class="checkbox_wrap">
-                        <input type="checkbox" id="chk2" class="checkbox"><label for="chk2">개인정보 이용약관에 동의합니다.</label>
+                        <input type="checkbox" id="chk2" class="checkbox" required><label for="chk2">개인정보 이용약관에 동의합니다.</label>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                     <label for="ID">아이디</label>
                 </div>
                 <div class="input">
-                    <input type="text" id="ID" name="userID" minlength="8" maxlength="12" pattern="/[\w-]{8,12}/" placeholder="아이디를 입력하세요" required>
+                    <input type="text" id="ID" name="userID" minlength="8" maxlength="12" placeholder="아이디를 입력하세요" required>
                 </div>
                 <div class="confirm">
                     <button>아이디 중복체크</button>
@@ -121,7 +121,7 @@
                     <label for="PW">비밀번호</label>
                 </div>
                 <div class="input">
-                    <input type="password" id="PW" name="userPW" minlength="10"  maxlength="16" pattern="[\w\-\!\*]{10,16}" placeholder="비밀번호를 입력하세요" required>
+                    <input type="password" id="PW" name="userPW" minlength="10" maxlength="16"  placeholder="비밀번호를 입력하세요" required>
                 </div>
                 <div class="confirm">
                     <button>비밀번호 보기</button>
@@ -130,7 +130,7 @@
             </div>
             <div class="info">
                 <div class="label">
-                    <label for="userPW2">비밀번호 확인</label>
+                    <label for="PW2">비밀번호 확인</label>
                 </div>
                 <div class="input">
                     <input type="password" id="PW2" name="userPW2" minlength="10" placeholder="비밀번호를 다시 입력하세요" maxlength="16" required>
@@ -145,9 +145,9 @@
                     <label for="userBirth">주민등록번호</label>
                 </div>
                 <div class="input">
-                    <input type="text" id="userBirth" name="userBirth" maxlength="6" pattern="[0-9]" placeholder="6자리 숫자만 입력해주세요" required >
+                    <input type="text" id="userBirth" name="userBirth" maxlength="6" placeholder="6자리 숫자만 입력해주세요" required >
                     <span>-</span>
-                    <input type="password" id="userGender" name="userGender" maxlength="1" pattern="[0-9]" required >
+                    <input type="password" id="userGender" name="userGender" maxlength="1" required >
                     <span>* * * * * *</span>
                 </div>
                 <div class="confirm">
@@ -161,9 +161,9 @@
                 <div class="input">
                     <input type="text" id="userPhone1" name="userPhone1" maxlength="3" readonly value="010" required >
                     <span>-</span>
-                    <input type="text" id="userPhone2" name="userPhone2" maxlength="4" pattern="[0-9]{4}" required >
+                    <input type="text" id="userPhone2" name="userPhone2" maxlength="4" required >
                     <span>-</span>
-                    <input type="text" id="userPhone3" name="userPhone2" maxlength="4" pattern="[0-9]{4}" required >
+                    <input type="text" id="userPhone3" name="userPhone3" maxlength="4" required >
                 </div>
                 <div class="confirm">
                     <span>휴대폰 번호를 입력하세요.</span>

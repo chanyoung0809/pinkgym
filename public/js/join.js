@@ -46,6 +46,8 @@ Array.from(chks).forEach((chk, i)=>{
     });
 });
 
+// 전송 폼
+const submitform = document.querySelector(".join_wrap > form");
 // 전송 버튼
 const submitBtn = document.querySelector(".join_wrap > form > button");
 // 아이디, 비밀번호, 생년월일, 성별, 핸드폰번호 정규식
@@ -65,42 +67,85 @@ const errorMsg = {
     phone:"핸드폰번호를"
 };
 // 전송 전 데이터 체크
-submitBtn.addEventListener("click", (e)=>{
-    // 기본 전송 기능 막고
-    e.preventDefault();
+submitBtn.addEventListener("click", (e) => {
     // 체크 목록 객체
     let checklist = {
-        checkboxes:false,
-        id:false,
-        pw:false,
-        pw2:false, 
-        birth:false,
-        gender:false,
-        phone:false
-    }
-    //아이디 체크
-    rgxCheck(rgxID, inputID, id);
-    // 비밀번호 체크
-    rgxCheck(rgxPW, inputPW, pw);
-    // 비밀번호 확인 체크
-    if(inputPW === inputPW2){
-        rgxCheck(rgxPW, inputPW2, pw2);
-    }
-    // 생년월일 확인 체크
-    rgxCheck(rgxBirth, userBirth, birth);
-});
+        checkboxes: false,
+        id: false,
+        pw: false,
+        pw2: false,
+        birth: false,
+        gender: false,
+        phone: false,
+    };
 
-let rgxCheck = (rgx, inputarea, objkey)=>{
-    if(rgx.test(inputarea.value)){
-        checklist.objkey = true;
-        inputarea.style.borderBottom=".2vw solid #2A2A2A";
-    } 
-    else{
-        checklist.objkey = false;
-        alert(`${errorMsg.objkey} 확인해주세요`);
-        inputPW.style.borderBottom=".2vw solid #BF2195";
-        inputPW.focus();
+    // 체크박스 체크
+    if (allchk.checked) {
+        checklist['checkboxes'] = true;
+    } else {
+        checklist['checkboxes'] = false;
+        allchk.focus();
         return;
     }
-}
 
+    // 아이디 체크값이 false면 후속 기능 중단
+    if (!rgxCheck(rgxID, inputID, 'id', checklist)) return;
+
+    // 비밀번호 체크값이 false면 후속 기능 중단
+    if (!rgxCheck(rgxPW, inputPW, 'pw', checklist)) return;
+
+    // 비밀번호 확인 체크값이 false면 후속 기능 중단
+    if (inputPW.value !== inputPW2.value || !rgxCheck(rgxPW, inputPW2, 'pw2', checklist)) return;
+
+    // 생년월일 확인 체크값이 false면 후속 기능 중단
+    if (!rgxCheck(rgxBirth, userBirth, 'birth', checklist)) return;
+
+    // 성별 확인 체크값이 false면 후속 기능 중단
+    if (!rgxCheck(rgxGender, userGender, 'gender', checklist)) return;
+
+    // 전화번호2, 3 체크값이 false면 후속 기능 중단
+    if (!rgxPhone.test(userPhone2.value) || !rgxPhone.test(userPhone3.value)) {
+        checklist['phone'] = false;
+        alert(`${errorMsg['phone']} 확인해주세요`);
+        userPhone2.style.borderBottom = ".2vw solid #BF2195";
+        userPhone3.style.borderBottom = ".2vw solid #BF2195";
+        userPhone2.focus();
+        return;
+    }
+    // 모든 체크리스트 값이 true 일 때
+    if (validChk(checklist)) {
+        console.log("제출됨");
+        submitform.submit();
+    } 
+    else {
+        e.preventDefault(); // 제출 동작 막음
+    }
+});
+
+// 정규식 체크 함수
+let rgxCheck = (rgx, inputarea, objkey, checklist) => {
+    if (rgx.test(inputarea.value)) {
+        checklist[objkey] = true;
+        inputarea.style.borderBottom = ".2vw solid #2A2A2A";
+        return true;
+    } else {
+        checklist[objkey] = false;
+        alert(`${errorMsg[objkey]} 확인해주세요`);
+        inputarea.style.borderBottom = ".2vw solid #BF2195";
+        inputarea.focus();
+        return false;
+    }
+};
+
+// 모든 유효성 검사 값이 true인지 확인하는 함수
+let validChk = (obj) => {
+    // 객체만큼 반복문 돌려서
+    for (let key in obj) {
+        //혹시나 false 인 게 있으면 false.
+        if (!obj[key]) {
+            return false;
+        }
+    }
+    //아니면 참
+    return true;
+}
