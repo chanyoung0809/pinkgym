@@ -1,15 +1,19 @@
 // 전체동의, 비동의
 const allchk = document.querySelector("#all_chk");
 const chks = document.querySelectorAll(".terms > div .checkbox_wrap .checkbox");
+const validForm = document.querySelector("#validForm");
 
 // 아이디, 비밀번호, 비밀번호확인, 주민번호앞자리, 주민번호뒷자리(성별), 휴대폰번호 앞4자리, 뒷4자리 입력칸
 const inputID = document.querySelector("#ID");
 const inputPW = document.querySelector("#PW");
 const inputPW2 = document.querySelector("#PW2");
+const inputName = document.querySelector("#userName");
 const userBirth = document.querySelector("#userBirth");
 const userGender = document.querySelector("#userGender");
 const userPhone2 = document.querySelector("#userPhone2");
 const userPhone3 = document.querySelector("#userPhone3");
+
+const IDvalid = document.querySelector("#IDvalid"); //아이디 중복 체크 확인 버튼 -> ajax 라이브러리 axios를 이용하여 작업 
 
 //전체동의 체크박스 눌렀을 때
 allchk.addEventListener("change", (e)=>{
@@ -46,6 +50,34 @@ Array.from(chks).forEach((chk, i)=>{
     });
 });
 
+// 비밀번호 입력내용 토글 버튼
+const pwToggle1 = document.querySelector('#pw_toggle1');
+;
+// 비밀번호 확인 입력내용 토글 버튼
+const pwToggle2 = document.querySelector('#pw_toggle2');
+
+/* 비밀번호 입력내용 보이게/안보이게 해주는 함수 */
+let pwTypeToggle = (passwordInput, passwordToggle)=>{  
+    //입력내용 확인 눈모양 아이콘 클릭하면
+    passwordToggle.addEventListener('mousedown', ()=> {
+        // 패스워드가 보임
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+        }
+    });
+    // 해당 영역에서 마우스가 벗어나거나, 클릭을 해제하면
+    // 패스워드가 보이지 않게 함
+    passwordToggle.addEventListener('mouseleave', ()=> {
+        passwordInput.type = 'password';
+    });
+    passwordToggle.addEventListener('mouseup', ()=> {
+        passwordInput.type = 'password';
+    });
+}
+//비밀번호, 비밀번호확인창에 기능 부여
+pwTypeToggle(inputPW, pwToggle1);
+pwTypeToggle(inputPW2, pwToggle2);
+
 // 전송 폼
 const submitform = document.querySelector(".join_wrap > form");
 // 전송 버튼
@@ -54,6 +86,7 @@ const submitBtn = document.querySelector(".join_wrap > form > button");
 const rgxID = /^[\w-]{8,12}$/;
 const rgxPW = /^[\w\-\!\*]{10,16}$/;
 // 비밀번호확인은 기존 비밀번호 검증식으로 검증
+const rgxName = /^[가-힣]{2,6}$/;
 const rgxBirth = /^[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])$/;
 const rgxGender = /^(2|4){1}$/;
 const rgxPhone =  /^[0-9]{4}$/;
@@ -62,6 +95,7 @@ const errorMsg = {
     id:"아이디를", 
     pw:"비밀번호를", 
     pw2:"비밀번호 확인란을", 
+    name:"성함을",
     birth:"주민등록번호 앞자리를", 
     gender:"주민등록번호 뒷자리를", 
     phone:"핸드폰번호를"
@@ -74,6 +108,7 @@ submitBtn.addEventListener("click", (e) => {
         id: false,
         pw: false,
         pw2: false,
+        name: false,
         birth: false,
         gender: false,
         phone: false,
@@ -97,6 +132,9 @@ submitBtn.addEventListener("click", (e) => {
     // 비밀번호 확인 체크값이 false면 후속 기능 중단
     if (inputPW.value !== inputPW2.value || !rgxCheck(rgxPW, inputPW2, 'pw2', checklist)) return;
 
+    // 성명 확인 체크값이 false면 후속 기능 중단
+    if (!rgxCheck(rgxName, inputName, 'name', checklist)) return;
+
     // 생년월일 확인 체크값이 false면 후속 기능 중단
     if (!rgxCheck(rgxBirth, userBirth, 'birth', checklist)) return;
 
@@ -114,7 +152,7 @@ submitBtn.addEventListener("click", (e) => {
     }
     // 모든 체크리스트 값이 true 일 때
     if (validChk(checklist)) {
-        console.log("제출됨");
+        validForm.setAttribute("action","/DBjoin");
         submitform.submit();
     } 
     else {
@@ -149,3 +187,22 @@ let validChk = (obj) => {
     //아니면 참
     return true;
 }
+
+//아이디 중복체크 검사 비동기통신 
+IDvalid.addEventListener("click",(e)=>{
+    validForm.setAttribute("action","/DBtest"); //회원가입 처리를 막기위해 DBtest 경로로 form태그 action값을 임시로 변경
+
+    axios.post('/DBtest', {
+        userID:ID.value, //요청시 서버에 전송할 데이터
+      })
+      .then(function (response) { //요청성공
+        console.log(response);
+        alert(response.data.result.userID + "는 사용 불가능한 아이디 입니다");
+      })
+      .catch(function (error) { //요청실패
+        console.log(error);
+        alert(ID.value + "는 사용 가능한 아이디 입니다");
+      });
+
+
+})

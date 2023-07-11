@@ -16,9 +16,13 @@ Array.from(login_reqs).forEach((login) => {
         // 
     });
 });
-// 로그인 닫기 버튼 눌렀을 때
-login_close.addEventListener('click',(e)=>{
-    //전체화면 원상복귀
-    body.classList.remove("show");
-    login_bg.style.display='none';
-});
+
+if(login_bg){
+    // 로그인 닫기 버튼 눌렀을 때
+    login_close.addEventListener('click',(e)=>{
+        //전체화면 원상복귀
+        body.classList.remove("show");
+        login_bg.style.display='none';
+    });
+}
+

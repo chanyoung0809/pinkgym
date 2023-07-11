@@ -1,0 +1,31 @@
+<%- include('header', {title:"Pink Ladies Gym",  cssFiles:["reset.css","header.css", "footer.css", "index.css"]})%>
+    <div id="container">
+        <div class="title">
+            <h2>Board</h2>
+        </div>
+        <div class="write_wrap">
+            <% if (category === 'free') { %>
+                <h3 onclick="window.location.href='/board/free'">자유게시판</h3>
+            <% } else if (category === 'sell') { %>
+                <h3 onclick="window.location.href='/board/sell'">벼룩시장</h3>
+            <% } %>
+            <form action="/DBpost/free" method="post" enctype="multipart/form-data">
+                <input type="hidden" id="post_date" name="post_date">
+                <div class="post_title">
+                    <label for="post_title">제목</label>
+                    <input id="post_title" name="post_title" type="text" placeholder="제목을 입력하세요" required>
+                </div>
+                <div class="post_imgs">
+                    <input type="file" id="post_file" name="post_file" multiple>
+                </div>
+                <div class="post_text">
+                    <textarea id="post_text" name="post_text" required></textarea>
+                </div>
+                <div class="btn_wrap">
+                    <button type="submit">작성하기</button>
+                    <button type="reset">다시쓰기</button>
+                </div>
+            </form>
+        </div>
+    </div>
+<%- include('footer', {jsFiles:["header.js", "swiper.js", "mGnb.js", "login.js"]})%>

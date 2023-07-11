@@ -409,6 +409,12 @@ body.show {
             }
             .userinfo_wrap { 
                 transform: scale(.8);
+                > a {
+                    font-size: 20px;
+                    > span {
+                        font-size: 28px;
+                    }
+                }
             }
         }
     }

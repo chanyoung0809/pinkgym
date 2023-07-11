@@ -1,7 +1,7 @@
 <%- include('header', {title:"Pink Ladies Gym",  cssFiles:["reset.css", "header.css", "footer.css", "locate_products.css"]})%>
 <div id="container">
     <div class="title">
-        <h2>Location</h2>
+        <h2><p>Location</p></h2>
     </div>
     <% locates.forEach((item, idx) => { %>
         <div class="regions">
@@ -13,7 +13,9 @@
                 <div class="region_info">
                     <div class="region_visual <%- (idx % 2 == 0) ? 'left' : 'right' %>">
                         <img src="/img/<%- item.engName %>.jpg">
-                        <div class="map">지도</div>
+                        <div class="map">
+                            <iframe src="<%- item.mapURL %>" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                     </div>
                     <div class="region_text">
                         <p><strong>ADDRESS : </strong><%- item.address %></p>

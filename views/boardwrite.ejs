@@ -1,0 +1,31 @@
+<%- include('header', {title:"Pink Ladies Gym",  cssFiles:["reset.css","header.css", "footer.css", "board.css"]})%>
+    <div id="container">
+        <div class="title">
+            <h2><p>Posting</p></h2>
+        </div>
+        <div class="write_wrap">
+            <ul class="category">
+                <li class="<%- (category === "free") ? 'on' : ''; %>"><a href="/board/free">자유게시판</a></li>
+                <li class="<%- (category === "sell") ? 'on' : ''; %>"><a href="/board/sell">중고거래</a></li>
+            </ul>
+            <form action="/DBpost/<%- category %>" method="post" enctype="multipart/form-data" id="upload">
+                <input type="hidden" id="post_date" name="post_date">
+                <div class="post_title">
+                    <label for="post_title">제목</label>
+                    <input id="post_title" name="post_title" type="text" placeholder="제목을 입력하세요" required>
+                </div>
+                <div class="post_imgs">
+                    <label for="post_file">이미지 파일</label>
+                    <input type="file" id="post_file" name="post_file" accept="image/*" multiple>
+                </div>
+                <div class="post_text">
+                    <textarea id="post_text" name="post_text" placeholder="내용을 입력하세요" required></textarea>
+                </div>
+                <div class="btn_wrap">
+                    <button type="submit" id="submit">작성하기</button>
+                    <button type="reset">다시쓰기</button>
+                </div>
+            </form>
+        </div>
+    </div>
+<%- include('footer', {jsFiles:["header.js", "swiper.js", "mGnb.js", "login.js", "fileselect.js"]})%>

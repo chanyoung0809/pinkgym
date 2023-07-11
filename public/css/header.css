@@ -381,4 +381,10 @@ body.show {
   #header_top .center .userinfo_wrap {
     transform: scale(0.8);
   }
+  #header_top .center .userinfo_wrap > a {
+    font-size: 20px;
+  }
+  #header_top .center .userinfo_wrap > a > span {
+    font-size: 28px;
+  }
 }

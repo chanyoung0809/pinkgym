@@ -1,20 +1,56 @@
-<%- include('header', {title:"Pink Ladies Gym",  cssFiles:["reset.css","header.css", "footer.css", "index.css"]})%>
+<%- include('header', {title:"Pink Ladies Gym",  cssFiles:["reset.css","header.css", "footer.css", "board.css"]})%>
     <div id="container">
         <div class="title">
-            <h2>Board</h2>
+            <h2><p>Board</p></h2>
         </div>
         <div class="board_wrap">
-            <h3 class="board_category"><%- (posts[0].category== 'free' ? '자유게시판' : '벼룩시장') %></h3>
-            <div class="board_wrap">
-                <%- posts.forEach((post, idx)=>{
-                    <div class="post">
-                        <img src="<%-(post.img[0] !== '')? `/upload/${posts.img[0]}` : `/img/thumbnail.png`%>" >
-                        <h4 class="postname"><%- post.postname %> <span class="commentsIdx">［<%- post.comment.length %>］</span></h4>
-                        <p class="author"><%- post.author %></p>
-                        <p class="date"><%- post.date %></p>
-                    </div>
-                })%>
+            <ul class="category">
+                <li class="<%- (category === "free") ? 'on' : ''; %>"><a href="/board/free">자유게시판</a></li>
+                <li class="<%- (category === "sell") ? 'on' : ''; %>"><a href="/board/sell">중고거래</a></li>
+            </ul>
+            <div class="posts_wrap">
+                <% data.forEach((post, idx) => { %>
+                    <% if (post.category === category) { %>
+                        <a href="/board/<%- category %>/detail/<%- post.post_num %>" class="post">
+                            <div class="img_wrap">
+                            <% if (post.attachfile.length > 0) { %>
+                                <img src="/upload/<%- post.attachfile[0] %>" >
+                            <% } else { %>
+                                <img src="/img/thumbnail.png" class="thumbmail">
+                            <% } %>
+                            </div>
+                            <h4 class="post_title"><%- post.post_title %> <span class="commentsIdx">［<%- post.comments.length %>］</span></h4>
+                            <div class="info_wrap">
+                                <p class="post_date"><%- (Today == post.post_date.slice(0,10)) ? post.post_date.slice(11) : post.post_date.slice(0,10); %></p>
+                                <p class="post_author"><%- post.post_author %></p>
+                            </div>
+                        </a>
+                    <% } %>
+                <% }) %>
             </div>
+            <div class="write_btn">
+                <a href="/board/<%- category %>/write">글쓰기</a>
+            </div>
+            <nav class="paginationWrap">
+                <ul class="pagination">
+                    <!-- 이전 버튼 생성 작업 -->
+                    <% if (blockStart > totalBlock) { %>
+                    <li><a href="?page=<%- blockStart - 1 %>"><span class="material-symbols-outlined">chevron_left</span></a></li>
+                    <% } %>
+                    <% for(let i = blockStart; i <= blockEnd; i++) { %>
+                        <% if (pageNumber == i) { %>
+                            <!-- 현재 보고 있는 페이지 번호인 경우 활성화 -->
+                            <li class="on"><a href="?page=<%- i %>"><%- i %></a></li>
+                        <% } else { %>
+                            <li><a href="?page=<%- i %>"><%- i %></a></li>
+                        <% } %>
+                    <% } %>
+                    <% if (blockNum < totalBlock) { %>
+                        <!-- 페이징블록 시작번호가 그룹의 총 갯수보다 크다면 -->
+                        <li><a href="?page=<%- blockEnd + 1 %>"><span class="material-symbols-outlined">chevron_right</span></a></li>
+                    <% } %>
+                </ul>
+            </nav>
         </div>
     </div>
 <%- include('footer', {jsFiles:["header.js", "swiper.js", "mGnb.js", "login.js"]})%>

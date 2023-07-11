@@ -490,4 +490,16 @@
   .m_gnb_bg .m_gnb_wrap #m_gnb .user_wrap .users {
     transform: scale(0.8);
   }
+  .m_gnb_bg .m_gnb_wrap #m_gnb .user_wrap .users > a {
+    font-size: 20px;
+  }
+  .m_gnb_bg .m_gnb_wrap #m_gnb .user_wrap .users > a > span {
+    font-size: 28px;
+  }
+  .m_gnb_bg .m_gnb_wrap #m_gnb .Gnb > li > a {
+    font-size: 5vw;
+  }
+  .m_gnb_bg .m_gnb_wrap #m_gnb .Gnb > li .depth2 > li > a {
+    font-size: 4vw;
+  }
 }

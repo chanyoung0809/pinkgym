@@ -36,7 +36,7 @@
                     <h1 class="logo_wrap"><a href="/"><img src="/img/logoblack.png" /></a></h1>
                     <div class="users">
                         <% if (login) { %>
-                            <a href="/mypage">박회원 님</a>
+                            <a href="/mypage"><%- login.userName %>님</a>
                             <a href="/logout">
                                 <span class="material-symbols-outlined">logout</span>
                             </a>
@@ -83,7 +83,7 @@
                         </ul>
                     </li>
                     <li class="depth1">
-                        <a href="/board/free">
+                        <a href="/board/free?page=1">
                             <span>
                                 <p>커뮤니티</p>
                                 <span class="material-symbols-outlined">expand_more</span>
@@ -91,7 +91,7 @@
                         </a>
                         <ul class="depth2">
                             <% if (login) { %>
-                                <li><a href="/board/free">자유게시판</a></li> 
+                                <li><a href="/board/free?page=1">자유게시판</a></li> 
                                 <li><a href="/board/sell">중고거래</a></li> 
                             <% } else {%>
                                 <li><a href="/join">회원가입</a></li>

@@ -18,6 +18,8 @@
            <link rel="stylesheet" href="/css/<%- cssFiles[i] %>">
        <% } %>
    <% } %>
+   <!-- ajax 사용 라이브러리-->
+   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div id="header_top">  
@@ -32,7 +34,7 @@
             <h1 class="logo_wrap"><a href="/"><img src="/img/logoblack.png" /></a></h1>
             <div class="userinfo_wrap">
                 <% if (login) { %>
-                    <a href="/mypage"><%- login.userID %>님</a>
+                    <a href="/mypage"><%- login.userName %>님</a>
                     <a href="/logout">
                         <span class="material-symbols-outlined">logout</span>
                     </a>
@@ -69,7 +71,7 @@
                     <a href="/board/free">커뮤니티</a>
                     <ul class="depth2">
                         <% if (login) { %>
-                            <li><a href="/board/free">자유게시판</a></li> 
+                            <li><a href="/board/free?page=1">자유게시판</a></li> 
                             <li><a href="/board/sell">중고거래</a></li> 
                         <% } else {%>
                             <li><a href="/join">회원가입</a></li>

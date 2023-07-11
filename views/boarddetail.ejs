@@ -1,0 +1,68 @@
+<%- include('header', {title:"Pink Ladies Gym",  cssFiles:["reset.css","header.css", "footer.css", "board.css"]})%>
+    <div id="container">
+        <div class="title">
+            <h2><p>Board</p></h2>
+        </div>
+        <div class="post_wrap">
+            <ul class="category">
+                <li class="<%- (category === "free") ? 'on' : ''; %>"><a href="/board/free">자유게시판</a></li>
+                <li class="<%- (category === "sell") ? 'on' : ''; %>"><a href="/board/sell">중고거래</a></li>
+            </ul>
+            <h4 class="title_wrap"><%- data.post_title %></h4>
+            <div class="author_wrap">
+                <p><%- data.post_author %></p>
+                <p><%- data.post_date %></p>
+            </div>
+            <div class="context_wrap">
+                <% if (data.attachfile.length > 0) { %>
+                    <% data.attachfile.forEach((file, i) => { %>
+                        <img src="/upload/<%- file %>"/>
+                    <% }) %>
+                <% } %>
+                <pre class="text_wrap"><%- data.post_text %></pre>
+            </div>
+        </div>
+        <div class="comments_wrap">
+            <% if (data.comments.length > 0) { %>
+                <!-- 댓글 있을 때만 실행될 댓글 표시공간 -->
+                <% data.comments.forEach((comment) => { %>
+                    <div class="comment">
+                        <h5 class="comment_author"><%- comment.comment_author %></h5>
+                        <form id="commentUpdate<%- comment.comment_num %>" action="/commentUpdate/<%- data.post_num %>/<%- comment.comment_num %>" method="post">
+                            <textarea class="comment_content" readonly><%- comment.comment_content %></textarea>
+                            <!-- 댓글 작성자 본일일때만 보일 수정 전송 버튼 (조작 위험 때문에 이중 처리)-->
+                            <% if (comment.comment_author == login.userName) { %>
+                                <button id="commentUpdateBtn<%- comment.comment_num %>" class="commentUpdateBtn" type="submit">수정하기</button>
+                            <% } %>
+                        </form>
+                        <!-- 댓글 작성자 본일일때만 보일 수정 버튼 -->
+                        <% if (comment.comment_author == login.userName) { %>
+                            <button type="button" class="commentEditBtn">수정</button>
+                        <% } %>
+                        <!-- 댓글 작성자 본인/관리자한테만 보이는 삭제 버튼-->
+                        <% if (comment.comment_author === login.userName || login.role === "ADMIN") { %>
+                            <a class="commentDeleteBtn" href="/commentDel/<%- data.post_num %>/<%- comment.comment_num %>">삭제</a>
+                        <% } %>
+                        <p class="comment_date"><%- comment.comment_date %></p>
+                    </div>
+                <% }) %>
+            <% } %>
+            <div class="comment_write">
+                <form action="/commentUpdate/<%- data.post_num %>" method="post" id="commentSubmit">
+                    <input type="text" readonly id="comment_author" name="comment_author" value="<%- login.userName %>">
+                    <textarea id="comment_content" name="comment_content" required></textarea>
+                    <input type="hidden" id="comment_date" name="comment_date">
+                    <input type="hidden" id="comment_num" name="comment_num" value="<%- data.comments.length+1 %>">
+                    <button type="submit" id="comment_submit">댓글쓰기</button>
+                </form>    
+            </div>
+        </div>
+        <div class="button_wrap">
+            <a href="/board/<%- category %>">뒤로가기</a>
+            <% if (data.post_author === login.userName || login.role === "ADMIN") { %>
+                <a href="/DBdelete">삭제하기</a>
+                <a href="/boardupdate/<%- data.post_num %>">수정하기</a>
+            <% } %>
+        </div>
+    </div>
+<%- include('footer', {jsFiles:["header.js", "swiper.js", "mGnb.js", "login.js", "comment.js"]})%>

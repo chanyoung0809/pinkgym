@@ -147,17 +147,21 @@
   flex-direction: row-reverse;
 }
 #container .regions .region_wrap .region_info .region_visual > img {
-  width: 50%;
+  width: 48%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 #container .regions .region_wrap .region_info .region_visual .map {
-  width: 50%;
+  width: 48%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#container .regions .region_wrap .region_info .region_visual .map > iframe {
+  width: 100%;
+  height: 100%;
 }
 #container .regions .region_wrap .region_text {
   font-size: 1vw;

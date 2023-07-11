@@ -1,0 +1,525 @@
+#container .title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+}
+#container .title > h2 {
+  font-family: "Marcellus";
+  font-size: 5vw;
+  color: #1C1C1C;
+  position: relative;
+  line-height: 140%;
+  padding: 0 2%;
+  margin: 0 0 4%;
+}
+#container .title > h2::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #CF61A6;
+  border-radius: 50%;
+  width: 4vw;
+  height: 4vw;
+  z-index: -1;
+}
+#container > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto 2%;
+}
+#container > div:nth-child(2) input {
+  font-family: "TheJamsil";
+  outline: none;
+  border: none;
+}
+#container > div:nth-child(2) textarea {
+  font-family: "TheJamsil";
+  resize: none;
+  outline: none;
+  white-space: pre-line;
+  border: none;
+}
+#container > div:nth-child(2) .category {
+  width: 100%;
+  display: flex;
+  font-family: "TheJamsil";
+  font-size: calc(16px + 0.2vw);
+  justify-content: space-between;
+  border-top: 1px solid #2A2A2A;
+  border-bottom: 1px solid #2A2A2A;
+}
+#container > div:nth-child(2) .category > li {
+  text-align: center;
+  width: 50%;
+  line-height: 280%;
+  transition: all 0.5s;
+}
+#container > div:nth-child(2) .category > li > a {
+  color: #2A2A2A;
+  transition: all 0.5s;
+  display: block;
+}
+#container > div:nth-child(2) .category > li.on {
+  background-color: #CF61A6;
+}
+#container > div:nth-child(2) .category > li.on > a {
+  color: #FFF;
+}
+#container > div:nth-child(2) .category > li:hover {
+  background-color: #2A2A2A;
+}
+#container > div:nth-child(2) .category > li:hover > a {
+  color: #FFF;
+}
+#container > div:nth-child(2).board_wrap .posts_wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 96%;
+  padding: 0 2% 4%;
+  padding-bottom: 4%;
+  border-bottom: 1px solid #2A2A2A;
+}
+#container > div:nth-child(2).board_wrap .posts_wrap .post {
+  width: 30%;
+  margin: 4% 0 0;
+  border: 1px solid #2A2A2A;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(13px + 0.1vw);
+  font-family: "TheJamsil";
+  color: #1C1C1C;
+  border-radius: 1vw;
+}
+#container > div:nth-child(2).board_wrap .posts_wrap .post .img_wrap {
+  width: 90%;
+  font-size: 1vw;
+  height: 12em;
+  margin: 4% 0 0;
+  overflow: hidden;
+  border: 1px solid #2A2A2A;
+}
+#container > div:nth-child(2).board_wrap .posts_wrap .post .img_wrap > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.5s;
+}
+#container > div:nth-child(2).board_wrap .posts_wrap .post .img_wrap > img.thumbmail {
+  filter: hue-rotate(-20deg);
+}
+#container > div:nth-child(2).board_wrap .posts_wrap .post > h4 {
+  font-size: calc(16px + 0.1vw);
+  height: calc(48px + 0.1vw);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  transition: all 0.5s;
+}
+#container > div:nth-child(2).board_wrap .posts_wrap .post > h4 > span {
+  font-size: calc(12px + 0.1vw);
+  color: #CF61A6;
+  letter-spacing: -0.2vw;
+}
+#container > div:nth-child(2).board_wrap .posts_wrap .post .info_wrap {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-between;
+  line-height: 200%;
+}
+#container > div:nth-child(2).board_wrap .posts_wrap .post .info_wrap .post_author {
+  text-align: center;
+  font-size: calc(13px + 0.1vw);
+  color: #1C1C1C;
+  font-weight: 500;
+}
+#container > div:nth-child(2).board_wrap .posts_wrap .post .info_wrap .post_date {
+  font-size: calc(13px + 0.1vw);
+  color: #2A2A2A;
+}
+#container > div:nth-child(2).board_wrap .posts_wrap .post:hover .img_wrap > img {
+  transform: scale(1.2);
+}
+#container > div:nth-child(2).board_wrap .posts_wrap .post:hover > h4 {
+  color: #BF2195;
+}
+#container > div:nth-child(2).board_wrap .write_btn {
+  border-bottom: 1px solid #2A2A2A;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1% 0;
+}
+#container > div:nth-child(2).board_wrap .write_btn > a {
+  font-size: calc(13px + 0.1vw);
+  background-color: #2A2A2A;
+  border: none;
+  color: #FFF;
+  line-height: 200%;
+  font-family: "TheJamsil";
+  border-radius: 0.2vw;
+  font-size: calc(13px + 0.2vw);
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.5s;
+  margin-right: 2%;
+  padding: 0 1vw;
+}
+#container > div:nth-child(2).board_wrap .write_btn > a:hover {
+  background-color: #CF61A6;
+}
+#container > div:nth-child(2).board_wrap .paginationWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container > div:nth-child(2).board_wrap .paginationWrap .pagination {
+  width: -moz-max-content;
+  width: max-content;
+  display: flex;
+}
+#container > div:nth-child(2).board_wrap .paginationWrap .pagination > li > a {
+  display: block;
+  font-family: "TheJamsil";
+  font-size: calc(13px + 0.1vw);
+  color: #1C1C1C;
+  font-weight: 500;
+  line-height: 200%;
+  margin: 0.4em;
+  transition: all 0.5s;
+}
+#container > div:nth-child(2).board_wrap .paginationWrap .pagination > li > a:hover {
+  color: #BF2195;
+}
+#container > div:nth-child(2).board_wrap .paginationWrap .pagination > li.on > a {
+  color: #BF2195;
+}
+#container > div:nth-child(2).write_wrap {
+  font-family: "TheJamsil";
+}
+#container > div:nth-child(2).write_wrap #upload {
+  width: 100%;
+}
+#container > div:nth-child(2).write_wrap #upload .post_title {
+  display: flex;
+  border-bottom: 1px solid #2A2A2A;
+}
+#container > div:nth-child(2).write_wrap #upload .post_title > label {
+  width: 15%;
+  text-align: center;
+  line-height: 240%;
+  font-size: calc(13px + 0.2vw);
+  border-right: 1px solid #2A2A2A;
+}
+#container > div:nth-child(2).write_wrap #upload .post_title > input {
+  width: 81%;
+  line-height: 240%;
+  font-size: calc(13px + 0.2vw);
+  padding: 0 2%;
+  font-weight: 300;
+}
+#container > div:nth-child(2).write_wrap #upload .post_imgs {
+  display: flex;
+  border-bottom: 1px solid #2A2A2A;
+}
+#container > div:nth-child(2).write_wrap #upload .post_imgs > label {
+  width: 15%;
+  text-align: center;
+  line-height: 240%;
+  font-size: calc(13px + 0.2vw);
+  border-right: 1px solid #2A2A2A;
+}
+#container > div:nth-child(2).write_wrap #upload .post_imgs > input {
+  width: 81%;
+  line-height: 240%;
+  font-size: calc(13px + 0.2vw);
+  padding: 0 1.8%;
+  font-weight: 300;
+}
+#container > div:nth-child(2).write_wrap #upload .post_imgs > input::file-selector-button {
+  background-color: #2A2A2A;
+  border: none;
+  color: #FFF;
+  line-height: 160%;
+  font-family: "TheJamsil";
+  border-radius: 0.2vw;
+  font-size: calc(13px + 0.2vw);
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+#container > div:nth-child(2).write_wrap #upload .post_imgs > input::file-selector-button:hover {
+  background-color: #CF61A6;
+}
+#container > div:nth-child(2).write_wrap #upload .post_text {
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #2A2A2A;
+}
+#container > div:nth-child(2).write_wrap #upload .post_text > textarea {
+  width: 98%;
+  height: 92%;
+  font-size: calc(13px + 0.2vw);
+  font-weight: 300;
+  padding: 0 1%;
+  line-height: 160%;
+}
+#container > div:nth-child(2).write_wrap #upload .post_text > textarea::-moz-placeholder {
+  font-weight: 300;
+}
+#container > div:nth-child(2).write_wrap #upload .post_text > textarea::placeholder {
+  font-weight: 300;
+}
+#container > div:nth-child(2).write_wrap #upload .btn_wrap {
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px solid #2A2A2A;
+  padding: 1% 0;
+}
+#container > div:nth-child(2).write_wrap #upload .btn_wrap > button {
+  background-color: #2A2A2A;
+  border: none;
+  color: #FFF;
+  line-height: 200%;
+  font-family: "TheJamsil";
+  border-radius: 0.2vw;
+  font-size: calc(13px + 0.2vw);
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.5s;
+  padding: 0 1%;
+  margin-left: 1%;
+}
+#container > div:nth-child(2).write_wrap #upload .btn_wrap > button:hover {
+  background-color: #CF61A6;
+}
+#container > div:nth-child(2).post_wrap {
+  font-family: "TheJamsil";
+}
+#container > div:nth-child(2).post_wrap .title_wrap {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  font-size: calc(20px + 0.1vw);
+  line-height: 320%;
+  border-bottom: 1px solid #2A2A2A;
+}
+#container > div:nth-child(2).post_wrap .author_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 3rem;
+}
+#container > div:nth-child(2).post_wrap .author_wrap > p {
+  font-size: calc(13px + 0.2vw);
+  padding: 0 1%;
+}
+#container > div:nth-child(2).post_wrap .author_wrap > p:first-child {
+  border-right: 1px solid #2A2A2A;
+}
+#container > div:nth-child(2).post_wrap .context_wrap {
+  width: 100%;
+}
+#container > div:nth-child(2).post_wrap .context_wrap > img {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+#container > div:nth-child(2).post_wrap .context_wrap > pre {
+  width: 100%;
+  font-family: "TheJamsil";
+  font-weight: 300;
+  line-height: 160%;
+  white-space: pre-line;
+}
+#container .comments_wrap {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+}
+#container .comments_wrap .comment {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: calc(13px + 0.2vw);
+  height: 4em;
+  font-family: "TheJamsil";
+  font-weight: 300;
+  border-top: 1px solid #2A2A2A;
+  color: #1C1C1C;
+}
+#container .comments_wrap .comment .comment_author {
+  width: 12%;
+  text-align: center;
+  border-right: 1px solid #CF61A6;
+  font-weight: 700;
+  word-break: keep-all;
+  font-family: "TheJamsil";
+  line-height: 200%;
+}
+#container .comments_wrap .comment > form {
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+}
+#container .comments_wrap .comment > form .comment_content {
+  font-family: "TheJamsil";
+  text-align: left;
+  display: block;
+  color: #1C1C1C;
+  word-break: keep-all;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: calc(13px + 0.1vw);
+  height: -moz-max-content;
+  height: max-content;
+  width: 92%;
+}
+#container .comments_wrap .comment > form .commentUpdateBtn {
+  display: none;
+  padding: 0 2%;
+  word-break: keep-all;
+  font-size: calc(13px + 0.1vw);
+  background-color: #2A2A2A;
+  border: none;
+  color: #FFF;
+  line-height: 280%;
+  font-family: "TheJamsil";
+  border-radius: 0.2vw;
+  font-size: calc(13px + 0.2vw);
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+#container .comments_wrap .comment > form .commentUpdateBtn:hover {
+  background-color: #CF61A6;
+}
+#container .comments_wrap .comment .commentEditBtn {
+  font-size: calc(10px + 0.1vw);
+  font-family: "TheJamsil";
+  font-weight: 300;
+  color: #FFF;
+  background-color: #2A2A2A;
+  border: none;
+  line-height: 200%;
+  padding: 0 1em;
+}
+#container .comments_wrap .comment .commentDeleteBtn {
+  font-size: calc(10px + 0.1vw);
+  font-family: "TheJamsil";
+  font-weight: 300;
+  color: #FFF;
+  background-color: #2A2A2A;
+  border: none;
+  line-height: 200%;
+  padding: 0 1em;
+}
+#container .comments_wrap .comment .comment_date {
+  font-size: calc(13px + 0.1vw);
+  color: #2A2A2A;
+}
+#container .comments_wrap .comment_write {
+  width: 100%;
+  border-top: 1px solid #2A2A2A;
+  border-bottom: 1px solid #2A2A2A;
+}
+#container .comments_wrap .comment_write > form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "TheJamsil";
+  padding: 1% 0;
+}
+#container .comments_wrap .comment_write > form #comment_author {
+  word-break: keep-all;
+  font-weight: 600;
+  width: 12%;
+  text-align: center;
+  border: none;
+  outline: none;
+  font-family: "TheJamsil";
+  font-size: calc(13px + 0.2vw);
+}
+#container .comments_wrap .comment_write > form #comment_content {
+  width: 80%;
+  resize: none;
+  word-break: keep-all;
+  white-space: pre-line;
+  height: 4rem;
+  font-size: calc(13px + 0.1vw);
+  font-family: "TheJamsil";
+  font-weight: 300;
+  outline: none;
+  text-indent: 0.4vw;
+  border-radius: 0;
+  border-right: none;
+}
+#container .comments_wrap .comment_write > form > button {
+  width: 8%;
+  font-size: calc(13px + 0.1vw);
+  background-color: #2A2A2A;
+  border: none;
+  color: #FFF;
+  line-height: 400%;
+  font-family: "TheJamsil";
+  border-radius: 0.2vw;
+  font-size: calc(13px + 0.2vw);
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.5s;
+  padding: 0 1%;
+  word-break: keep-all;
+}
+#container .comments_wrap .comment_write > form > button:hover {
+  background-color: #CF61A6;
+}
+#container .comments_wrap .comment_write > form #comment_date {
+  display: none;
+}
+#container .comments_wrap .comment_write > form #comment_num {
+  display: none;
+}
+#container .button_wrap {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1% 0;
+}
+#container .button_wrap > a {
+  margin-left: 1%;
+  font-size: calc(13px + 0.1vw);
+  background-color: #2A2A2A;
+  border: none;
+  color: #FFF;
+  line-height: 240%;
+  font-family: "TheJamsil";
+  border-radius: 0.2vw;
+  font-size: calc(13px + 0.2vw);
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.5s;
+  padding: 0 1%;
+  word-break: keep-all;
+}
+#container .button_wrap > a:hover {
+  background-color: #CF61A6;
+}
