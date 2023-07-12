@@ -58,12 +58,9 @@
                             </span>
                         </a>
                         <ul class="depth2">
-                            <li><a href="#">MEMBERSHIP</a></li> 
-                            <li><a href="#">SPINNING</a></li> 
-                            <li><a href="#">PT</a></li> 
-                            <li><a href="#">GOLF</a></li>
-                            <li><a href="#">PILATES</a></li> 
-                            <li><a href="#">SPA</a></li> 
+                            <% products.forEach((prd) => { %>
+                                <li><a href="/program#<%- prd.prdName %>"><%- prd.prdName %></a></li> 
+                            <% }) %>
                         </ul>   
                     </li>
                     <li class="depth1">
@@ -74,12 +71,9 @@
                             </span>
                         </a>
                         <ul class="depth2">
-                            <li><a href="#">월성점</a></li> 
-                            <li><a href="#">침산점</a></li> 
-                            <li><a href="#">범어점</a></li> 
-                            <li><a href="#">동성로점</a></li>
-                            <li><a href="#">연경점</a></li> 
-                            <li><a href="#">죽전점</a></li> 
+                            <% locates.forEach((item) => { %>
+                                <li><a href="/location#<%- item.engName %>"><%- item.korName %></a></li> 
+                            <% }) %>
                         </ul>
                     </li>
                     <li class="depth1">
@@ -129,8 +123,10 @@
             </div>
         </div>
     <% } %>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- ajax 사용 라이브러리-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- swiper js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <% if (jsFiles.length !== 0) { %>
         <%# 보내준 jsFile 갯수만큼 반복문 돌려서 link 태그 생성 %>
         <% jsFiles.forEach((js, idx) => { %>

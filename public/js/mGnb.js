@@ -7,13 +7,15 @@ const closeBtn = document.querySelector("#m_gnb .user_wrap .hbg_menu > a");
 // 모바일메뉴의 닫기 버튼
 const openBtn = document.querySelector("#header_top .center .hbg_menu > a");
 // 헤더의 모바일메뉴 열기 버튼
-openBtn.addEventListener("click",()=>{
+openBtn.addEventListener("click",(e)=>{
+    e.preventDefault();
     body.classList.add("show");
     closeBtn.classList.add("on");
     openBtn.classList.add("on");
     mGnb_wrap.classList.add("show");
 });
-closeBtn.addEventListener("click",()=>{
+closeBtn.addEventListener("click",(e)=>{
+    e.preventDefault();
     mGnb_wrap.classList.remove("show");
     closeBtn.classList.remove("on");
     openBtn.classList.remove("on");

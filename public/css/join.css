@@ -6,25 +6,28 @@
   padding-top: 80px;
 }
 #container .title > h2 {
+  text-align: center;
+  font-size: 4vw;
   font-family: "Marcellus";
-  font-size: 5vw;
-  color: #1C1C1C;
+  line-height: 100%;
   position: relative;
-  line-height: 140%;
-  padding: 0 2%;
-  margin: 0 0 4%;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 4vw auto;
 }
 #container .title > h2::before {
   content: "";
   display: inline-block;
   position: absolute;
-  right: 0;
-  top: 0;
+  top: -20%;
+  right: -24%;
   background-color: #CF61A6;
+  width: 43%;
+  height: 71.3%;
   border-radius: 50%;
-  width: 4vw;
-  height: 4vw;
-  z-index: -1;
+}
+#container .title > h2 > p {
+  position: relative;
 }
 #container .join_wrap {
   display: flex;
@@ -41,7 +44,7 @@
 }
 #container .join_wrap > form .terms > h4 {
   font-weight: 700;
-  font-size: 1.6vw;
+  font-size: calc(20px + 1vw);
   color: #BF2195;
   line-height: 200%;
 }
@@ -126,9 +129,20 @@
   border-bottom: 0.2vw solid #2A2A2A;
   line-height: 200%;
   font-size: calc(13px + 0.1vw);
+  width: -moz-max-content;
+  width: max-content;
 }
 #container .join_wrap > form .info .input #userGender {
   width: 1vw;
+}
+#container .join_wrap > form .info .input #userPhone1 {
+  width: 6vw;
+}
+#container .join_wrap > form .info .input #userPhone2 {
+  width: 6vw;
+}
+#container .join_wrap > form .info .input #userPhone3 {
+  width: 6vw;
 }
 #container .join_wrap > form .info .confirm {
   margin-left: 0.5vw;
@@ -155,6 +169,8 @@
 #container .join_wrap > form .info .confirm > span {
   font-size: calc(13px + 0.1vw);
   font-weight: 300;
+  line-height: 120%;
+  word-break: keep-all;
 }
 #container .join_wrap > form > button {
   display: block;
@@ -167,4 +183,109 @@
   border: none;
   outline: none;
   cursor: pointer;
+  transition: all 0.5s;
+}
+#container .join_wrap > form > button:hover {
+  color: #FFF;
+  background-color: #BF2195;
+}
+
+@media screen and (max-width: 1024px) {
+  #container .title {
+    padding-top: 130px;
+  }
+  #container .title > h2 {
+    font-size: 6vw;
+  }
+  #container .join_wrap {
+    width: 80%;
+  }
+  #container .join_wrap > form .info {
+    flex-wrap: wrap;
+  }
+  #container .join_wrap > form .info .label {
+    width: 100%;
+    font-size: calc(13px + 0.1vw);
+    min-width: unset;
+    line-height: 200%;
+    text-align: center;
+    border-right: none;
+    border-bottom: 0.1vw solid #2A2A2A;
+    word-break: keep-all;
+  }
+  #container .join_wrap > form .info input {
+    border: none;
+    border-bottom: 0.2vw solid #2A2A2A;
+    line-height: 200%;
+    outline: none;
+    font-family: "TheJamsil";
+    text-align: center;
+    font-size: calc(13px + 0.1vw);
+  }
+  #container .join_wrap > form .info input::-moz-placeholder {
+    text-align: center;
+  }
+  #container .join_wrap > form .info input::placeholder {
+    text-align: center;
+  }
+  #container .join_wrap > form .info .confirm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1% auto 0;
+  }
+  #container .join_wrap > form .info .confirm > button {
+    width: -moz-max-content;
+    width: max-content;
+    margin-right: unset;
+  }
+  #container .join_wrap > form .info .confirm > span {
+    font-size: calc(13px + 0.1vw);
+    font-weight: 300;
+    line-height: 240%;
+    text-align: center;
+  }
+  #container .join_wrap > form .info .input {
+    width: 100%;
+    margin-left: unset;
+    justify-content: center;
+  }
+  #container .join_wrap > form .info .input span {
+    width: -moz-max-content;
+    width: max-content;
+  }
+  #container .join_wrap > form > button {
+    display: block;
+    width: -moz-max-content;
+    width: max-content;
+    margin: 2% auto;
+    padding: 1.5vw 2vw;
+    font-family: "TheJamsil";
+    font-size: calc(13px + 0.1vw);
+    font-weight: 500;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  #container .join_wrap > form > button:hover {
+    color: #FFF;
+    background-color: #BF2195;
+  }
+}
+@media screen and (max-width: 748px) {
+  #container .title {
+    margin-bottom: 8%;
+  }
+  #container .title > h2 {
+    font-size: 9vw;
+  }
+}
+@media screen and (max-width: 500px) {
+  #container .title {
+    margin-bottom: 8%;
+  }
+  #container .title > h2 {
+    font-size: 12vw;
+  }
 }

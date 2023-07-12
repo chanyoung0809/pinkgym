@@ -149,10 +149,8 @@ app.post("/DBtest",(req,res)=>{
     })
 })
 
-app.post("/DBjoin", (req, res)=>{
-  
+app.post("/DBjoin", (req, res)=>{  
     db.collection("members").findOne({userID:req.body.userID},(err,member)=>{
-
         db.collection("count").findOne({name:"회원수"},(err,result)=>{
             db.collection("members").insertOne({
                 No:result.memberCount, // 회원번호
@@ -172,24 +170,9 @@ app.post("/DBjoin", (req, res)=>{
                     </script>`);
                 });
             })
-        })
-        
+        })        
     })
 });
-
-//로그인 경로 요청 시, 로그인 창만 보이게 하고 싶음...
-app.get("/login", (req, res) => {
-    res.send(`
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                document.querySelector("body").classList.add("show");
-                document.querySelector(".login_bg").style.display = "flex";
-            });
-        </script>
-    `);
-});
-
-
 
 //처음 로그인 했을 시 세션 생성 memberid는 데이터에 베이스에 로그인된 아이디
 //세션 만들어줌
@@ -213,7 +196,7 @@ app.post("/logincheck", (req, res, next) => {
             return res.status(500).send("서버 오류");
         }
         if (!user) {
-            return res.status(401).send("<script>alert('아이디 또는 패스워드가 맞지 않습니다.'); window.location.href='/login';</script>");
+            return res.status(401).send("<script>alert('아이디 또는 패스워드가 맞지 않습니다.'); window.location.href=document.referrer;</script>");
         }
         req.logIn(user, (err) => {
             if (err) {
@@ -306,7 +289,7 @@ app.get("/board/:category",(req, res)=>{
         res.send(`
         <script>
             alert("로그인 후 이용해주세요.");
-            window.location.href = "/login";
+            window.location.href = document.referrer;
         </script>
         `);
     }
@@ -324,7 +307,7 @@ app.get("/board/:category/write", (req, res)=>{
         })
     }
     else {
-        res.send(`<script>alert("잘못된 접근입니다. 로그인 후에 이용해주세요."); window.location.href="/"; </script>`);
+        res.send(`<script>alert("잘못된 접근입니다. 로그인 후에 이용해주세요."); window.location.href=document.referrer; </script>`);
     }
 });
 
@@ -384,7 +367,7 @@ app.get("/board/:category/detail/:num", (req, res)=>{
         })
     }
     else {
-        res.send(`<script>alert("잘못된 접근입니다. 로그인 후에 이용해주세요."); window.location.href="/"; </script>`);
+        res.send(`<script>alert("잘못된 접근입니다. 로그인 후에 이용해주세요."); window.location.href=document.referrer; </script>`);
     }
 });
 
@@ -436,26 +419,29 @@ app.get("/board/:category/detail/:num", (req, res)=>{
 // 댓글 작성 DB 요청
 app.post("/commentUpdate/:num", (req, res) => {
     const num = req.params.num; // 게시물 순번값 담당하는 파라미터값
-    const comment = {
+    const comment = { // 새로 만들어줄 댓글
         comment_num: Number(req.body.comment_num),
         comment_author: req.user.userName,
         comment_content: req.body.comment_content,
         comment_date: req.body.comment_date
     };   
-    db.collection("posts").updateOne(
+    db.collection("posts").findOneAndUpdate(
         { post_num: Number(num) }, // 게시물 순번값으로 도큐먼트 찾기
-        { $push: { comments: comment } }, // comments 필드에 새로운 댓글 추가
+        { $push: { comments: comment } }, // comments 객체배열에 새로운 댓글 추가
+        { returnOriginal: false }, // 업데이트 후 업데이트된 도큐먼트 반환
         (err, result) => {
             if (err) {
                 console.error("업데이트 실패:", err);
                 res.status(500).send("업데이트를 수행하는 동안 오류가 발생했습니다.");
+            } else if (!result.value) {
+                console.error("해당 게시글을 찾을 수 없습니다.");
+                res.status(404).json({ message: "해당 게시글을 찾을 수 없습니다." });
             } else {
                 res.redirect(`/board/${result.value.category}/detail/${result.value.post_num}`);
             }
         }
     );
 });
-
 
 //댓글수정경로
 // app.post("/댓글수정경로",(req,res)=>{
@@ -468,3 +454,53 @@ app.post("/commentUpdate/:num", (req, res) => {
 //         res.redirect(`/board/${result.value.category}/detail/${result.value.post_num}`);
 //     })   
 // })
+
+// 댓글 수정
+app.post("/commentChange/:boardnum/:commentnum", (req, res) => {
+    const boardnum = req.params.boardnum; // 게시글 번호
+    const commentnum = req.params.commentnum; // 댓글 번호
+
+    const commentContentChangeKey = `commentContentChange${Number(commentnum)}`;
+    const commentContentChangeValue = req.body[commentContentChangeKey];
+
+    db.collection("posts").findOneAndUpdate(
+        { post_num: Number(boardnum), "comments.comment_num": Number(commentnum) },
+        { $set: { "comments.$.comment_content": commentContentChangeValue } },
+        { returnOriginal: false },
+        (err, result) => {
+            if (err) {
+                console.error("댓글 수정 중 오류 발생:", err);
+                res.status(500).json({ message: "댓글 수정 중 오류가 발생했습니다." });
+            } else if (!result.value) {
+                console.error("해당 게시글을 찾을 수 없습니다.");
+                res.status(404).json({ message: "해당 게시글을 찾을 수 없습니다." });
+            } else {
+                res.redirect(`/board/${result.value.category}/detail/${result.value.post_num}`);
+            }
+        }
+    );
+});
+
+// 댓글 삭제
+app.get("/commentDel/:boardnum/:commentnum", (req, res) => {
+    const boardnum = req.params.boardnum; // 게시글 번호
+    const commentnum = req.params.commentnum; // 댓글 번호
+
+    db.collection("posts").findOneAndUpdate(
+        { post_num: Number(boardnum) },
+        { $pull: { comments: { comment_num: Number(commentnum) } } },
+        { returnOriginal: false },
+        (err, result) => {
+            if (err) {
+                console.error("댓글 삭제 중 오류 발생:", err);
+                res.status(500).json({ message: "댓글 삭제 중 오류가 발생했습니다." });
+            } else if (!result.value) {
+                console.error("해당 게시물을 찾을 수 없습니다.");
+                res.status(404).json({ message: "해당 게시물을 찾을 수 없습니다." });
+            } else {
+                const category = result.value.category; // 게시물의 카테고리
+                res.redirect(`/board/${category}/detail/${boardnum}`);
+            }
+        }
+    );
+});

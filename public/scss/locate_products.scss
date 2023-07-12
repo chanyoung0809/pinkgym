@@ -21,21 +21,23 @@ $whiteTextShadow:2px 2px 5px #0005;
                 content: "";
                 display: inline-block;
                 position: absolute;
-                right: 0;
-                top:0;
-                background-color: $lilac;
+                top: -20%;
+                right: -12%;
+                background-color: #CF61A6;
+                width: 0.8em;
+                height: 0.8em;
                 border-radius: 50%;
-                width: 4vw;
-                height: 4vw;
-                z-index: -1;
             }
-            font-family: $eng;
-            font-size: 5vw;
-            color: $black;
+            text-align: center;
+            font-size: 4vw;
+            font-family: "Marcellus";
+            line-height: 100%;
             position: relative;
-            line-height: 140%;
-            padding: 0 2%;
-            margin: 0 0 4%;
+            width: max-content;
+            margin: 4vw auto;
+            > p {
+                position: relative;
+            }
         } 
     }
     // 프로그램
@@ -155,14 +157,45 @@ $whiteTextShadow:2px 2px 5px #0005;
                     align-items: center;
                     &.left {
                         flex-direction: row;
+                        > .swiper {
+                            margin-left: unset;
+                        }
                     }
                     &.right {
                         flex-direction: row-reverse;
+                        > .swiper {                
+                            margin-right: unset;
+                        }
                     }
-                    > img {
+                    > .swiper {
                         width: 48%;
                         height: 100%;
-                        object-fit: cover;
+                        > .swiper-wrapper {
+                            > .swiper-slide {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                > img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                }
+                            }
+                        }
+                        > .swiper-button-next {
+                            color: #FFF;
+                            &::after {
+                                text-shadow: -2px -2px 10px $lightblack;
+                                font-size: calc(13px + 2vw);
+                            }
+                        }
+                        > .swiper-button-prev {
+                            color: #FFF;
+                            &::after {
+                                text-shadow: 2px 2px 10px $black;
+                                font-size: calc(13px + 2vw);
+                            }
+                        }
                     }
                     .map {
                         width: 48%;
@@ -199,5 +232,279 @@ $whiteTextShadow:2px 2px 5px #0005;
                 }
             }
         }
+    }
+}
+@media screen and (max-width:1024px) {
+    #container {
+        .title {
+            padding-top: 130px;
+            > h2 {
+                font-size: 6vw;
+            } 
+        }
+        // 프로그램
+        .product_wrap {
+            display: flex;
+            justify-content: center;
+            .center {
+                width: 80%;
+                .img_wrap {
+                    height: 36vw;
+                }
+                .text_wrap {
+                    > h3 {
+                        font-size: 4.5vw;
+                    }
+                    > p {
+                        font-size: calc(13px + 0.4vw);
+                    }
+                }
+            }
+        }   
+        // 지점소개
+        .regions {
+            .region_wrap{
+                width: 80%;
+                padding-top: 4%;
+                padding-bottom: 2%;
+                .region_title {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    > h2 {
+                        color: $violet;
+                        font-weight: 700;
+                        font-size: 4vw;
+                        line-height: 200%;
+                    }
+                    > strong {
+                        font-size: calc(17px + .2vw);
+                        line-height: 200%;
+                        word-break: keep-all;
+                        text-align: center;
+                    }
+                }
+                .region_info {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column-reverse;
+                    .region_visual {
+                        width: 100%;
+                        height: max-content;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 5%;
+                        &.left {
+                            flex-direction: column;
+                            > .swiper {
+                                margin-left: unset;
+                                width: 100%;
+                                height: 40vw;
+                            }
+                        }
+                        &.right {
+                            flex-direction: column;
+                            > .swiper {                
+                                margin-right: unset;
+                                width: 100%;
+                                height: 40vw;
+                            }
+                        }
+                        .map {
+                            width: 100%;
+                            height: 40vw;
+                            margin-top: 5%;
+                        }
+                    }
+                }
+                .region_text {
+                    font-size: calc(13px + .1vw);
+                    font-family: $kor;
+                    width: 100%;
+                    margin-bottom: 2%;
+                    align-items: center;
+                    justify-content: center;
+                    > p {
+                        text-align: center;
+                        width: max-content;
+                        line-height: 160%;
+                        font-size: calc(13px + .2vw);
+                    }
+                }
+            }
+        }     
+    }
+}
+@media screen and (max-width:748px) {
+    #container {
+        .title {
+            margin-bottom: 8%;
+            > h2 {
+                font-size: 9vw;
+            } 
+        }
+        // 프로그램
+        .product_wrap {
+            .center {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 90%;
+                &.left {
+                    flex-direction: column;
+                    .img_wrap {
+                        &::before {
+                            content: "";
+                            display: inline-block;
+                            border: .2vw solid $lilac;
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            top:3%;
+                            left:2%;
+                            z-index:-1
+                        }
+                    }
+                }
+                &.right {
+                    flex-direction: column;
+                    .img_wrap {
+                        &::before {
+                            content: "Pink Lady Gym";
+                            display: inline-block;
+                            color: #FFF;
+                            text-shadow: -1px 0 $lilac, 0 1px $lilac, 1px 0 $lilac, 0 -1px $lilac;
+                            font-size: 8vw;
+                            font-family: $eng;
+                            position: absolute;
+                            bottom:-8%;
+                            left:-8%;
+                            letter-spacing: .1vw;
+                            z-index: -1;
+                        }
+                    }
+                    .text_wrap { 
+                        text-align: right;
+                    }
+                }
+                .img_wrap {
+                    width: 80%;
+                    height: 50vw;
+                }
+                .text_wrap {
+                    margin-top: 10%;
+                    margin-bottom: 10%;
+                    width: 80%;
+                    font-family: $kor;
+                    word-break: keep-all;
+                    > h3 {
+                        font-size: 6vw;
+                    }
+                }
+            }
+        }
+        // 지점소개
+        .regions {
+            .region_wrap{
+                width: 90%;
+                .region_title {
+                    > h2 {
+                        font-size: 8vw;
+                    }
+                    > strong {
+                        width: 70%;
+                        font-size: calc(18px + .2vw);
+                        line-height: 120%;
+                        word-break: keep-all;
+                        text-align: center;
+                    }
+                }
+                .region_text {
+                    font-size: calc(13px + .1vw);
+                    font-family: $kor;
+                    width: 100%;
+                    margin: 4% 0 8%;
+                    align-items: center;
+                    justify-content: center;
+                    > p {
+                        text-align: center;
+                        width: max-content;
+                        line-height: 160%;
+                        font-size: calc(13px + .2vw);
+                    }
+                }
+            }
+        }     
+    }
+}
+@media screen and (max-width:500px) {
+    #container {
+        .title {
+            margin-bottom: 0%;
+            > h2 {
+                font-size: 12vw;
+            } 
+        }
+        // 프로그램
+        .product_wrap {
+            margin-top: 5%;
+            .center {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 95%;
+                &.left {
+                    flex-direction: column;
+                }
+                &.right {
+                    flex-direction: column;
+                    .text_wrap { 
+                        text-align: center;
+                    }
+                }
+                .text_wrap {
+                    text-align: center;
+                    > h3 {
+                        font-size: 8vw;
+                    }
+                }
+            }
+        }
+        // 지점소개
+        .regions {
+            margin-top: 5%;
+            .region_wrap{
+                width: 95%;
+                .region_title {
+                    > h2 {
+                        font-size: 10vw;
+                    }
+                    > strong {
+                        width: 80%;
+                        font-size: calc(15px + .2vw);
+                        line-height: 120%;
+                        word-break: keep-all;
+                        text-align: center;
+                    }
+                }
+                .region_text {
+                    font-size: 13px;
+                    font-family: $kor;
+                    width: 100%;
+                    margin: 4% 0 8%;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    > p {
+                        width: 90%;
+                        text-align: center;
+                        line-height: 160%;
+                        font-size: calc(13px + .2vw);
+                        margin-bottom: 3%;
+                    }
+                }
+            }
+        }     
     }
 }

@@ -17,7 +17,7 @@ commentBtn.addEventListener("click", (e)=>{
 
 const commentdate= document.querySelector("#comment_date"); //댓글 작성일 삽입 위한 변수
 
-let submitDate2 = ()=>{ // 글 작성 날짜 삽입 위한 함수
+let submitDate2 = ()=>{ // 댓글 작성 날짜 삽입 위한 함수
     let date = new Date(); // Date 생성
     let year = date.getFullYear(); // 작성연도
     let month = ("0" + (date.getMonth() + 1)).slice(-2); // 작성월(1~9 : 01~09 / 10~12 : 010~012, slice로 뒤부터 2글자 잘라냄)
@@ -35,7 +35,7 @@ const comments = document.querySelectorAll(".comments_wrap .comment");
 // 수정처리할 form
 const commentEditForms = document.querySelectorAll(".comments_wrap .comment > form");
 // 수정 DB처리 (버튼태그)
-const commentUpdateBtns = document.querySelectorAll(".comments_wrap .comment > form .commentUpdateBtn");
+const commentChangeBtns = document.querySelectorAll(".comments_wrap .comment > form .commentChangeBtn");
 // 삭제 DB처리 (a태그)
 const commentDeleteBtns = document.querySelectorAll(".comments_wrap .comment .commentDeleteBtn");
 // 댓글 내용(textarea 태그, readonly 속성 토글해서, 해당 자리에서 수정 가능하도록 처리)
@@ -52,8 +52,7 @@ Array.from(commentEditBtns).forEach((commentEditBtn, idx)=>{
         if(!commentContents[idx].readOnly){
             // 입력란 스타일 변화시키고
             commentContents[idx].style.border = "1px solid #2A2A2A";
-            commentContents[idx].style.height = "3em";
-            commentUpdateBtns[idx].style.display = "inline-block";
+            commentChangeBtns[idx].style.display = "inline-block";
             //입력란의 맨 끝에 포커싱
             commentContents[idx].focus();
             commentContents[idx].selectionStart = commentContents[idx].value.length;
@@ -64,15 +63,14 @@ Array.from(commentEditBtns).forEach((commentEditBtn, idx)=>{
         else {
             //입력란 스타일 변화시키고
             commentContents[idx].style.border = "none";
-            commentContents[idx].style.height = "1.2em";
-            commentUpdateBtns[idx].style.display = "none";
+            commentChangeBtns[idx].style.display = "none";
             // 토글 버튼의 텍스트 변경
             commentEditBtn.innerText = "수정";
         }
     });
 });
 
-// 삭제 처리시 진짜 삭제 할거냐고 물어보기.
+// 댓글 삭제 처리시, 진짜 삭제 할거냐고 물어보기.
 Array.from(commentDeleteBtns).forEach((commentDeleteBtn, idx)=>{
     commentDeleteBtn.addEventListener("click", (e)=>{
         let delCheck = confirm("댓글을 삭제하시겠습니까?");

@@ -28,11 +28,11 @@
                 <% data.comments.forEach((comment) => { %>
                     <div class="comment">
                         <h5 class="comment_author"><%- comment.comment_author %></h5>
-                        <form id="commentUpdate<%- comment.comment_num %>" action="/commentUpdate/<%- data.post_num %>/<%- comment.comment_num %>" method="post">
-                            <textarea class="comment_content" readonly><%- comment.comment_content %></textarea>
+                        <form id="commentChange<%- comment.comment_num %>" action="/commentChange/<%- data.post_num %>/<%- comment.comment_num %>" method="post">
+                            <textarea class="comment_content" id="commentContentChange<%- comment.comment_num %>" name="commentContentChange<%- comment.comment_num %>" readonly><%- comment.comment_content %></textarea>
                             <!-- 댓글 작성자 본일일때만 보일 수정 전송 버튼 (조작 위험 때문에 이중 처리)-->
                             <% if (comment.comment_author == login.userName) { %>
-                                <button id="commentUpdateBtn<%- comment.comment_num %>" class="commentUpdateBtn" type="submit">수정하기</button>
+                                <button id="commentChangeBtn<%- comment.comment_num %>" class="commentChangeBtn" type="submit">수정하기</button>
                             <% } %>
                         </form>
                         <!-- 댓글 작성자 본일일때만 보일 수정 버튼 -->

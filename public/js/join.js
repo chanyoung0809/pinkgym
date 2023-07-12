@@ -52,7 +52,7 @@ Array.from(chks).forEach((chk, i)=>{
 
 // 비밀번호 입력내용 토글 버튼
 const pwToggle1 = document.querySelector('#pw_toggle1');
-;
+
 // 비밀번호 확인 입력내용 토글 버튼
 const pwToggle2 = document.querySelector('#pw_toggle2');
 
@@ -77,6 +77,48 @@ let pwTypeToggle = (passwordInput, passwordToggle)=>{
 //비밀번호, 비밀번호확인창에 기능 부여
 pwTypeToggle(inputPW, pwToggle1);
 pwTypeToggle(inputPW2, pwToggle2);
+
+// 문자 입력 막는 함수 numValueValid
+let numValueValid = (e)=>{
+    const inputValue = e.target.value; // 현재 입력한 값
+    const numValue = inputValue.replace(/\D/g, ''); // 입력값을 정규식으로 검사해서, 숫자가 아닌 문자를 제거
+    if (numValue !== inputValue) { // 입력받은 값과 숫자로 변환된 값이 같지 않다면
+        e.target.value = numValue; //입력된 값을 숫자로 변환값으로 바꿈
+    }
+}
+/* 주민등록번호 입력 창 키보드 이벤트 */
+userBirth.addEventListener("keyup", (e)=>{
+    //4자리 입력하면 다음 인풋태그로 넘어가는 처리
+    if(e.target.value.length === 6){
+        userGender.focus();
+    }
+})
+userGender.addEventListener("keyup", (e)=>{
+    // 마지막 자리에서 입력값 없을 때 백스페이스 넣으면 이전 인풋태그로 넘어가는 처리
+    if(e.target.value == "" && e.key === 'Backspace'){
+        userBirth.focus();
+    }
+})
+userBirth.addEventListener("input", numValueValid);
+userGender.addEventListener("input", numValueValid);
+
+/* 전화번호 입력 창 키보드 이벤트 */
+userPhone2.addEventListener("keyup", (e)=>{
+    //4자리 입력하면 다음 인풋태그로 넘어가는 처리
+    if(e.target.value.length === 4){
+        userPhone3.focus();
+    }
+})
+userPhone3.addEventListener("keyup", (e)=>{
+    // 마지막 자리에서 입력값 없을 때 백스페이스 넣으면 이전 인풋태그로 넘어가는 처리
+    if(e.target.value == "" && e.key === 'Backspace'){
+        userPhone2.focus();
+    }
+})
+userPhone2.addEventListener("input", numValueValid);
+userPhone3.addEventListener("input", numValueValid);
+
+
 
 // 전송 폼
 const submitform = document.querySelector(".join_wrap > form");
@@ -196,12 +238,15 @@ IDvalid.addEventListener("click",(e)=>{
         userID:ID.value, //요청시 서버에 전송할 데이터
       })
       .then(function (response) { //요청성공
-        console.log(response);
         alert(response.data.result.userID + "는 사용 불가능한 아이디 입니다");
       })
       .catch(function (error) { //요청실패
-        console.log(error);
-        alert(ID.value + "는 사용 가능한 아이디 입니다");
+        if(rgxID.test(ID.value)){
+            alert(ID.value + "는 사용 가능한 아이디 입니다");
+        }        
+        else {
+            alert("아이디를 제대로 작성했는지 확인해주세요");
+        }
       });
 
 

@@ -10,16 +10,12 @@
     <!-- font-awsome web font icon -->
     <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <!-- 스와이퍼 css -->
-    <!-- http://hitgym.co.kr/#s20220602bcd563e84abaf 히트짐 UI 참조 -->
-    <!-- https://aid638.wixsite.com/pinkladies/ladies-gym 핑크 짐 원래 페이지 -->
     <% if (cssFiles.length !== 0) { %>
         <%# 보내준 cssFiles 갯수만큼 반복문 돌려서 link 태그 생성 %>
        <% for( let i = 0; i < cssFiles.length; i++ ) { %>
            <link rel="stylesheet" href="/css/<%- cssFiles[i] %>">
        <% } %>
    <% } %>
-   <!-- ajax 사용 라이브러리-->
-   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div id="header_top">  

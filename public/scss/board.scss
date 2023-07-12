@@ -9,7 +9,7 @@ $eng:'Marcellus';
 $whiteTextShadow:2px 2px 5px #0005;
 
 #container {
-    //공통사항
+    // 공통사항
     .title {
         width: 100%;
         display: flex;
@@ -21,21 +21,23 @@ $whiteTextShadow:2px 2px 5px #0005;
                 content: "";
                 display: inline-block;
                 position: absolute;
-                right: 0;
-                top:0;
-                background-color: $lilac;
+                top: -20%;
+                right: -20%;
+                background-color: #CF61A6;
+                width: .8em;
+                height: .8em;
                 border-radius: 50%;
-                width: 4vw;
-                height: 4vw;
-                z-index: -1;
             }
-            font-family: $eng;
-            font-size: 5vw;
-            color: $black;
+            text-align: center;
+            font-size: 4vw;
+            font-family: "Marcellus";
+            line-height: 100%;
             position: relative;
-            line-height: 140%;
-            padding: 0 2%;
-            margin: 0 0 4%;
+            width: max-content;
+            margin: 4vw auto;
+            > p {
+                position: relative;
+            }
         } 
     }
     > div:nth-child(2) {
@@ -126,6 +128,7 @@ $whiteTextShadow:2px 2px 5px #0005;
                         }
                     }
                     > h4 {
+                        width: 90%;
                         font-size: calc(16px + .1vw);
                         height: calc(48px + .1vw);
                         display: flex;
@@ -409,8 +412,12 @@ $whiteTextShadow:2px 2px 5px #0005;
                     font-size: (calc(13px + .1vw));
                     height:max-content;
                     width: 92%;
+                    line-height: 160%;
+                    margin-left: 2%;
+                    overflow-y: hidden;
+                    white-space:pre-line;
                 }
-                .commentUpdateBtn {
+                .commentChangeBtn {
                     display: none;
                     padding: 0 2%;
                     word-break: keep-all;
@@ -439,6 +446,9 @@ $whiteTextShadow:2px 2px 5px #0005;
                 border: none;
                 line-height: 200%;
                 padding: 0 1em;
+                word-break: keep-all;
+                width: max-content;
+                margin-right: 1%;
             }
             .commentDeleteBtn {
                 font-size: calc(10px + .1vw);
@@ -449,6 +459,9 @@ $whiteTextShadow:2px 2px 5px #0005;
                 border: none;
                 line-height: 200%;
                 padding: 0 1em;
+                word-break: keep-all;
+                width: max-content;
+                margin-right: 1%;
             }
             .comment_date {
                 font-size: calc(13px + .1vw);

@@ -6,25 +6,28 @@
   padding-top: 80px;
 }
 #container .title > h2 {
+  text-align: center;
+  font-size: 4vw;
   font-family: "Marcellus";
-  font-size: 5vw;
-  color: #1C1C1C;
+  line-height: 100%;
   position: relative;
-  line-height: 140%;
-  padding: 0 2%;
-  margin: 0 0 4%;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 4vw auto;
 }
 #container .title > h2::before {
   content: "";
   display: inline-block;
   position: absolute;
-  right: 0;
-  top: 0;
+  top: -20%;
+  right: -12%;
   background-color: #CF61A6;
+  width: 0.8em;
+  height: 0.8em;
   border-radius: 50%;
-  width: 4vw;
-  height: 4vw;
-  z-index: -1;
+}
+#container .title > h2 > p {
+  position: relative;
 }
 #container .product_wrap {
   display: flex;
@@ -143,14 +146,43 @@
 #container .regions .region_wrap .region_info .region_visual.left {
   flex-direction: row;
 }
+#container .regions .region_wrap .region_info .region_visual.left > .swiper {
+  margin-left: unset;
+}
 #container .regions .region_wrap .region_info .region_visual.right {
   flex-direction: row-reverse;
 }
-#container .regions .region_wrap .region_info .region_visual > img {
+#container .regions .region_wrap .region_info .region_visual.right > .swiper {
+  margin-right: unset;
+}
+#container .regions .region_wrap .region_info .region_visual > .swiper {
   width: 48%;
+  height: 100%;
+}
+#container .regions .region_wrap .region_info .region_visual > .swiper > .swiper-wrapper > .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container .regions .region_wrap .region_info .region_visual > .swiper > .swiper-wrapper > .swiper-slide > img {
+  width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+#container .regions .region_wrap .region_info .region_visual > .swiper > .swiper-button-next {
+  color: #FFF;
+}
+#container .regions .region_wrap .region_info .region_visual > .swiper > .swiper-button-next::after {
+  text-shadow: -2px -2px 10px #2A2A2A;
+  font-size: calc(13px + 2vw);
+}
+#container .regions .region_wrap .region_info .region_visual > .swiper > .swiper-button-prev {
+  color: #FFF;
+}
+#container .regions .region_wrap .region_info .region_visual > .swiper > .swiper-button-prev::after {
+  text-shadow: 2px 2px 10px #1C1C1C;
+  font-size: calc(13px + 2vw);
 }
 #container .regions .region_wrap .region_info .region_visual .map {
   width: 48%;
@@ -184,4 +216,254 @@
 #container .regions .region_wrap .region_text > p > strong {
   font-weight: 700;
   color: #1C1C1C;
+}
+
+@media screen and (max-width: 1024px) {
+  #container .title {
+    padding-top: 130px;
+  }
+  #container .title > h2 {
+    font-size: 6vw;
+  }
+  #container .product_wrap {
+    display: flex;
+    justify-content: center;
+  }
+  #container .product_wrap .center {
+    width: 80%;
+  }
+  #container .product_wrap .center .img_wrap {
+    height: 36vw;
+  }
+  #container .product_wrap .center .text_wrap > h3 {
+    font-size: 4.5vw;
+  }
+  #container .product_wrap .center .text_wrap > p {
+    font-size: calc(13px + 0.4vw);
+  }
+  #container .regions .region_wrap {
+    width: 80%;
+    padding-top: 4%;
+    padding-bottom: 2%;
+  }
+  #container .regions .region_wrap .region_title {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #container .regions .region_wrap .region_title > h2 {
+    color: #BF2195;
+    font-weight: 700;
+    font-size: 4vw;
+    line-height: 200%;
+  }
+  #container .regions .region_wrap .region_title > strong {
+    font-size: calc(17px + 0.2vw);
+    line-height: 200%;
+    word-break: keep-all;
+    text-align: center;
+  }
+  #container .regions .region_wrap .region_info {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  #container .regions .region_wrap .region_info .region_visual {
+    width: 100%;
+    height: -moz-max-content;
+    height: max-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5%;
+  }
+  #container .regions .region_wrap .region_info .region_visual.left {
+    flex-direction: column;
+  }
+  #container .regions .region_wrap .region_info .region_visual.left > .swiper {
+    margin-left: unset;
+    width: 100%;
+    height: 40vw;
+  }
+  #container .regions .region_wrap .region_info .region_visual.right {
+    flex-direction: column;
+  }
+  #container .regions .region_wrap .region_info .region_visual.right > .swiper {
+    margin-right: unset;
+    width: 100%;
+    height: 40vw;
+  }
+  #container .regions .region_wrap .region_info .region_visual .map {
+    width: 100%;
+    height: 40vw;
+    margin-top: 5%;
+  }
+  #container .regions .region_wrap .region_text {
+    font-size: calc(13px + 0.1vw);
+    font-family: "TheJamsil";
+    width: 100%;
+    margin-bottom: 2%;
+    align-items: center;
+    justify-content: center;
+  }
+  #container .regions .region_wrap .region_text > p {
+    text-align: center;
+    width: -moz-max-content;
+    width: max-content;
+    line-height: 160%;
+    font-size: calc(13px + 0.2vw);
+  }
+}
+@media screen and (max-width: 748px) {
+  #container .title {
+    margin-bottom: 8%;
+  }
+  #container .title > h2 {
+    font-size: 9vw;
+  }
+  #container .product_wrap .center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+  }
+  #container .product_wrap .center.left {
+    flex-direction: column;
+  }
+  #container .product_wrap .center.left .img_wrap::before {
+    content: "";
+    display: inline-block;
+    border: 0.2vw solid #CF61A6;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 3%;
+    left: 2%;
+    z-index: -1;
+  }
+  #container .product_wrap .center.right {
+    flex-direction: column;
+  }
+  #container .product_wrap .center.right .img_wrap::before {
+    content: "Pink Lady Gym";
+    display: inline-block;
+    color: #FFF;
+    text-shadow: -1px 0 #CF61A6, 0 1px #CF61A6, 1px 0 #CF61A6, 0 -1px #CF61A6;
+    font-size: 8vw;
+    font-family: "Marcellus";
+    position: absolute;
+    bottom: -8%;
+    left: -8%;
+    letter-spacing: 0.1vw;
+    z-index: -1;
+  }
+  #container .product_wrap .center.right .text_wrap {
+    text-align: right;
+  }
+  #container .product_wrap .center .img_wrap {
+    width: 80%;
+    height: 50vw;
+  }
+  #container .product_wrap .center .text_wrap {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    width: 80%;
+    font-family: "TheJamsil";
+    word-break: keep-all;
+  }
+  #container .product_wrap .center .text_wrap > h3 {
+    font-size: 6vw;
+  }
+  #container .regions .region_wrap {
+    width: 90%;
+  }
+  #container .regions .region_wrap .region_title > h2 {
+    font-size: 8vw;
+  }
+  #container .regions .region_wrap .region_title > strong {
+    width: 70%;
+    font-size: calc(18px + 0.2vw);
+    line-height: 120%;
+    word-break: keep-all;
+    text-align: center;
+  }
+  #container .regions .region_wrap .region_text {
+    font-size: calc(13px + 0.1vw);
+    font-family: "TheJamsil";
+    width: 100%;
+    margin: 4% 0 8%;
+    align-items: center;
+    justify-content: center;
+  }
+  #container .regions .region_wrap .region_text > p {
+    text-align: center;
+    width: -moz-max-content;
+    width: max-content;
+    line-height: 160%;
+    font-size: calc(13px + 0.2vw);
+  }
+}
+@media screen and (max-width: 500px) {
+  #container .title {
+    margin-bottom: 0%;
+  }
+  #container .title > h2 {
+    font-size: 12vw;
+  }
+  #container .product_wrap {
+    margin-top: 5%;
+  }
+  #container .product_wrap .center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+  }
+  #container .product_wrap .center.left {
+    flex-direction: column;
+  }
+  #container .product_wrap .center.right {
+    flex-direction: column;
+  }
+  #container .product_wrap .center.right .text_wrap {
+    text-align: center;
+  }
+  #container .product_wrap .center .text_wrap {
+    text-align: center;
+  }
+  #container .product_wrap .center .text_wrap > h3 {
+    font-size: 8vw;
+  }
+  #container .regions {
+    margin-top: 5%;
+  }
+  #container .regions .region_wrap {
+    width: 95%;
+  }
+  #container .regions .region_wrap .region_title > h2 {
+    font-size: 10vw;
+  }
+  #container .regions .region_wrap .region_title > strong {
+    width: 80%;
+    font-size: calc(15px + 0.2vw);
+    line-height: 120%;
+    word-break: keep-all;
+    text-align: center;
+  }
+  #container .regions .region_wrap .region_text {
+    font-size: 13px;
+    font-family: "TheJamsil";
+    width: 100%;
+    margin: 4% 0 8%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #container .regions .region_wrap .region_text > p {
+    width: 90%;
+    text-align: center;
+    line-height: 160%;
+    font-size: calc(13px + 0.2vw);
+    margin-bottom: 3%;
+  }
 }

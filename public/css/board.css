@@ -6,25 +6,28 @@
   padding-top: 80px;
 }
 #container .title > h2 {
+  text-align: center;
+  font-size: 4vw;
   font-family: "Marcellus";
-  font-size: 5vw;
-  color: #1C1C1C;
+  line-height: 100%;
   position: relative;
-  line-height: 140%;
-  padding: 0 2%;
-  margin: 0 0 4%;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 4vw auto;
 }
 #container .title > h2::before {
   content: "";
   display: inline-block;
   position: absolute;
-  right: 0;
-  top: 0;
+  top: -20%;
+  right: -20%;
   background-color: #CF61A6;
+  width: 0.8em;
+  height: 0.8em;
   border-radius: 50%;
-  width: 4vw;
-  height: 4vw;
-  z-index: -1;
+}
+#container .title > h2 > p {
+  position: relative;
 }
 #container > div:nth-child(2) {
   display: flex;
@@ -116,6 +119,7 @@
   filter: hue-rotate(-20deg);
 }
 #container > div:nth-child(2).board_wrap .posts_wrap .post > h4 {
+  width: 90%;
   font-size: calc(16px + 0.1vw);
   height: calc(48px + 0.1vw);
   display: flex;
@@ -391,8 +395,12 @@
   height: -moz-max-content;
   height: max-content;
   width: 92%;
+  line-height: 160%;
+  margin-left: 2%;
+  overflow-y: hidden;
+  white-space: pre-line;
 }
-#container .comments_wrap .comment > form .commentUpdateBtn {
+#container .comments_wrap .comment > form .commentChangeBtn {
   display: none;
   padding: 0 2%;
   word-break: keep-all;
@@ -408,7 +416,7 @@
   cursor: pointer;
   transition: all 0.5s;
 }
-#container .comments_wrap .comment > form .commentUpdateBtn:hover {
+#container .comments_wrap .comment > form .commentChangeBtn:hover {
   background-color: #CF61A6;
 }
 #container .comments_wrap .comment .commentEditBtn {
@@ -420,6 +428,10 @@
   border: none;
   line-height: 200%;
   padding: 0 1em;
+  word-break: keep-all;
+  width: -moz-max-content;
+  width: max-content;
+  margin-right: 1%;
 }
 #container .comments_wrap .comment .commentDeleteBtn {
   font-size: calc(10px + 0.1vw);
@@ -430,6 +442,10 @@
   border: none;
   line-height: 200%;
   padding: 0 1em;
+  word-break: keep-all;
+  width: -moz-max-content;
+  width: max-content;
+  margin-right: 1%;
 }
 #container .comments_wrap .comment .comment_date {
   font-size: calc(13px + 0.1vw);
