@@ -1,0 +1,108 @@
+<%- include('header', {title:"Pink Ladies Gym",  cssFiles:["reset.css", "header.css", "footer.css"]})%>
+<div id="container">
+    <div class="title">
+        <h2><p>NyPage</p></h2>
+    </div>
+    <div class="mypage_wrap">
+        <!--운영자만 확인 가능한 체험 신청 명단-->
+        <% if (login.role === "ADMIN") { %>
+            <div class="trialWrap">
+                <h4>무료체험 신청 확인</h4>
+                <div class="trials">
+                    <ul class="trial t_head">
+                        <li class="trial_name">성함</li>
+                        <li class="trial_phone">핸드폰 번호</li>
+                        <li class="trial_locate">체험 희망 지점</li>
+                        <li class="trial_product">관심 프로그램</li>
+                        <li class="trial_context">문의사항</li>
+                    </ul>
+                    <% trials.forEach((trial) => { %>
+                        <ul class="trial t_body">
+                            <li class="trial_name"><%- trial.trial_name %></li>
+                            <li class="trial_phone"><%- trial.trial_phone %></li>
+                            <li class="trial_locate"><%- trial.trial_locate %></li>
+                            <li class="trial_product"><%- trial.trial_product %></li>
+                            <li class="trial_context"><%- trial.trial_context %></li>
+                            <li class="trial_date"><%- trial.trial_date %></li>
+                        </ul>
+                    <% }) %>
+                </div>
+            </div>
+        <% } %>
+        <div class="memberinfoWrap">
+            <h4>개인정보 수정/확인</h4>
+            <form id="memberEdit" name="memberEdit" method="post" action="/memberEdit">
+                <div class="info">
+                    <div class="label">
+                        <label for="ID">아이디 확인</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" id="ID" name="userID" minlength="8" maxlength="12" placeholder="아이디를 입력하세요" value="<%- login.userID %>" readonly required disabled>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="label">
+                        <label for="PW">비밀번호 수정</label>
+                    </div>
+                    <div class="input">
+                        <input type="password" id="PW" name="userPW" minlength="10" maxlength="16" placeholder="비밀번호를 입력하세요" required>
+                    </div>
+                    <div class="confirm">
+                        <button id="pw_toggle1" type="button">비밀번호 보기</button>
+                        <span>영문, 숫자, 특수기호(_ , -, !, *)를 혼용해서 10~16자 이내로 작성해주세요</span>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="label">
+                        <label for="PW2">비밀번호 수정 확인</label>
+                    </div>
+                    <div class="input">
+                        <input type="password" id="PW2" name="userPW2" minlength="10" placeholder="비밀번호를 다시 입력하세요" maxlength="16" required>
+                    </div>
+                    <div class="confirm">
+                        <button id="pw_toggle2" type="button">비밀번호 보기</button>
+                        <span>위에서 입력하신 비밀번호와 똑같이 입력해주세요</span>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="label">
+                        <label for="userName">성함</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" id="userName" name="userName" minlength="2" maxlength="6" placeholder="성함을 입력하세요" value="<%- login.userName %>" readonly required>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="label"></label>
+                    </div>
+                    <div class="input">
+                        <input type="text" id="userBirth" name="userBirth" maxlength="6" placeholder="6자리 숫자만 입력해주세요" readonly required >
+                        <span>-</span>
+                        <input type="password" id="userGender" name="userGender" maxlength="1" pattern="[0-9]" readonly required >
+                        <span>* * * * * *</span>
+                    </div>
+                    <div class="confirm">
+                        <span>성별 확인을 위해 주민번호 뒷자리 맨 앞 1자리까지만 입력해주세요. 여성만 가입 가능합니다.</span>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="label">
+                        <label for="userPhone2">휴대폰번호</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" id="userPhone1" name="userPhone1" maxlength="3" readonly value="010" required >
+                        <span>-</span>
+                        <input type="text" id="userPhone2" name="userPhone2" maxlength="4" pattern="[0-9]{4}" required >
+                        <span>-</span>
+                        <input type="text" id="userPhone3" name="userPhone3" maxlength="4" pattern="[0-9]{4}" required >
+                    </div>
+                    <div class="confirm">
+                        <span>휴대폰 번호를 입력하세요.</span>
+                    </div>
+                </div>
+                <button type="submit">회원정보 수정하기</button>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('footer', {jsFiles:["header.js", "mGnb.js", "login.js"]})%>

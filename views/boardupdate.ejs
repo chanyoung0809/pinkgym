@@ -1,31 +1,32 @@
-<%- include('header', {title:"Pink Ladies Gym",  cssFiles:["reset.css","header.css", "footer.css", "index.css"]})%>
+<%- include('header', {title:"Pink Ladies Gym",  cssFiles:["reset.css","header.css", "footer.css", "index.css", "board.css"]})%>
     <div id="container">
         <div class="title">
-            <h2>Board</h2>
+            <h2><p>Board</p></h2>
         </div>
         <div class="write_wrap">
-            <% if (category === 'free') { %>
-                <h3 onclick="window.location.href='/board/free'">자유게시판</h3>
-            <% } else if (category === 'sell') { %>
-                <h3 onclick="window.location.href='/board/sell'">벼룩시장</h3>
-            <% } %>
-            <form action="/DBpost/free" method="post" enctype="multipart/form-data">
-                <input type="hidden" id="post_date" name="post_date">
+            <ul class="category">
+                <li class="<%- (data.category === "free") ? 'on' : ''; %>"><a href="/board/free">자유게시판</a></li>
+                <li class="<%- (data.category === "sell") ? 'on' : ''; %>"><a href="/board/sell">중고거래</a></li>
+            </ul>
+            <form action="/DBupdate" method="post" enctype="multipart/form-data" id="update">
+                <input type="hidden" id="category" name="category" value="<%- data.category %>">
+                <input type="hidden" id="post_num" name="post_num" value="<%- data.post_num %>" >
                 <div class="post_title">
                     <label for="post_title">제목</label>
-                    <input id="post_title" name="post_title" type="text" placeholder="제목을 입력하세요" required>
+                    <input id="post_title" name="post_title" type="text" placeholder="제목을 입력하세요" value="<%- data.post_title %>" required>
                 </div>
                 <div class="post_imgs">
+                    <label for="post_file">이미지 파일</label>
                     <input type="file" id="post_file" name="post_file" multiple>
                 </div>
                 <div class="post_text">
-                    <textarea id="post_text" name="post_text" required></textarea>
+                    <textarea id="post_text" name="post_text" required><%- data.post_text %></textarea>
                 </div>
                 <div class="btn_wrap">
-                    <button type="submit">작성하기</button>
+                    <button id="submit" type="submit">작성하기</button>
                     <button type="reset">다시쓰기</button>
                 </div>
             </form>
         </div>
     </div>
-<%- include('footer', {jsFiles:["header.js", "swiper.js", "mGnb.js", "login.js"]})%>
+<%- include('footer', {jsFiles:["header.js", "swiper.js", "mGnb.js", "login.js", "boardupdate.js"]})%>

@@ -14,7 +14,7 @@ let submitDate = ()=>{ // 글 작성 날짜 삽입 위한 함수
 const upload = document.querySelector("#upload"); //데이터 전송역할
 const inputFile = document.querySelector("#post_file"); // 첨부파일 input태그
 const submitBtn = document.querySelector("#submit"); // 전송버튼
-let extCheck = [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg"]; // 체크할 확장자명
+const extCheck = [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg"]; // 체크할 확장자명
 
 submitBtn.addEventListener("click", (e)=>{
     

@@ -60,9 +60,9 @@
         <div class="button_wrap">
             <a href="/board/<%- category %>">뒤로가기</a>
             <% if (data.post_author === login.userName || login.role === "ADMIN") { %>
-                <a href="/DBdelete">삭제하기</a>
-                <a href="/boardupdate/<%- data.post_num %>">수정하기</a>
+                <a href="/DBdelete/<%- category %>/<%- data.post_num %>" id="postDeleteBtn">삭제하기</a>
+                <a href="/board/update/<%- data.post_num %>">수정하기</a>
             <% } %>
         </div>
     </div>
-<%- include('footer', {jsFiles:["header.js", "swiper.js", "mGnb.js", "login.js", "comment.js"]})%>
+<%- include('footer', {jsFiles:["header.js", "swiper.js", "mGnb.js", "login.js", "comment.js", "deletecheck.js"]})%>

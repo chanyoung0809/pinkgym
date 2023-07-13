@@ -31,14 +31,84 @@
         </div>
     </div>
     <div class="cont3">
-        <div class="center">
-            <img src="/img/cont3.png">
-            <div class="text_wrap">
-                <h4>합리적 가격의 소수정예 그룹레슨으로</h4> 
-                <h3>진짜 필라테스의 효과를 느껴보세요</h3>
-                <a href="#">스케쥴 확인하기</a>
+        <% if (login) { %>
+            <div class="member_center">
+                <h3 class="title"><p>Board</p></h3>
+                <!-- 회원전용 게시판 최신글 미리보기 -->
+                <div class="board_previews">
+                    <ul class="free">
+                        <li>
+                            <a href="/board/free">
+                                <h6>자유게시판</h6>
+                                <p>+</p>
+                            </a>
+                        </li>
+                        <% if (free.length >= 3) { %>
+                            <% free.forEach((post) => { %>
+                                <li>
+                                    <a href="/board/free/detail/<%- post.post_num %>">
+                                        <h6><%- post.post_title %></h6>
+                                        <p><%- post.post_date %></p>
+                                    </a>
+                                </li>
+                            <% }) %>
+                        <% } else {%>
+                            <% for( let i = 0; i < 3; i++ ) { %>
+                                <li>
+                                    <% if (free[i]) { %>
+                                    <a href="/board/free/detail/<%- free[i].post_num %>">
+                                        <%- free[i].post_title %>
+                                    </a>
+                                    <% } else { %>
+                                    <p>게시글이 없습니다.</p>    
+                                    <% } %>
+                                </li>
+                            <% } %>
+                        <% } %>
+                    </ul>
+                    <ul class="sell">
+                        <li>
+                            <a href="/board/sell">
+                                <h6>벼룩시장</h6>
+                                <p>+</p>
+                            </a>
+                        </li>
+                        <% if (sell.length >= 3) { %>
+                            <% sell.forEach((sellpost) => { %>
+                                <li>
+                                    <a href="/board/sell/detail/<%- sellpost.post_num %>">
+                                        <h6><%- sellpost.post_title %></h6>
+                                        <p><%- sellpost.post_date %></p>
+                                    </a>
+                                </li>
+                            <% }) %>
+                        <% } else {%>
+                            <% for( let i = 0; i < 3; i++ ) { %>
+                                <li>
+                                    <% if (sell[i]) { %>
+                                        <a href="/board/sell/detail/<%- sell[i].post_num %>">
+                                            <h6><%- sell[i].post_title %></h6>
+                                            <p><%- sell[i].post_date %></p>
+                                        </a>
+                                    <% } else { %>
+                                        <a>　</a>    
+                                    <% } %>
+                                </li>
+                            <% } %>
+                        <% } %>
+                    </ul>
+                </div>  
             </div>
-        </div>
+        <% } else { %>
+            <div class="center">
+                <img src="/img/cont3.png">
+                <div class="text_wrap">
+                    <h4>합리적인 가격의 다양한 코스들로</h4> 
+                    <h3>운동 능률을 향상시켜보세요</h3>
+                    <a href="#contact">무료체험하기</a>
+                </div>
+            </div>
+        <% } %>
     </div>
     <div class="cont4">
         <div class="center">
@@ -79,71 +149,70 @@
     </div>
     <div class="cont5">
         <div class="center">
-            <% if (login) { %>
-                <!-- 회원전용 게시판 최신글 미리보기 -->
-            <% } else { %>
-                <form id="contact">
+            <% if (!login) { %>
+                <form id="contact" method="post" action="/trial">
                     <h5>핑크짐 체험 신청</h5>
                     <h3>CONTACT</h3>
                     <div class="input_wrap">
                         <div>
                             <label for="trial_name">이름</label>
-                            <input type="text" id="trial_name"/>
+                            <input type="text" id="trial_name" name="trial_name" required/>
                         </div>
                         <div>
                             <label for="trial_phone2">전화번호</label>
                             <div class='phone'>
-                                <input type="text" id="trial_phone1" value="010" pattern="[0-9]{3}" maxlength="3" readonly/>
+                                <input type="text" id="trial_phone1" name="trial_phone1" value="010" pattern="[0-9]{3}" maxlength="3" readonly disabled/>
                                 <span>-</span>
-                                <input type="text" id="trial_phone2" pattern="[0-9]{4}" maxlength="4"/>
+                                <input type="text" id="trial_phone2" name="trial_phone2" pattern="[0-9]{4}" maxlength="4" required/>
                                 <span>-</span>
-                                <input type="text" id="trial_phone3" pattern="[0-9]{4}" maxlength="4"/>
+                                <input type="text" id="trial_phone3" name="trial_phone3" pattern="[0-9]{4}" maxlength="4" required/>
                             </div>
                         </div>
                     </div>
                     <div class="input_wrap">
                         <div>
                             <label for="trial_locate">체험 희망지점</label>
-                            <select id="trial_locate">
+                            <select id="trial_locate" name="trial_locate" required>
                                 <option disabled selected>선택</option>
-                                <option>월성점</option>
-                                <option>침산점</option>
-                                <option>범어점</option>
-                                <option>동성로점</option>
-                                <option>연경점</option>
-                                <option>죽전점</option>
+                                <option value="월성점">월성점</option>
+                                <option value="침산점">침산점</option>
+                                <option value="범어점">범어점</option>
+                                <option value="동성로점">동성로점</option>
+                                <option value="연경점">연경점</option>
+                                <option value="죽전점">죽전점</option>
                             </select>
                         </div>
                         <div>
                             <label for="trial_product">관심분야</label>
-                            <select id="trial_product">
+                            <select id="trial_product" name="trial_product" required>
                                 <option disabled selected>선택</option>
-                                <option>MEMBERSHIP</option>
-                                <option>SPINNING</option>
-                                <option>PT</option>
-                                <option>GOLF</option>
-                                <option>PILATES</option>
-                                <option>SPA</option>
+                                <option value="멤버쉽">MEMBERSHIP</option>
+                                <option value="스피닝">SPINNING</option>
+                                <option value="PT">PT</option>
+                                <option value="골프">GOLF</option>
+                                <option value="필라테스">PILATES</option>
+                                <option value="스파">SPA</option>
                             </select>
                         </div>
                     </div>
                     <div class="input_wrap">
                         <div>
                             <label for="trial_context">문의사항</label>
-                            <textarea id="trial_context"></textarea>
+                            <textarea id="trial_context" name="trial_context" placeholder="200자 이내로 문의사항을 남겨주세요" required></textarea>
                         </div>
                     </div>
                     <div class="input_wrap">
                         <div>
-                            <input type="checkbox" id="personal_terms">
+                            <input type="checkbox" id="personal_terms" required>
                             <label for="personal_terms">개인정보 처리방침에 동의합니다</label>
                             <a href="#">[보기]</a>
                         </div>
                     </div>
-                    <button type="submit">문의하기</button>
+                    <input type="hidden" id="trial_date" name="trial_date">
+                    <button type="submit" id="submit">문의하기</button>
                 </form>
             <% } %>
         </div>
     </div>
 </div>
-<%- include('footer', {jsFiles:["header.js", "swiper.js", "mGnb.js", "login.js"]})%>
+<%- include('footer', {jsFiles:["header.js", "swiper.js", "mGnb.js", "login.js", "trialSubmit.js"]})%>

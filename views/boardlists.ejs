@@ -8,29 +8,62 @@
                 <li class="<%- (category === "free") ? 'on' : ''; %>"><a href="/board/free">자유게시판</a></li>
                 <li class="<%- (category === "sell") ? 'on' : ''; %>"><a href="/board/sell">중고거래</a></li>
             </ul>
-            <div class="posts_wrap">
-                <% data.forEach((post, idx) => { %>
-                    <% if (post.category === category) { %>
-                        <a href="/board/<%- category %>/detail/<%- post.post_num %>" class="post">
-                            <div class="img_wrap">
-                            <% if (post.attachfile.length > 0) { %>
-                                <img src="/upload/<%- post.attachfile[0] %>" >
-                            <% } else { %>
-                                <img src="/img/thumbnail.png" class="thumbmail">
-                            <% } %>
-                            </div>
-                            <h4 class="post_title"><%- post.post_title %> <span class="commentsIdx">［<%- post.comments.length %>］</span></h4>
-                            <div class="info_wrap">
-                                <p class="post_date"><%- (Today == post.post_date.slice(0,10)) ? post.post_date.slice(11) : post.post_date.slice(0,10); %></p>
-                                <p class="post_author"><%- post.post_author %></p>
-                            </div>
-                        </a>
-                    <% } %>
-                <% }) %>
-            </div>
-            <div class="write_btn">
-                <a href="/board/<%- category %>/write">글쓰기</a>
-            </div>
+            <form class="posts_wrap" action="/dbseldel/<%- category %>" method="get">
+                <% if (data.length > 0) { %>
+                    <% data.forEach((post, idx) => { %>
+                        <% if (post.category === category) { %>
+                            <a href="/board/<%- category %>/detail/<%- post.post_num %>" class="post">
+                                <div class="img_wrap">
+                                <% if (post.attachfile.length > 0) { %>
+                                    <img src="/upload/<%- post.attachfile[0] %>" >
+                                <% } else { %>
+                                    <img src="/img/thumbnail.png" class="thumbmail">
+                                <% } %>
+                                </div>
+                                <h4 class="post_title"><%- post.post_title %> <span class="commentsIdx">［<%- post.comments.length %>］</span></h4>
+                                <div class="info_wrap">
+                                    <% if(login.role === "ADMIN"){%> 
+                                        <input type="checkbox" name="delOk[]" class="delOk" value="<%- post.post_num %>">
+                                    <%}%>
+                                    <p class="post_date"><%- (Today == post.post_date.slice(0,10)) ? post.post_date.slice(11) : post.post_date.slice(0,10); %></p>
+                                    <p class="post_author"><%- post.post_author %></p>
+                                </div>
+                            </a>
+                        <% } %>
+                    <% }) %>
+                <% } else { %>
+                    <p>검색한 조건에 맞는 게시글이 없습니다.</p>
+                <% } %>
+                <div class="write_btns">
+                    <% if(login.role === "ADMIN"){%> 
+                        <div class="left">
+                            <input type="checkbox" id="selectToggle">
+                            <label for="selectToggle">전체선택/해제</label>
+                            <button type="submit" id="selectDelete">선택삭제</button>
+                        </div>
+                    <%}%>
+                    <div class="right">
+                        <a href="/board/<%- category %>/write">글쓰기</a>
+                    </div>
+                </div>
+            </form>        
+            <!-- 검색창 : 검색 기능을 위한 form 태그 -->
+            <form id="searchForm" action="/search/<%- category %>" method="get">
+                <!-- 어떤 항목으로 검색할 것인지 -->
+                <div class="searchWrap">
+                    <select name="search">
+                        <option value="post_title" selected >제목</option>
+                        <option value="post_author">작성자</option>
+                        <option value="post_text">내용</option>
+                        <option value="comments.comment_content">댓글 내용</option>
+                        <option value="comments.comment_author">댓글 작성자</option>
+                    </select>
+                    <!-- 검색어 입력 데이터 -->
+                    <input type="text" name="inputText" id="inputText" value="<%- text %>">
+                    <button type="submit" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <a href="/board/<%- category %>">전체글 보기</a>
+                </div>
+            </form>
             <nav class="paginationWrap">
                 <ul class="pagination">
                     <!-- 이전 버튼 생성 작업 -->
@@ -53,4 +86,4 @@
             </nav>
         </div>
     </div>
-<%- include('footer', {jsFiles:["header.js", "swiper.js", "mGnb.js", "login.js"]})%>
+<%- include('footer', {jsFiles:["header.js", "swiper.js", "mGnb.js", "login.js", "search.js", "selectDel.js"]})%>

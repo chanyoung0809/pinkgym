@@ -82,7 +82,7 @@ passport.use(new LocalStrategy({
     }
 ));
 
-// 파비콘 오류 처리
+// 파비콘 오류 처리(추후 제거할 것)
 app.get('/favicon.ico', (req, res) => {
     res.status(204).end();
 });
@@ -91,7 +91,17 @@ app.get('/favicon.ico', (req, res) => {
 app.get("/", (req, res)=>{
     db.collection("product").find().toArray((err, products)=>{
         db.collection("location").find().toArray((err, locates)=>{
-            res.render("index", {login:req.user, products:products, locates:locates});
+            db.collection("posts").find().sort({post_num:-1}).toArray((err, posts)=>{
+                //최신 글 3개까지만 보여주기 위해 처리
+                let free = [];
+                let sell = [];
+                posts.forEach((post)=>{
+                    (post.category == 'free') ? free.push(post) : sell.push(post);
+                })
+                free = free.slice(0,3);
+                sell = sell.slice(0,3);
+                res.render("index", {login:req.user, products:products, locates:locates, free:free, sell:sell});
+            });
         });
     });
 })
@@ -141,14 +151,14 @@ app.get("/join", (req, res) => {
     }
 });
   
-// 회원가입 DB처리
+// 회원가입 DB처리(비동기 - 아이디 중복체크)
 app.post("/DBtest",(req,res)=>{
     db.collection("members").findOne({userID:req.body.userID},(err,member)=>{
          // 중복 아이디 있는 경우
         res.send({result:member});
     })
 })
-
+// 회원가입 DB처리(동기)
 app.post("/DBjoin", (req, res)=>{  
     db.collection("members").findOne({userID:req.body.userID},(err,member)=>{
         db.collection("count").findOne({name:"회원수"},(err,result)=>{
@@ -275,10 +285,11 @@ app.get("/board/:category",(req, res)=>{
                             blockNum:blockNum, // 보고있는 페이지 번호가 몇 번 블록(그룹번호)에 있는지 확인
                             totalBlock:totalBlock, // 블록(그룹)의 총 갯수 -> 2개
                             pageNumber:pageNumber, // 현재 보고있는 페이지 값
-                            products:products, 
-                            locates:locates,
-                            login:req.user,
-                            Today:Today
+                            products:products, // 프로그램
+                            locates:locates, // 지점안내
+                            login:req.user, //로그인 정보
+                            Today:Today, // 오늘 날짜
+                            text:"",
                         })
                     })
                 })
@@ -295,6 +306,98 @@ app.get("/board/:category",(req, res)=>{
     }
 
 });
+
+// 게시글 + 댓글 검색 기능
+app.get("/search/:category", (req,res)=>{
+    const category = req.params.category;
+    /* 게시물 작성 날짜-오늘 날짜 확인 위한 변수 생성 */
+    let date = new Date();
+    let year = date.getFullYear(); //월
+    let month = ("0" + (date.getMonth() + 1)).slice(-2); // 연
+    let day = ("0" + date.getDate()).slice(-2); // 일
+    let Today = `${year}-${month}-${day}`; // 오늘 날짜
+    // 검색조건 세팅
+    let check = [
+    {
+        // $search:{ 뭘 어떻게 찾을 건지?
+        $search:{
+            
+            index: "Post_comment_search", //db사이트에서 설정한 index 이름
+            text:{
+                query: req.query.inputText,
+                // 검색단어 입력단어값 (query:명령을 내리다, 질의하다)
+                path: req.query.search
+                // 어떤 항목을 검색할 것인지?
+                // 여러 개 설정할 때는 배열로 설정
+            }   
+        }
+    },
+    {
+        // 어떻게 정렬할 것인가? 1-> 오름차순, -1 -> 내림차순
+        $sort:{num:-1}
+    },
+    ]
+    //위에서 설정한 변수 check를 aggregate 매개변수로 가져옴
+    db.collection("posts").aggregate(check).toArray((err,result)=>{
+        // result에서 배열 형태로 가져옴
+        // 배열 형태로 가져온 total 정렬 작업
+        let totalData = result.length;
+        // 게시글 전체 갯수값 알아내서 변수로 저장
+
+        // 페이지 번호가 공란일 때(잘못된 값일 때) ? 1로고정 : 받은 페이지값을 숫자로
+        let pageNumber = (req.query.page == null) ? 1 : Number(req.query.page);
+
+        // 한 페이지에 보여줄 게시글 갯수 설정
+        let perPage = 6;
+        // 블록당 보여줄 페이징 번호 갯수값 설정
+        let blockCount = 3;
+        // 이전, 다음 블록 간 이동 하기 위한 현재 페이지 블록 구하기
+        let blockNum = Math.ceil(pageNumber / blockCount);
+
+        // 블록 안 페이지 번호 시작값 알아내기 (1) 2 3 4 5
+        let blockStart = ((blockNum -1) * blockCount) + 1;
+        // 블록 안 페이지 번호 끝값 알아내기 1 2 3 4 (5)
+        let blockEnd =  blockStart + blockCount -1;
+
+        // 게시글 전체 갯수를 토대로 전체 페이지 번호가 총 몇 개 만들어져서 표시돼야하는지?
+        let totalPaging = Math.ceil(totalData/perPage);
+
+        // 블록(그룹)에서 마지막 페이지 번호가 끝 번호보다 크다면 페이지의 끝번호를 강제로 고정시킴(잘못된 접근 막기 위해)
+        if(blockEnd > totalPaging){
+            blockEnd = totalPaging;
+            // 끝번호 7인데, 10번 페이지를 보려고 한다면 7로 고정시킴
+        }
+
+        // 페이징블록(그룹)의 총 갯수값 구하기
+        let totalBlock = Math.ceil(totalPaging / blockCount);
+
+        // db에서 게시글 뽑아서 가져오기 위한 순서값(몇 번째부터 가져올 것인가?) 정해주기(페이지번호 1 - 20, 19, 18. 2 - 17, 16, 15...)
+        let startFrom = (pageNumber - 1) * perPage;
+
+        db.collection("product").find().toArray((err, products)=>{
+            db.collection("location").find().toArray((err, locates)=>{
+                res.render("boardlists.ejs",{
+                    data:result, 
+                    category: category, // 게시판 카테고리
+                    text:req.query.inputText, // 검색값
+                    totalPaging:totalPaging, // 페이지 번호 총 갯수값 -> 7개
+                    blockStart:blockStart, // 블록 안의 페이지 시작 번호값
+                    blockEnd:blockEnd, // 블록 안의 페이지 끝 번호값
+                    blockNum:blockNum, // 보고있는 페이지 번호가 몇 번 블록(그룹번호)에 있는지 확인
+                    totalBlock:totalBlock, // 블록(그룹)의 총 갯수 -> 2개
+                    pageNumber:pageNumber, // 현재 보고있는 페이지 값
+                    products:products, // 프로그램
+                    locates:locates, // 지점안내
+                    login:req.user, //로그인 정보
+                    Today:Today, // 오늘 날짜
+                });
+                // 게시판 페이지를 데이터 담아서 랜더링함
+                // (redirect 쓰면, 해당 경로로 가는 걸로 요청되고, 그러면 전체 데이터가 담긴 게시판 페이지로 랜더링되기 때문에 안됨!)
+            })
+        })
+    })
+
+})
 
 // 글 작성하기 페이지
 app.get("/board/:category/write", (req, res)=>{
@@ -371,50 +474,71 @@ app.get("/board/:category/detail/:num", (req, res)=>{
     }
 });
 
+// 게시글 수정 페이지
+app.get("/board/update/:num",(req,res)=>{
+    db.collection("product").find().toArray((err, products)=>{
+        db.collection("location").find().toArray((err, locates)=>{
+            db.collection("posts").findOne({post_num:Number(req.params.num)},(err,result)=>{
+                res.render("boardupdate.ejs",{login:req.user, data:result, locates:locates, products:products});
+            })
+        })
+    })
+});
 
-// 댓글 입력 경로 <- 에러발생.
-// 만들어진 게시글 컬렉션 안에 항목을 추가로 삽입하는거라 insertOne은 사용 불가. 
-// app.post("/commentUpdate/:num",(req,res)=>{
-//     const num = req.params.num; // 게시물 순번값 담당하는 파라미터값
-//     db.collection("posts").updateOne({num:Number(req.body.num)},{$set:{
-//         comments[num].comment_num:Number(req.body.comment_num),
-//         comments[num].comment_author:req.user.userName,
-//         comments[num].comment_content:req.body.comment_content,
-//         comments[num].comment_date:req.body.comment_date,
-//     }},(err, result)=>{
-//         res.redirect(`/board/${result.value.category}/detail/${result.value.post_num}`);
-//     })   
-// })
+//DB 내 게시글 수정 요청
+app.post("/DBupdate" , upload.array("post_file"), (req,res)=>{
+    // 첨부파일을 변경한 경우 -> 배열 안에 데이터가 있는 경우
+    let changeFiles = [];
+    let changeDatas = {};
+    if(req.files.length > 0){
+        // 첨부판 파일들의 파일명만 뽑아서 배열에 담고 배열에 저장
+        for(let i=0; i<req.files.length; i++){
+            changeFiles[i] = req.files[i].filename;
+        }
+        // db 수정처리할 데이터 정리(객체로)
+        changeDatas = {
+            post_title:req.body.post_title,
+            post_text:req.body.post_text,
+            attachfile:changeFiles
+        }
+    }
+    else{// 첨부파일 변경하지 않은 경우 -> 빈 배열
+        changeDatas = {
+            post_title:req.body.post_title,
+            post_text:req.body.post_text
+            //첨부파일 수정 막음
+        } 
+    }
+    db.collection("posts").updateOne({post_num:Number(req.body.post_num)},{$set:changeDatas},(err,result)=>{
+        res.redirect(`/board/${req.body.category}/detail/${req.body.post_num}`); 
+    })
+})
 
+// 게시글 상세 페이지 -> 삭제 요청
+app.get("/dbdelete/:category/:num",(req,res)=>{
+    const category = req.params.category;
+    db.collection("posts").deleteOne({post_num:Number(req.params.num)},(err,result)=>{
+        //게시글 삭제후 게시글 목록페이지로 요청
+        res.redirect(`/board/${category}`);
+    })
+})
 
-// // 댓글 작성 DB 요청
-// app.post("/commentUpdate/:num", (req, res) => {
-//     const num = req.params.num; // 게시물 순번값 담당하는 파라미터값
-//     db.collection("posts").findOneAndUpdate(
-//         { post_num: Number(num) }, // 게시물 순번값으로 댓글 추가할 도큐먼트 찾기
-//         {
-//             $push: {
-//                 comments: {
-//                     comment_num: Number(req.body.comment_num),
-//                     comment_author: req.user.userName,
-//                     comment_content: req.body.comment_content,
-//                     comment_date: req.body.comment_date
-//                 }
-//             }
-//         },          
-//         {
-//             returnOriginal: false
-//         },
-//         (err, result) => {
-//             if (err) {
-//                 console.error("업데이트 실패:", err);
-//                 res.status(500).send("업데이트를 수행하는 동안 오류가 발생했습니다.");
-//             } else {
-//                 res.redirect(`/board/${result.value.category}/detail/${result.value.post_num}`);
-//             }
-//         }
-//     );
-// });
+// 게시글 전체 페이지 -> 선택삭제 요청
+// 체크박스 선택한 게시글들 지우는 처리
+app.get("/dbseldel/:category",(req,res)=>{
+    const category = req.params.category;
+    // delOk안에있는 문자열 데이터들을 정수데이터로 변경
+    let changeNumber = [];
+    req.query.delOk.forEach((item,index)=>{
+        changeNumber[index] = Number(item); 
+        //반복문으로 해당 체크박스 value 값 갯수만큼 숫자로 변환후 배열에 대입
+    })
+    //변환된 게시글 번호 갯수들만큼 실제 데이터베이스에서 삭제처리 deleteMany()
+                                            //배열명에 있는 데이터랑 매칭되는 것들을 삭제
+    db.collection("posts").deleteMany({post_num:{$in:changeNumber}},(err,result)=>{
+        res.redirect(`/board/${category}`); //게시글 목록페이지로 요청
+    })
+});
 
 // 댓글 작성 DB 요청
 app.post("/commentUpdate/:num", (req, res) => {
@@ -443,29 +567,17 @@ app.post("/commentUpdate/:num", (req, res) => {
     );
 });
 
-//댓글수정경로
-// app.post("/댓글수정경로",(req,res)=>{
-//     db.collection("posts").updateOne({num:Number(req.body.num)},{$set:{
-//         comments[num].comment_num:Number(req.body.comment_num),
-//         comments[num].comment_author:req.user.userName,
-//         comments[num].comment_content:req.body.comment_content,
-//         comments[num].comment_date:req.body.comment_date,
-//     }},(err, result)=>{
-//         res.redirect(`/board/${result.value.category}/detail/${result.value.post_num}`);
-//     })   
-// })
-
 // 댓글 수정
 app.post("/commentChange/:boardnum/:commentnum", (req, res) => {
     const boardnum = req.params.boardnum; // 게시글 번호
     const commentnum = req.params.commentnum; // 댓글 번호
 
-    const commentContentChangeKey = `commentContentChange${Number(commentnum)}`;
-    const commentContentChangeValue = req.body[commentContentChangeKey];
+    const commentChangeKey = `commentContentChange${Number(commentnum)}`;
+    const commentChangeValue = req.body[commentChangeKey];
 
     db.collection("posts").findOneAndUpdate(
         { post_num: Number(boardnum), "comments.comment_num": Number(commentnum) },
-        { $set: { "comments.$.comment_content": commentContentChangeValue } },
+        { $set: { "comments.$.comment_content": commentChangeValue } },
         { returnOriginal: false },
         (err, result) => {
             if (err) {
@@ -504,3 +616,39 @@ app.get("/commentDel/:boardnum/:commentnum", (req, res) => {
         }
     );
 });
+
+// 메인페이지 - 무료체험 신청 경로
+app.post("/trial", (req, res)=>{
+    // input 태그 여러 개에 나눠진 핸드폰 번호 정리
+    let trialPhone2 = req.body.trial_phone2;
+    let trialPhone3 = req.body.trial_phone3;
+    const trialPhone = `010-${trialPhone2}-${trialPhone3}`;
+    db.collection("count").findOne({'name':"무료체험신청자수"},(err,countResult)=>{
+        db.collection("trial").insertOne({
+            trial_num : countResult.trialCount, // 무료체험순번
+            trial_date : req.body.trial_date, // 신청일자
+            trial_name : req.body.trial_name, // 신청인성함
+            trial_phone : trialPhone, // 신청인 연락처
+            trial_locate : req.body.trial_locate, // 신청 지점
+            trial_product : req.body.trial_product, // 관심 프로그램
+            trial_context : req.body.trial_context, // 문의내용
+        },(err,trialData)=>{
+            db.collection("count").updateOne({'name':"무료체험신청자수"},{$inc:{trialCount:1}},(err,result)=>{
+                res.send(`<script> alert('무료체험 신청이 완료되었습니다.'); window.location.href="/" </script>`);
+            })
+        })
+    })
+});
+
+// 마이페이지
+/* 개인정보 열람, 수정 가능 관리자만 무료체험 신청인 열람 가능,  */
+app.get("/mypage", (req,res)=>{
+    db.collection("product").find().toArray((err, products)=>{
+        db.collection("location").find().toArray((err, locates)=>{
+            db.collection("trial").find().sort({trial_num:-1}).toArray((err, trials)=>{
+                res.render("mypage", {login:req.user, locates:locates, products:products, trials:trials});
+            })    
+        })  
+    })  
+});
+
