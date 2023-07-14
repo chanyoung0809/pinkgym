@@ -1,0 +1,250 @@
+input {
+  border: none;
+  outline: none;
+  font-family: "TheJamsil";
+  font-weight: 300;
+  text-align: center;
+  border-bottom: 0.2vw solid #1C1C1C;
+  line-height: 200%;
+  font-size: calc(13px + 0.1vw);
+}
+input:disabled {
+  background-color: transparent;
+  border-bottom: none;
+  color: #1C1C1C;
+}
+
+#container .title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+}
+#container .title > h2 {
+  text-align: center;
+  font-size: 4vw;
+  font-family: "Marcellus";
+  line-height: 100%;
+  position: relative;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 4vw auto;
+}
+#container .title > h2::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: -20%;
+  right: -12%;
+  background-color: #CF61A6;
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+}
+#container .title > h2 > p {
+  position: relative;
+}
+#container .trialinfo_wrap {
+  display: flex;
+  justify-content: center;
+}
+#container .trialinfo_wrap > div {
+  width: 70%;
+  font-family: "TheJamsil";
+}
+#container .trialinfo_wrap > div > h4 {
+  font-size: 2vw;
+  color: #BF2195;
+  font-weight: 700;
+  line-height: 200%;
+}
+#container .trialinfo_wrap .trialWrap .t_head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #CF61A6;
+  color: #FFF;
+}
+#container .trialinfo_wrap .trialWrap .t_head > li {
+  display: block;
+  width: -moz-max-content;
+  width: max-content;
+  text-align: center;
+  padding: 1em 0;
+  word-break: keep-all;
+  font-weight: 700;
+  font-size: calc(16px + 0.1vw);
+}
+#container .trialinfo_wrap .trialWrap .t_head > li:first-child {
+  width: 8%;
+  border-left: 1px solid #BF2195;
+}
+#container .trialinfo_wrap .trialWrap .t_head > li:nth-child(2) {
+  width: 16%;
+}
+#container .trialinfo_wrap .trialWrap .t_head > li:nth-child(3) {
+  width: 12%;
+}
+#container .trialinfo_wrap .trialWrap .t_head > li:nth-child(4) {
+  width: 16%;
+}
+#container .trialinfo_wrap .trialWrap .t_head > li:nth-child(5) {
+  width: 36%;
+  word-break: keep-all;
+}
+#container .trialinfo_wrap .trialWrap .t_head > li:last-child {
+  width: 12%;
+}
+#container .trialinfo_wrap .trialWrap .trials {
+  width: 100%;
+  position: relative;
+  height: 50%;
+  overflow-y: scroll;
+  border-bottom: 1px solid #CF61A6;
+}
+#container .trialinfo_wrap .trialWrap .trials::-webkit-scrollbar {
+  background-color: #F2DCE0;
+  width: calc(10px - 0.1vw);
+  height: 100%;
+}
+#container .trialinfo_wrap .trialWrap .trials::-webkit-scrollbar-thumb {
+  background-color: #CF61A6;
+}
+#container .trialinfo_wrap .trialWrap .trials .trial {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #BF2195;
+}
+#container .trialinfo_wrap .trialWrap .trials .trial > li {
+  display: block;
+  font-size: calc(13px + 0.1vw);
+  width: -moz-max-content;
+  width: max-content;
+  text-align: center;
+  padding: 1em 0;
+  line-height: 120%;
+  height: auto;
+  word-break: keep-all;
+}
+#container .trialinfo_wrap .trialWrap .trials .trial > li:first-child {
+  width: 8%;
+}
+#container .trialinfo_wrap .trialWrap .trials .trial > li:nth-child(2) {
+  width: 16%;
+  display: flex;
+  flex-direction: column;
+}
+#container .trialinfo_wrap .trialWrap .trials .trial > li:nth-child(2) > a {
+  color: #BF2195;
+  margin-right: 1%;
+  display: none;
+}
+#container .trialinfo_wrap .trialWrap .trials .trial > li:nth-child(3) {
+  width: 12%;
+}
+#container .trialinfo_wrap .trialWrap .trials .trial > li:nth-child(4) {
+  width: 16%;
+}
+#container .trialinfo_wrap .trialWrap .trials .trial > li:nth-child(5) {
+  width: 36%;
+}
+#container .trialinfo_wrap .trialWrap .trials .trial > li:last-child {
+  width: 12%;
+  border-right: none;
+}
+#container .memberinfoWrap {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  font-family: "TheJamsil";
+}
+#container .memberinfoWrap > h4 {
+  width: 70%;
+  font-size: 2vw;
+  color: #BF2195;
+  font-weight: 700;
+  line-height: 200%;
+}
+#container .memberinfoWrap #memberEdit {
+  width: 70%;
+  font-family: "TheJamsil";
+  margin-bottom: 4%;
+  border-top: 1px solid #CF61A6;
+}
+#container .memberinfoWrap #memberEdit .info {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #CF61A6;
+  border-top: none;
+}
+#container .memberinfoWrap #memberEdit .info.readonly .input {
+  width: 17.333333%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container .memberinfoWrap #memberEdit .info .label {
+  width: 16%;
+  text-align: center;
+  font-size: calc(13px + 0.1vw);
+  padding: 1em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #CF61A6;
+  font-weight: 700;
+  background-color: #CF61A6;
+  color: #FFF;
+}
+#container .memberinfoWrap #memberEdit .info .input {
+  padding: 1em 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#container .memberinfoWrap #memberEdit .info .input > input#userBirth {
+  width: 100%;
+}
+#container .memberinfoWrap #memberEdit .info .input > input#userGender {
+  width: calc(13px + 0.1vw);
+}
+#container .memberinfoWrap #memberEdit .info .input > input#userPhone1 {
+  width: 5vw;
+}
+#container .memberinfoWrap #memberEdit .info .input > input#userPhone2 {
+  width: calc(78px + 0.6vw);
+}
+#container .memberinfoWrap #memberEdit .info .input > input#userPhone3 {
+  width: calc(78px + 0.6vw);
+}
+#container .memberinfoWrap #memberEdit .info .input > button {
+  width: -moz-max-content;
+  width: max-content;
+  font-size: calc(13px + 0.1vw);
+  background-color: #2A2A2A;
+  border: none;
+  color: #FFF;
+  line-height: 200%;
+  font-family: "TheJamsil";
+  border-radius: 0.2vw;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.5s;
+  word-break: keep-all;
+  padding: 0 1em;
+}
+#container .memberinfoWrap #memberEdit .info .input > button:hover {
+  background-color: #CF61A6;
+}
+#container .memberinfoWrap #memberEdit .info .confirm {
+  padding: 1em 0;
+  width: 20%;
+  word-break: keep-all;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

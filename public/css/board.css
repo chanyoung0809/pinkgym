@@ -540,7 +540,18 @@
 #container .comments_wrap .comment > form .commentChangeBtn:hover {
   background-color: #CF61A6;
 }
-#container .comments_wrap .comment .commentEditBtn {
+#container .comments_wrap .comment .commentEditWrap {
+  display: flex;
+  justify-content: space-between;
+  width: 18%;
+}
+#container .comments_wrap .comment .commentEditWrap .btns {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container .comments_wrap .comment .commentEditWrap .btns .commentEditBtn {
   font-size: calc(10px + 0.1vw);
   font-family: "TheJamsil";
   font-weight: 300;
@@ -554,7 +565,7 @@
   width: max-content;
   margin-right: 1%;
 }
-#container .comments_wrap .comment .commentDeleteBtn {
+#container .comments_wrap .comment .commentEditWrap .btns .commentDeleteBtn {
   font-size: calc(10px + 0.1vw);
   font-family: "TheJamsil";
   font-weight: 300;
@@ -568,9 +579,12 @@
   width: max-content;
   margin-right: 1%;
 }
-#container .comments_wrap .comment .comment_date {
+#container .comments_wrap .comment .commentEditWrap .comment_date {
+  width: 50%;
   font-size: calc(13px + 0.1vw);
   color: #2A2A2A;
+  text-align: center;
+  word-break: keep-all;
 }
 #container .comments_wrap .comment_write {
   width: 100%;

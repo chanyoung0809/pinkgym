@@ -558,35 +558,49 @@ $whiteTextShadow:2px 2px 5px #0005;
                     }
                 }
             }    
-            .commentEditBtn {
-                font-size: calc(10px + .1vw);
-                font-family: $kor;
-                font-weight: 300;
-                color: #FFF;
-                background-color: $lightblack;
-                border: none;
-                line-height: 200%;
-                padding: 0 1em;
-                word-break: keep-all;
-                width: max-content;
-                margin-right: 1%;
-            }
-            .commentDeleteBtn {
-                font-size: calc(10px + .1vw);
-                font-family: $kor;
-                font-weight: 300;
-                color: #FFF;
-                background-color: $lightblack;
-                border: none;
-                line-height: 200%;
-                padding: 0 1em;
-                word-break: keep-all;
-                width: max-content;
-                margin-right: 1%;
-            }
-            .comment_date {
-                font-size: calc(13px + .1vw);
-                color: $lightblack;
+            .commentEditWrap {
+                display: flex;
+                justify-content: space-between;
+                width: 18%;
+                .btns {
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .commentEditBtn {
+                        font-size: calc(10px + .1vw);
+                        font-family: $kor;
+                        font-weight: 300;
+                        color: #FFF;
+                        background-color: $lightblack;
+                        border: none;
+                        line-height: 200%;
+                        padding: 0 1em;
+                        word-break: keep-all;
+                        width: max-content;
+                        margin-right: 1%;
+                    }
+                    .commentDeleteBtn {
+                        font-size: calc(10px + .1vw);
+                        font-family: $kor;
+                        font-weight: 300;
+                        color: #FFF;
+                        background-color: $lightblack;
+                        border: none;
+                        line-height: 200%;
+                        padding: 0 1em;
+                        word-break: keep-all;
+                        width: max-content;
+                        margin-right: 1%;
+                    }
+                }
+                .comment_date {
+                    width: 50%;
+                    font-size: calc(13px + .1vw);
+                    color: $lightblack;
+                    text-align: center;
+                    word-break: keep-all;
+                }
             }
         }
         //댓글 작성 구간

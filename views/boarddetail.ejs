@@ -36,14 +36,18 @@
                             <% } %>
                         </form>
                         <!-- 댓글 작성자 본일일때만 보일 수정 버튼 -->
-                        <% if (comment.comment_author == login.userName) { %>
-                            <button type="button" class="commentEditBtn">수정</button>
-                        <% } %>
-                        <!-- 댓글 작성자 본인/관리자한테만 보이는 삭제 버튼-->
-                        <% if (comment.comment_author === login.userName || login.role === "ADMIN") { %>
-                            <a class="commentDeleteBtn" href="/commentDel/<%- data.post_num %>/<%- comment.comment_num %>">삭제</a>
-                        <% } %>
-                        <p class="comment_date"><%- comment.comment_date %></p>
+                        <div class="commentEditWrap">
+                            <div class="btns">
+                                <% if (comment.comment_author == login.userName) { %>
+                                    <button type="button" class="commentEditBtn">수정</button>
+                                <% } %>
+                                <!-- 댓글 작성자 본인/관리자한테만 보이는 삭제 버튼-->
+                                <% if (comment.comment_author === login.userName || login.role === "ADMIN") { %>
+                                    <a class="commentDeleteBtn" href="/commentDel/<%- data.post_num %>/<%- comment.comment_num %>">삭제</a>
+                                <% } %>
+                            </div>
+                            <p class="comment_date"><%- comment.comment_date %></p>
+                        </div>
                     </div>
                 <% }) %>
             <% } %>
