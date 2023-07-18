@@ -82,11 +82,6 @@ passport.use(new LocalStrategy({
     }
 ));
 
-// 파비콘 오류 처리(추후 제거할 것)
-app.get('/favicon.ico', (req, res) => {
-    res.status(204).end();
-});
-
 //메인페이지
 app.get("/", (req, res)=>{
     db.collection("product").find().toArray((err, products)=>{
@@ -299,8 +294,13 @@ app.get("/board/:category",(req, res)=>{
     else{
         res.send(`
         <script>
-            alert("로그인 후 이용해주세요.");
-            window.location.href = document.referrer;
+            alert("잘못된 접근입니다. 로그인 후 이용해주세요.");
+            if (document.referrer == "" || document.referrer.includes('board') || document.referrer.includes('mypage')) {
+                window.location.href = "/";
+            } 
+            else {
+                window.location.href = document.referrer;
+            }             
         </script>
         `);
     }
@@ -410,7 +410,17 @@ app.get("/board/:category/write", (req, res)=>{
         })
     }
     else {
-        res.send(`<script>alert("잘못된 접근입니다. 로그인 후에 이용해주세요."); window.location.href=document.referrer; </script>`);
+        res.send(`
+        <script>
+            alert("잘못된 접근입니다. 로그인 후 이용해주세요.");
+            if (document.referrer == "" || document.referrer.includes('board') || document.referrer.includes('mypage')) {
+                window.location.href = "/";
+            } 
+            else {
+                window.location.href = document.referrer;
+            }             
+        </script>
+        `);
     }
 });
 
@@ -470,7 +480,17 @@ app.get("/board/:category/detail/:num", (req, res)=>{
         })
     }
     else {
-        res.send(`<script>alert("잘못된 접근입니다. 로그인 후에 이용해주세요."); window.location.href=document.referrer; </script>`);
+        res.send(`
+        <script>
+            alert("잘못된 접근입니다. 로그인 후 이용해주세요.");
+            if (document.referrer == "" || document.referrer.includes('board') || document.referrer.includes('mypage')) {
+                window.location.href = "/";
+            } 
+            else {
+                window.location.href = document.referrer;
+            }             
+        </script>
+        `);
     }
 });
 
@@ -643,12 +663,26 @@ app.post("/trial", (req, res)=>{
 // 마이페이지
 /* 개인정보 열람, 수정 가능 관리자만 무료체험 신청인 열람 가능,  */
 app.get("/mypage", (req,res)=>{
-    db.collection("product").find().toArray((err, products)=>{
-        db.collection("location").find().toArray((err, locates)=>{
-            db.collection("trial").find().sort({trial_num:-1}).toArray((err, trials)=>{
-                res.render("mypage", {login:req.user, locates:locates, products:products, trials:trials});
-            })    
+    if(req.user){
+        db.collection("product").find().toArray((err, products)=>{
+            db.collection("location").find().toArray((err, locates)=>{
+                db.collection("trial").find().sort({trial_num:-1}).toArray((err, trials)=>{
+                    res.render("mypage", {login:req.user, locates:locates, products:products, trials:trials});
+                })    
+            })  
         })  
-    })  
+    }
+    else{
+        res.send(` 
+        <script>
+            alert("잘못된 접근입니다. 로그인 후 이용해주세요.");
+            if (document.referrer == "" || document.referrer.includes('board') || document.referrer.includes('mypage')) {
+                window.location.href = "/";
+            } 
+            else {
+                window.location.href = document.referrer;
+            }             
+        </script>`);
+    }
 });
 
