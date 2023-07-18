@@ -1,4 +1,4 @@
-<%- include('header', {title:"Pink Ladies Gym",  cssFiles:["reset.css", "header.css", "footer.css", "mypage.css"]})%>
+<%- include('header', {title:"핑크짐 마이페이지",  cssFiles:["reset.css", "header.css", "footer.css", "mypage.css"]})%>
 <div id="container">
     <div class="title">
         <h2><p>MyPage</p></h2>
@@ -41,18 +41,18 @@
                     <label for="userName">성함</label>
                 </div>
                 <div class="input">
-                    <input type="text" id="userName" name="userName" minlength="2" maxlength="6" placeholder="성함을 입력하세요" value="<%- login.userName %>" readonly disabled>
+                    <p id="userName" name="userName"><%- login.userName %></p>
                 </div>
                 <div class="label">
                     <label for="ID">아이디 확인</label>
                 </div>
                 <div class="input">
-                    <input type="text" id="ID" name="userID" minlength="8" maxlength="12" value="<%- login.userID %>" readonly disabled >
+                    <p id="ID" name="userID"><%- login.userID %></p>
                 </div>
                 <div class="label"><label for="userBirth">생년월일</label>
                 </div>
                 <div class="input">
-                    <input type="text" id="userBirth" name="userBirth" maxlength="6" value="<%- (Number(login.userBirth.slice(0,2)) >= 23) ? '19' : '20'%><%- login.userBirth.slice(0,2) %>년 <%- login.userBirth.slice(3,5) %>월 <%- login.userBirth.slice(5,7) %>일" disabled>
+                    <p id="userBirth" name="userBirth"><%- (Number(login.userBirth.slice(0,2)) >= 23) ? '19' : '20'%><%- login.userBirth.slice(0,2) %>년 <%- login.userBirth.slice(3,5) %>월 <%- login.userBirth.slice(5,7) %>일</p>
                 </div>
             </div>
             <div class="info">

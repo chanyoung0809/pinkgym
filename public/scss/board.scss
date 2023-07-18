@@ -217,7 +217,7 @@ $whiteTextShadow:2px 2px 5px #0005;
                             cursor: pointer;
                             transition: all .5s;
                             padding: 0 1vw;
-                            margin-right: 1em;
+                            margin-left: 1em;
                             &:hover {
                                 background-color: $lilac;
                             }
@@ -237,7 +237,7 @@ $whiteTextShadow:2px 2px 5px #0005;
                             cursor: pointer;
                             transition: all .5s;
                             padding: 0 1vw;
-                            margin-right: 1em;
+                            margin-left: 1em;
                             &:hover {
                                 background-color: $lilac;
                             }
@@ -260,6 +260,8 @@ $whiteTextShadow:2px 2px 5px #0005;
                 padding: 1% 0;
                 .searchWrap {
                     display: flex;
+                    width: 100%;
+                    justify-content: center;
                     > select {
                         font-family: $kor;
                         font-size: calc(13px  + .1vw);
@@ -280,6 +282,7 @@ $whiteTextShadow:2px 2px 5px #0005;
                         text-indent: .4em;
                         font-family: $kor;
                         font-weight: 300;
+                        width: 30%;
                     }
                     > button {
                         outline: none;
@@ -300,10 +303,10 @@ $whiteTextShadow:2px 2px 5px #0005;
                         }
                     }
                     > a {
+                        word-break: keep-all;
                         margin-left: 1vw;
-                        line-height: 200%;
                         font-size: calc(13px + .1vw);
-                        padding: 0 1em;
+                        padding: .5em 1em;
                         font-family: $kor;
                         outline: none;
                         border: none;
@@ -516,8 +519,9 @@ $whiteTextShadow:2px 2px 5px #0005;
                 word-break: keep-all;
                 font-family: $kor;
                 line-height: 200%;
+                padding-right: .5em;
             }
-            >form {
+            > form {
                 width: 70%;
                 display: flex;
                 justify-content: flex-start;
@@ -532,7 +536,7 @@ $whiteTextShadow:2px 2px 5px #0005;
                     resize: none;
                     font-size: (calc(13px + .1vw));
                     height:max-content;
-                    width: 92%;
+                    width: calc(10% + 25vw);
                     line-height: 160%;
                     margin-left: 2%;
                     overflow-y: hidden;
@@ -561,7 +565,7 @@ $whiteTextShadow:2px 2px 5px #0005;
             .commentEditWrap {
                 display: flex;
                 justify-content: space-between;
-                width: 18%;
+                width: 25%;
                 .btns {
                     width: 50%;
                     display: flex;
@@ -725,6 +729,22 @@ $whiteTextShadow:2px 2px 5px #0005;
                 }
             }
         }
+        .comments_wrap {
+            width: 80%;
+            .comment_write {
+                > form {
+                    #comment_content {
+                        width: 75%;
+                    }
+                    > button {
+                        width: 12%;
+                    }
+                }
+            }
+        }
+        .button_wrap {
+            width: 80%;
+        }
     }
 }
 @media screen and (max-width:748px) {
@@ -740,6 +760,10 @@ $whiteTextShadow:2px 2px 5px #0005;
             &.board_wrap {
                 .posts_wrap {
                     .post {
+                        .img_wrap {
+                            height: 40em;
+                        }
+                        width: 100%;
                         .info_wrap {
                             margin: 8% 0 2%;
                         }
@@ -771,6 +795,43 @@ $whiteTextShadow:2px 2px 5px #0005;
                 }
             }
         }
+        .comments_wrap {
+            width: 90%;
+            .comment_write {
+                > form {
+                    justify-content: flex-start;
+                    #comment_content {
+                        width: 65%;
+                        border: 1px solid $lightblack;
+                        height: 3.4rem;
+                    }
+                    > button {
+                        width: 20%;
+                    }
+                }
+            }
+            .comment {
+                .comment_author {
+                    width: calc(36px + 3vw);
+                }
+                .commentEditWrap {
+                    justify-content: center;
+                    width: 28%;
+                    align-items: center;
+                    flex-direction: column;
+                    .comment_content {
+                        width: calc(20% + 25vw);
+
+                    }
+                    .comment_date {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .button_wrap {
+            width: 90%;
+        }
     }
 }
 @media screen and (max-width:500px) {
@@ -780,6 +841,16 @@ $whiteTextShadow:2px 2px 5px #0005;
             > h2 {
                 font-size: 12vw;
             } 
+        }
+        > div:nth-child(2).board_wrap {
+            .posts_wrap {
+                .post {
+                    > h4 {
+                        text-align: center;
+                        margin: 1em auto 0;
+                    }
+                }
+            }
         }
     }
 }

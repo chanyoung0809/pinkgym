@@ -924,6 +924,19 @@ $eng:'Marcellus';
                     }
                 }
             }
+            .member_center {
+                width: 90%;
+                > h3 {
+                    font-size: 9vw;
+                }
+                .board_previews {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    > ul {
+                        width: 100%;
+                    }
+                }
+            }
         }
         .cont4 {
             display: flex;
@@ -1030,6 +1043,7 @@ $eng:'Marcellus';
                     }
                 }
             }
+            
         }
         .cont5 {
             .center {

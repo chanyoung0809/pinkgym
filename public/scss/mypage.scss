@@ -63,7 +63,7 @@ input {
             width: 70%;
             font-family: $kor;
             > h4 {
-                font-size: 2vw;
+                font-size: calc(20px + 1.5vw);
                 color: $violet;
                 font-weight: 700;
                 line-height: 200%;
@@ -76,7 +76,7 @@ input {
                 justify-content: space-between;
                 align-items: center;
                 background-color: $lilac;
-                color: #FFF;                                      
+                color: #FFF;   
                 > li {
                     display: block;
                     width: max-content;
@@ -177,7 +177,7 @@ input {
         font-family: $kor;
         > h4 {
             width: 70%;
-            font-size: 2vw;
+            font-size: calc(20px + 1.5vw);
             color: $violet;
             font-weight: 700;
             line-height: 200%;
@@ -211,6 +211,7 @@ input {
                     border-right: 1px solid $lilac;
                     font-weight: 700;
                     background-color: $lilac;
+                    word-break: keep-all;
                     color: #FFF;
                 }
                 .input {
@@ -219,14 +220,11 @@ input {
                     justify-content: flex-start;
                     align-items: center;
                     > input {
-                        &#userBirth {
-                            width: 100%;
-                        }
                         &#userGender {
                             width: calc(13px + .1vw);
                         }
                         &#userPhone1 {
-                            width: 5vw;
+                            width: calc(39px + 0.3vw);
                         }
                         &#userPhone2 {
                             width: calc(78px + .6vw);
@@ -234,6 +232,20 @@ input {
                         &#userPhone3 {
                             width: calc(78px + .6vw);       
                         }
+                    }
+                    > p {
+                        width: max-content;
+                        resize: none;
+                        font-family: $kor;
+                        text-align: center;
+                        border: none;
+                        outline: none;
+                        background-color: transparent;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: calc(13px + .1vw);
+                        line-height: 120%;
                     }
                     > button {
                         width: max-content;
@@ -261,6 +273,198 @@ input {
                     display: flex;
                     justify-content: flex-start;
                     align-items: center;
+                }
+            }
+            #memberEditBtn {
+                width: max-content;
+                display: flex;
+                margin: 1em auto;
+                font-size: calc(13px + .1vw);
+                background-color: $lightblack;
+                border: none;
+                color: #FFF;
+                line-height: 400%;
+                font-family: $kor;
+                border-radius: .2vw;
+                font-weight: 300;
+                cursor: pointer;
+                transition: all .5s;
+                word-break: keep-all;
+                padding: 0 1em;
+                &:hover {
+                    background-color: $lilac;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:1024px) { 
+    #container {
+        .title {
+            padding-top: 130px;
+            > h2 {
+                font-size: 6vw;
+            } 
+        }
+        .trialinfo_wrap {
+            > div {
+                width: 80%;
+            }
+        }
+        .memberinfoWrap {
+            > h4 {
+                width: 80%;
+            }
+            #memberEdit {
+                width: 80%;
+                
+            }
+        }
+    }
+}
+@media screen and (max-width:748px) {
+    #container {
+        .title {
+            margin-bottom: 8%;
+            > h2 {
+                font-size: 9vw;
+            } 
+        }
+        .trialinfo_wrap {
+            .trialWrap {
+                width: 90%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin-bottom: 5%;
+                > h4 {
+                    width: 100%;
+                }
+                .trial {
+                    flex-direction: column;
+                    &.t_head {
+                        width: 38%;
+                        padding-bottom: calc(15px - 0.1vw);
+                        > li {
+                            &:nth-child(1){
+                                width: 75%;
+                                text-align: center;
+                                word-break: keep-all;
+                                line-height: 120%;
+                                border-left: none;
+                            }
+                            &:nth-child(2){
+                                width: 75%;
+                                text-align: center;
+                                word-break: keep-all;
+                                line-height: 120%;
+                            }
+                            &:nth-child(3){
+                                width: 75%;
+                                text-align: center;
+                                word-break: keep-all;
+                                line-height: 120%;
+                            }
+                            &:nth-child(4){
+                                width: 75%;
+                                text-align: center;
+                                word-break: keep-all;
+                                line-height: 120%;
+                            }
+                            &:nth-child(5){
+                                width: 75%;
+                                text-align: center;
+                                word-break: keep-all;
+                                line-height: 500%;
+                            }
+                            &:nth-child(6){
+                                width: 75%;
+                                text-align: center;
+                                word-break: keep-all;
+                                line-height: 120%;
+                            }
+                        }
+                    }
+                }
+                .trials {
+                    display: flex;
+                    flex-direction: row;
+                    width: 61.7%;
+                    height: auto;
+                    border-right: 1px solid $lilac;
+                    overflow-y: unset;
+                    overflow-x: scroll;
+                    &::-webkit-scrollbar { 
+                        // 스크롤바 영역에 대한 설정
+                        background-color: $lightpink;
+                        width: 100%;
+                        height: calc(10px - .1vw);
+                    } 
+                    &::-webkit-scrollbar-thumb { 
+                        // 스크롤바 막대에 대한 설정
+                        background-color: $lilac;               
+                    }
+                    .trial {
+                        width: 50vw;
+                        &.t_body {
+                            flex-direction: column;
+                            border-left: 1px solid $lilac;
+                            > li {
+                                width: 50vw;
+                                border-bottom: 1px solid $lilac;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;;
+                                &.trial_context {
+                                    height: 20%;
+                                }
+                            } 
+                        }
+                    }
+
+                }
+            }
+        }
+        .memberinfoWrap {
+            > h4 {
+                width: 90%;
+            }
+            #memberEdit {
+                width: 90%;
+                .info {
+                    flex-wrap: wrap;
+                    > .label {
+                        width: 100%;
+                        label{
+                            width: 100%;
+                            text-align: center;
+                            line-height: 120%;
+                        }
+                    }
+                    .input {
+                        width: 100%;
+                        justify-content: center;
+                    }
+                    .confirm {
+                        width: 100%;
+                        justify-content: center;
+                        text-align: center;
+                    }
+                }
+                .info.readonly {
+                    flex-wrap: wrap;
+                    > div {
+                        &.label{
+                            width: 48.8%;
+                        }
+                        &.input{
+                            width: 50.9%;
+                            border-bottom: 1px solid $lilac;
+                            &:last-child {
+                                border: none;
+                            }
+                        }
+                    }
                 }
             }
         }

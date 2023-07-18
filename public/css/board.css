@@ -206,7 +206,7 @@
   cursor: pointer;
   transition: all 0.5s;
   padding: 0 1vw;
-  margin-right: 1em;
+  margin-left: 1em;
 }
 #container > div:nth-child(2).board_wrap .posts_wrap .write_btns > div > button:hover {
   background-color: #CF61A6;
@@ -226,7 +226,7 @@
   cursor: pointer;
   transition: all 0.5s;
   padding: 0 1vw;
-  margin-right: 1em;
+  margin-left: 1em;
 }
 #container > div:nth-child(2).board_wrap .posts_wrap .write_btns > div > label:hover {
   background-color: #CF61A6;
@@ -246,6 +246,8 @@
 }
 #container > div:nth-child(2).board_wrap #searchForm .searchWrap {
   display: flex;
+  width: 100%;
+  justify-content: center;
 }
 #container > div:nth-child(2).board_wrap #searchForm .searchWrap > select {
   font-family: "TheJamsil";
@@ -267,6 +269,7 @@
   text-indent: 0.4em;
   font-family: "TheJamsil";
   font-weight: 300;
+  width: 30%;
 }
 #container > div:nth-child(2).board_wrap #searchForm .searchWrap > button {
   outline: none;
@@ -287,10 +290,10 @@
   background-color: #CF61A6;
 }
 #container > div:nth-child(2).board_wrap #searchForm .searchWrap > a {
+  word-break: keep-all;
   margin-left: 1vw;
-  line-height: 200%;
   font-size: calc(13px + 0.1vw);
-  padding: 0 1em;
+  padding: 0.5em 1em;
   font-family: "TheJamsil";
   outline: none;
   border: none;
@@ -497,6 +500,7 @@
   word-break: keep-all;
   font-family: "TheJamsil";
   line-height: 200%;
+  padding-right: 0.5em;
 }
 #container .comments_wrap .comment > form {
   width: 70%;
@@ -515,7 +519,7 @@
   font-size: calc(13px + 0.1vw);
   height: -moz-max-content;
   height: max-content;
-  width: 92%;
+  width: calc(10% + 25vw);
   line-height: 160%;
   margin-left: 2%;
   overflow-y: hidden;
@@ -543,7 +547,7 @@
 #container .comments_wrap .comment .commentEditWrap {
   display: flex;
   justify-content: space-between;
-  width: 18%;
+  width: 25%;
 }
 #container .comments_wrap .comment .commentEditWrap .btns {
   width: 50%;
@@ -700,6 +704,18 @@
   #container > div:nth-child(2).board_wrap .posts_wrap .post > h4 > span {
     margin-top: 3%;
   }
+  #container .comments_wrap {
+    width: 80%;
+  }
+  #container .comments_wrap .comment_write > form #comment_content {
+    width: 75%;
+  }
+  #container .comments_wrap .comment_write > form > button {
+    width: 12%;
+  }
+  #container .button_wrap {
+    width: 80%;
+  }
 }
 @media screen and (max-width: 748px) {
   #container .title {
@@ -710,6 +726,12 @@
   }
   #container > div:nth-child(2) {
     width: 90%;
+  }
+  #container > div:nth-child(2).board_wrap .posts_wrap .post {
+    width: 100%;
+  }
+  #container > div:nth-child(2).board_wrap .posts_wrap .post .img_wrap {
+    height: 40em;
   }
   #container > div:nth-child(2).board_wrap .posts_wrap .post .info_wrap {
     margin: 8% 0 2%;
@@ -732,6 +754,38 @@
     align-items: center;
     padding: 3%;
   }
+  #container .comments_wrap {
+    width: 90%;
+  }
+  #container .comments_wrap .comment_write > form {
+    justify-content: flex-start;
+  }
+  #container .comments_wrap .comment_write > form #comment_content {
+    width: 65%;
+    border: 1px solid #2A2A2A;
+    height: 3.4rem;
+  }
+  #container .comments_wrap .comment_write > form > button {
+    width: 20%;
+  }
+  #container .comments_wrap .comment .comment_author {
+    width: calc(36px + 3vw);
+  }
+  #container .comments_wrap .comment .commentEditWrap {
+    justify-content: center;
+    width: 28%;
+    align-items: center;
+    flex-direction: column;
+  }
+  #container .comments_wrap .comment .commentEditWrap .comment_content {
+    width: calc(20% + 25vw);
+  }
+  #container .comments_wrap .comment .commentEditWrap .comment_date {
+    width: 100%;
+  }
+  #container .button_wrap {
+    width: 90%;
+  }
 }
 @media screen and (max-width: 500px) {
   #container .title {
@@ -739,5 +793,9 @@
   }
   #container .title > h2 {
     font-size: 12vw;
+  }
+  #container > div:nth-child(2).board_wrap .posts_wrap .post > h4 {
+    text-align: center;
+    margin: 1em auto 0;
   }
 }

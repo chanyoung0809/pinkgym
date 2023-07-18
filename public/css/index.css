@@ -834,6 +834,19 @@
     font-size: 1.3vw;
     padding: 0.5vw 1.5vw;
   }
+  #container .cont3 .member_center {
+    width: 90%;
+  }
+  #container .cont3 .member_center > h3 {
+    font-size: 9vw;
+  }
+  #container .cont3 .member_center .board_previews {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #container .cont3 .member_center .board_previews > ul {
+    width: 100%;
+  }
   #container .cont4 {
     display: flex;
     justify-content: center;
