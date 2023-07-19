@@ -218,8 +218,7 @@ app.get("/logout",(req,res)=>{
     // 로그아웃 함수는 서버의 세션을 제거해주는 역할
     req.logout(()=>{
         res.redirect("/");
-    })
-    
+    })  
 });
 
 // 게시판 2개(자유게시판, 벼룩시장. 카테고리에 맞게 정렬될 것임)
@@ -686,3 +685,24 @@ app.get("/mypage", (req,res)=>{
     }
 });
 
+//DB 내 회원정보 수정 요청
+app.post("/memberEdit/:userID" , (req,res)=>{
+    const userID = req.params.userID;
+    //비밀번호 바꿀 때
+    if(userPW !== "" && userPW2 !== ""){
+        // db 수정처리할 데이터 정리(객체로)
+        changeDatas = {
+            userPW:req.body.userPW, //변경할 비밀번호
+            memberphone:`${req.body.userPhone1}-${req.body.userPhone2}-${req.body.userPhone3}`, // 핸드폰 번호
+        }
+    }
+    //비밀번호 안바꿀때(핸드폰번호만 바꿀 때)
+    else {
+        changeDatas = {
+            memberphone:`${req.body.userPhone1}-${req.body.userPhone2}-${req.body.userPhone3}`, // 핸드폰 번호
+        }
+    }
+    db.collection("members").updateOne({userID:userID},{$set:changeDatas},(err,result)=>{
+        res.send(`<script>alert("회원정보가 수정됐습니다. 개인정보 보안을 위해 다시 로그인해주세요."); window.location.href="/logout";</script>`); 
+    })
+})

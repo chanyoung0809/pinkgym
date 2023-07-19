@@ -3,10 +3,10 @@
     <div class="title">
         <h2><p>MyPage</p></h2>
     </div>
-    <div class="trialinfo_wrap">
-        <!--운영자만 확인 가능한 체험 신청 명단-->
-        <% if(login) { %>
-            <% if (login.role === "ADMIN") { %>
+    <% if(login) { %>
+        <% if (login.role === "ADMIN") { %>
+        <div class="trialinfo_wrap">
+            <!--운영자만 확인 가능한 체험 신청 명단-->        
                 <div class="trialWrap">
                     <h4>무료체험 신청 확인</h4>                    
                     <ul class="trial t_head">
@@ -30,12 +30,12 @@
                         <% }) %>
                     </div>
                 </div>
-            <% } %>
+            </div>
         <% } %>
-    </div>
+    <% } %>
     <div class="memberinfoWrap">
         <h4>개인정보 수정/확인</h4>
-        <form id="memberEdit" name="memberEdit" method="post" action="/memberEdit">
+        <form id="memberEdit" name="memberEdit" method="post" action="/memberEdit/<%- login.userID %>">
             <div class="info readonly">
                 <div class="label">
                     <label for="userName">성함</label>
@@ -64,7 +64,7 @@
                     <button id="pw_toggle1" type="button">비밀번호 보기</button>
                 </div>
                 <div class="confirm">                 
-                    <span>기존에 사용하던 비밀번호를 입력해주세요</span>
+                    <span>개인정보 확인을 위해 기존에 사용하던 비밀번호를 입력해주세요</span>
                 </div>
             </div>
             <div class="info">
@@ -76,7 +76,7 @@
                     <button id="pw_toggle2" type="button">비밀번호 보기</button>
                 </div>
                 <div class="confirm">                 
-                    <span>영문, 숫자, 특수기호(_ , -, !, *)를 혼용해서 10~16자 이내로 작성해주세요</span>
+                    <span>비밀번호 변경 시에만 영문, 숫자, 특수기호(_ , -, !, *)를 혼용해서 10~16자 이내로 작성해주세요</span>
                 </div>
             </div>
             <div class="info">
@@ -87,9 +87,8 @@
                     <input type="password" id="PW2" name="userPW2" minlength="10" placeholder="비밀번호 재입력" maxlength="16" required>
                     <button id="pw_toggle3" type="button">비밀번호 보기</button>
                 </div>
-                <div class="confirm">
-                    
-                    <span>위에서 입력하신 비밀번호와 똑같이 입력해주세요</span>
+                <div class="confirm">                   
+                    <span>비밀번호 변경 시에만 위에서 입력하신 비밀번호와 똑같이 입력해주세요</span>
                 </div>
             </div>
             <div class="info">
@@ -112,4 +111,4 @@
     </div>
     
 </div>
-<%- include('footer', {jsFiles:["header.js", "mGnb.js", "login.js"]})%>
+<%- include('footer', {jsFiles:["header.js", "mGnb.js", "login.js", "memberEdit.js"]})%>
